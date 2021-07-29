@@ -23,8 +23,6 @@ public class impostorScript : MonoBehaviour {
     //Logging
     static int moduleIdCounter = 1;
     int moduleId;
-
-    private string[] modNames = {"Letter Keys", "Bitmaps"};
     private int chosenMod;
 
     void Awake () {
@@ -42,9 +40,10 @@ public class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-        Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, modNames[chosenMod]);
+        //chosenMod = 4;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
+        Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, ChosenPrefab.name);
 
     }
     private void GetScript()
@@ -52,22 +51,24 @@ public class impostorScript : MonoBehaviour {
         chosenScript = ChosenPrefab.GetComponent<ImposterMod>();
         chosenScript.moduleId = this.moduleId;
         chosenScript.Audio = Audio;
-        chosenScript.Mod = Module;
+        chosenScript.Module = Module;
         chosenScript.solve += delegate () { Solve(); };
         SL.transform.localPosition = SLP.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()
     {
-        SelectableComp.Children = new KMSelectable[chosenScript.buttons.Length];
-        for (int i = 0; i < chosenScript.buttons.Length; i++)
-            SelectableComp.Children[i] = chosenScript.buttons[i];
+        KMSelectable[] btns = chosenScript.buttons;
+        SelectableComp.Children = new KMSelectable[btns.Length];
+        for (int i = 0; i < btns.Length; i++)
+            SelectableComp.Children[i] = btns[i];
         SelectableComp.UpdateChildren();
     }
     private void Solve()
-    {
+    {        
         Module.HandlePass();
         Audio.PlaySoundAtTransform("willSolve", transform);
         ChosenPrefab.SetActive(false);
+        SL.transform.localPosition = SLP.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
         for (int i = 0; i < chosenScript.buttons.Length; i++)
             chosenScript.buttons[i] = null;
