@@ -16,8 +16,8 @@ public class FakeLetterKeys : ImposterMod
 	private string[] ordinals = { "1st", "2nd", "3rd", "4th" };
 	private int chosenCase;
 	private int changedKey;
-	private 
-	void Start()
+
+    void Start()
 	{
 		string num = Rnd.Range(0, 100).ToString();
 		string[] letters = new string[] { "A", "B", "C", "D" }.Shuffle();

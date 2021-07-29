@@ -10,14 +10,21 @@ public class ImposterMod : MonoBehaviour
     [HideInInspector]
     public KMAudio Audio;
     [HideInInspector]
-    public KMBombModule Mod;
+    public KMBombModule Module;
     [HideInInspector]
     public int moduleId;
+    ///<summary>A list of GameObjects which will flicker when the module strikes.</summary>
     [HideInInspector]
     public List<GameObject> flickerObjs;
 
     public KMSelectable[] buttons;
-    public SLPositions SLPos { get ; set; }
+    /// <summary>
+    /// The position of the status light. Defaults to Top-Right
+    /// </summary>
+    public virtual SLPositions SLPos { get; set; }
+    /// <summary>
+    /// Lets the fake mod communicate to Impostor when it is going to solve.
+    /// </summary>
     public Action solve;
     private bool isHeld, solved;
 
@@ -29,6 +36,10 @@ public class ImposterMod : MonoBehaviour
             btn.OnInteractEnded += delegate () { ReleaseBtn(btn); };
         }
     }
+    /// <summary>
+    /// Sends a log message which works with the LFA. 
+    /// </summary>
+    /// <param name="msg">The message to be logged, use string.Format for interpolation.</param>
     public void Log(string msg)
     {
         Debug.LogFormat("[The Impostor #{0}] {1}", moduleId, msg);
@@ -44,7 +55,7 @@ public class ImposterMod : MonoBehaviour
         yield return new WaitForSeconds(3);
         if (isHeld)
         {
-            Audio.PlaySoundAtTransform("willSolve", Mod.transform);
+            Audio.PlaySoundAtTransform("willSolve", Module.transform);
             solved = true;
         }
 
@@ -59,8 +70,8 @@ public class ImposterMod : MonoBehaviour
         else
         {
             Log("Released a button before 3 seconds, strike.");
-            Audio.PlaySoundAtTransform("strike", Mod.transform);
-            Mod.HandleStrike();
+            Audio.PlaySoundAtTransform("strike", Module.transform);
+            Module.HandleStrike();
             StartCoroutine(Flicker());
         }
     }
