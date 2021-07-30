@@ -18,7 +18,7 @@ public class impostorScript : MonoBehaviour {
     public GameObject BG;
     public GameObject SL;
     private GameObject ChosenPrefab;
-    private ImposterMod chosenScript;
+    private ImpostorMod chosenScript;
         
     //Logging
     static int moduleIdCounter = 1;
@@ -35,20 +35,20 @@ public class impostorScript : MonoBehaviour {
         GetMod();
         GetScript();
         GetSelectables();
+        StartCoroutine(Hehe());
     }
     private void GetMod()
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-        //chosenMod = 4;
+        //chosenMod = 1;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
-        Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, ChosenPrefab.name);
-
+        Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, Prefabs[chosenMod].name);
     }
     private void GetScript()
     {
-        chosenScript = ChosenPrefab.GetComponent<ImposterMod>();
+        chosenScript = ChosenPrefab.GetComponent<ImpostorMod>();
         chosenScript.moduleId = this.moduleId;
         chosenScript.Audio = Audio;
         chosenScript.Module = Module;
@@ -64,7 +64,8 @@ public class impostorScript : MonoBehaviour {
         SelectableComp.UpdateChildren();
     }
     private void Solve()
-    {        
+    {   
+        Debug.LogFormat("[The Impostor #{0}] Module solved.", moduleId);
         Module.HandlePass();
         Audio.PlaySoundAtTransform("willSolve", transform);
         ChosenPrefab.SetActive(false);
@@ -73,5 +74,10 @@ public class impostorScript : MonoBehaviour {
         for (int i = 0; i < chosenScript.buttons.Length; i++)
             chosenScript.buttons[i] = null;
     }
-    
+    IEnumerator Hehe()
+    {
+        yield return new WaitForSeconds(UnityEngine.Random.Range(15f, 30f));
+        Audio.PlaySoundAtTransform("hello", transform);
+        Debug.LogFormat("<The Impostor #{0}> Laugh occured.", moduleId);
+    }
 }

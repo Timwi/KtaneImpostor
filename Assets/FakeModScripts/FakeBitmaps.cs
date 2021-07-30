@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Rnd = UnityEngine.Random;
 
-public class FakeBitmaps : ImposterMod {
+public class FakeBitmaps : ImpostorMod {
 
     public TextMesh[] texts;
     public MeshRenderer BmpObject;
@@ -29,12 +29,11 @@ public class FakeBitmaps : ImposterMod {
         }
         BmpObject.material.mainTexture = generateTexture();
         changedButton = Rnd.Range(0, 4);
-        texts[changedButton].text = (Enumerable.Range(0, 4).Where(x => x != changedButton).PickRandom() + 1).ToString();
+        texts[changedButton].text = (Enumerable.Range(-1, 9).Where(x => x != changedButton).PickRandom() + 1).ToString();
         flickerObjs.Add(texts[changedButton].gameObject);
-        Log(string.Format("The {0} button has its label set to {1}!", ordinals[changedButton], texts[changedButton]));
+        Log(string.Format("the {0} button has its label set to {1}", ordinals[changedButton], texts[changedButton].text));
     }
 
-    // Update is called once per frame
     private Texture generateTexture()
     {
         const int padding = 9;

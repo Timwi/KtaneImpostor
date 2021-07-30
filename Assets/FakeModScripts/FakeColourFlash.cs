@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Rnd = UnityEngine.Random;
 
-public class FakeColourFlash : ImposterMod
+public class FakeColourFlash : ImpostorMod
 {
     [SerializeField]
     private TextMesh yes, no, display; 
@@ -25,19 +25,19 @@ public class FakeColourFlash : ImposterMod
             case 0:
                 flickerObjs.Add(yes.gameObject);
                 yes.text = fakeYes.PickRandom();
-                Log(string.Format("...the left button says {0}, that doesn't seem normal.", yes.text));
+                Log(string.Format("the left button says {0}", yes.text));
                 break;
             case 1:
                 flickerObjs.Add(no.gameObject);
                 no.text = fakeNo.PickRandom();
-                Log(string.Format("...the right button says {0}, that doesn't seem normal.", no.text));
+                Log(string.Format("the right button says {0}", no.text));
                 break;
             case 2:
                 flickerObjs.Add(yes.gameObject);
                 flickerObjs.Add(no.gameObject);
                 yes.text = "NO";
                 no.text = "YES";
-                Log("...the yes and no buttons are swapped, that doesn't seem normal.");
+                Log("the yes and no buttons are swapped");
                 break;
         }
         displayedWords = new int[8].Select(x => Rnd.Range(0, 6)).ToArray();

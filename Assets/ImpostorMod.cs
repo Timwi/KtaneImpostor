@@ -5,7 +5,7 @@ using UnityEngine;
 using KModkit;
 using Rnd = UnityEngine.Random;
 
-public class ImposterMod : MonoBehaviour
+public class ImpostorMod : MonoBehaviour
 {
     [HideInInspector]
     public KMAudio Audio;
@@ -42,7 +42,7 @@ public class ImposterMod : MonoBehaviour
     /// <param name="msg">The message to be logged, use string.Format for interpolation.</param>
     public void Log(string msg)
     {
-        Debug.LogFormat("[The Impostor #{0}] {1}", moduleId, msg);
+        Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, msg);
     }
 
     IEnumerator HoldBtn(KMSelectable btn)
@@ -69,9 +69,8 @@ public class ImposterMod : MonoBehaviour
             solve.Invoke();
         else
         {
-            Log("Released a button before 3 seconds, strike.");
+            Debug.LogFormat("[The Impostor #{0}] You weren't able to identify that I'm The Impostor. Flashing change...", moduleId);
             Audio.PlaySoundAtTransform("strike", Module.transform);
-            Module.HandleStrike();
             StartCoroutine(Flicker());
         }
     }

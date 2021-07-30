@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Rnd = UnityEngine.Random;
 
-public class FakeAnagrams : ImposterMod 
+public class FakeAnagrams : ImpostorMod 
 {
     [SerializeField]
     private TextMesh[] buttonTexts;
@@ -26,7 +26,7 @@ public class FakeAnagrams : ImposterMod
         {
             case 0:
                 chosenWord = wordscramble.PickRandom().ToCharArray().Shuffle().Join("");
-                Log("...there's a scrambled word on the screen, that doesn't seem normal");
+                Log("there's a scrambled word on the screen");
                 topDisp.text = chosenWord;
                 flickerObjs.Add(topDisp.gameObject);
                 for (int i = 0; i < 6; i++)
@@ -34,7 +34,7 @@ public class FakeAnagrams : ImposterMod
                 break;
             case 1:
                 chosenWord = anagrams.PickRandom();
-                Log("...the anagram is on the bottom screen, that doesn't seem normal.");
+                Log("the anagram is on the bottom screen");
                 botDisp.text = chosenWord;
                 flickerObjs.Add(botDisp.gameObject);
                 for (int i = 0; i < 6; i++)
@@ -42,7 +42,7 @@ public class FakeAnagrams : ImposterMod
                 break;
             case 2:
                 chosenWord = anagrams.PickRandom();
-                Log("...DEL and OK are on the left, that doesn't seem normal.");
+                Log("DEL and OK are on the left");
                 topDisp.text = chosenWord;
                 for (int i = 0; i < 8; i++)
                     flickerObjs.Add(buttonTexts[i].gameObject);

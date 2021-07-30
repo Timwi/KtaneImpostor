@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Rnd = UnityEngine.Random;
 
-public class TemplateFakeScript : ImposterMod 
+public class TemplateFakeScript : ImpostorMod 
 {
     [SerializeField]
     private GameObject[] objects; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
