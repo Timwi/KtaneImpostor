@@ -42,6 +42,10 @@ public class FakeColourFlash : ImpostorMod
         }
         displayedWords = new int[8].Select(x => Rnd.Range(0, 6)).ToArray();
         displayedColors = new int[8].Select(x => Rnd.Range(0, 6)).ToArray();
+        
+    }
+    public override void OnActivate()
+    {
         StartCoroutine(Flash());
     }
     private IEnumerator Flash()

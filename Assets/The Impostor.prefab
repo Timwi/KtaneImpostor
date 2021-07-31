@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 4746673077483496}
   - component: {fileID: 33934167424734374}
   - component: {fileID: 23808607525750096}
+  - component: {fileID: 114887189024472258}
   m_Layer: 0
   m_Name: pk
   m_TagString: Untagged
@@ -383,6 +384,19 @@ MonoBehaviour:
   ModuleType: impostor
   ModuleDisplayName: The Impostor
   RequiresTimerVisibility: 0
+--- !u!114 &114887189024472258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643305549465882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114907837735438752
 MonoBehaviour:
   m_ObjectHideFlags: 1

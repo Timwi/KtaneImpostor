@@ -45,6 +45,12 @@ public class ImpostorMod : MonoBehaviour
         Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, msg);
     }
 
+    /// <summary>
+    /// Gets called when the lights turn on. Needs to be overridden.
+    /// </summary>
+    public virtual void OnActivate()
+    { }
+
     IEnumerator HoldBtn(KMSelectable btn)
     {
         if (isHeld)

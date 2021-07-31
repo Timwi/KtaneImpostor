@@ -36,6 +36,7 @@ public class impostorScript : MonoBehaviour {
         GetScript();
         GetSelectables();
         StartCoroutine(Hehe());
+        Module.OnActivate += delegate () { chosenScript.OnActivate(); };
     }
     private void GetMod()
     {
@@ -44,6 +45,7 @@ public class impostorScript : MonoBehaviour {
         //chosenMod = 1;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
+        ChosenPrefab.transform.localRotation = Quaternion.identity;
         Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, Prefabs[chosenMod].name);
     }
     private void GetScript()
