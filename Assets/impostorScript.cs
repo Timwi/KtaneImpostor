@@ -37,12 +37,13 @@ public class impostorScript : MonoBehaviour {
         GetSelectables();
         StartCoroutine(Hehe());
         Module.OnActivate += delegate () { chosenScript.OnActivate(); };
+        chosenScript.orgPresent = Bomb.GetSolvableModuleNames().Contains("Organization");
     }
     private void GetMod()
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-        //chosenMod = 1;
+        chosenMod = 6;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
         ChosenPrefab.transform.localRotation = Quaternion.identity;
@@ -62,7 +63,10 @@ public class impostorScript : MonoBehaviour {
         KMSelectable[] btns = chosenScript.buttons;
         SelectableComp.Children = new KMSelectable[btns.Length];
         for (int i = 0; i < btns.Length; i++)
+        {
             SelectableComp.Children[i] = btns[i];
+            btns[i].Parent = SelectableComp;
+        }
         SelectableComp.UpdateChildren();
     }
     private void Solve()
