@@ -43,7 +43,7 @@ public class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-        chosenMod = 6;
+        chosenMod = 7;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
         ChosenPrefab.transform.localRotation = Quaternion.identity;

@@ -13,35 +13,50 @@ public class FakeColourFlash : ImpostorMod
     private static readonly string[] fakeNo = { "NOPE", "NAH", "NAW", "NOT", "NIL", "NADA" };
     private static readonly string[] colorNames = { "RED", "YELLOW", "GREEN", "BLUE", "MAGENTA", "WHITE" };
     private static readonly Color[] colors = { Color.red, Color.yellow, Color.green, Color.blue, Color.magenta, Color.white };
+    private static readonly string[] weirdColors = { "IVORY", "CHERRY", "NAVY", "OLIVE", "LEMON", "MAHOGANY", "BONE", "SAGE", "MERLOT", "ROSE", "SEAFOAM", "HONEY", "FUCHSIA", "SCARLET", "PICKLE", "FLAMINGO", "DIJON", "PEACOCK", "PINK", "CHIFFON", "BLONDE", "BRICK", "LAPIS", "PINE", "GARNET", "COBALT", "COTTON", "CORAL", "CRIMSON", "EMERALD", "DENIM", "FANDANGO", "CONIFER", "SALT", "MAYA", "RUBY", "FOREST", "DOLLY", "PLUM", "EGGSHELL", "MANTIS", "PEARL", "CINNABAR", "FLAX", "SHAMROCK", "AZURE", "PHLOX", "FROST", "INDIGO", "TURMERIC", "ORCHID", "CERULEAN", "CANARY", "ALGAE", "LINEN", "MUSTARD", "SANGUINE", "EGGPLANT", "SPRING", "RUST", "CARDINAL", "JADE", "LACE", "ATOLL", "LILAC", "SWAMP", "MALIBU", "CLARET", "CHALK", "CREAM", "GIMBLET", "BOUQUET", "SIENNA", "MAUVE", "MARIGOLD", "COCONUT", "FERN", "LAGOON", "MINT", "JAVA", "CERAMIC", "MATISSE", "PEAR", "SNOW", "MILANO", "MULBERRY", "TACHA", "BURGUNDY", "CHENIN", "BLOSSOM", "PRUSSIA", "MANGO", "SPINEL", "CHINO", "LAUREL", "MARINER", "MARBLE", "CHERUB", "GLACIER", "TOPAZ" };
+
+    private string[] wordSequence = new string[8];
+    private Color[] colorSequence = new Color[8];
 
     private int Case;
-    private int[] displayedWords, displayedColors;
 
     void Start()
     {
-        Case = Rnd.Range(0, 3);
+        Case = Rnd.Range(0, 5);
+        for (int i = 0; i < 8; i++)
+        {
+            wordSequence[i] = colorNames.PickRandom();
+            colorSequence[i] = colors.PickRandom();
+        }
         switch (Case)
         {
             case 0:
                 flickerObjs.Add(yes.gameObject);
                 yes.text = fakeYes.PickRandom();
-                Log(string.Format("the left button says {0}", yes.text));
+                Log(string.Format("...the left button says {0}, that doesn't seem normal.", yes.text));
                 break;
             case 1:
                 flickerObjs.Add(no.gameObject);
                 no.text = fakeNo.PickRandom();
-                Log(string.Format("the right button says {0}", no.text));
+                Log(string.Format("...the right button says {0}, that doesn't seem normal.", no.text));
                 break;
             case 2:
                 flickerObjs.Add(yes.gameObject);
                 flickerObjs.Add(no.gameObject);
                 yes.text = "NO";
                 no.text = "YES";
-                Log("the yes and no buttons are swapped");
+                Log("...the 'YES' and 'NO' buttons have swapped, that doesn't seem normal.");
+                break;
+            case 3:
+                flickerObjs.Add(display.gameObject);
+                wordSequence[7] = weirdColors.PickRandom();
+                Log(string.Format("...the last word is {0}, that doesn't seem normal.", wordSequence[7]));
+                break;
+            case 4:
+                flickerObjs.Add(display.gameObject);
+                Log("...the sequence never ends, that doesn't seem normal.");
                 break;
         }
-        displayedWords = new int[8].Select(x => Rnd.Range(0, 6)).ToArray();
-        displayedColors = new int[8].Select(x => Rnd.Range(0, 6)).ToArray();
         
     }
     public override void OnActivate()
@@ -50,16 +65,27 @@ public class FakeColourFlash : ImpostorMod
     }
     private IEnumerator Flash()
     {
-        while (true)
-        {
-            for (int i = 0; i < 8; i++)
+        if (Case != 4)
+            while (true)
             {
-                display.text = colorNames[displayedWords[i]];
-                display.color = colors[displayedColors[i]];
-                yield return new WaitForSeconds(0.75f);
+                for (int i = 0; i < 8; i++)
+                {
+                    display.text = wordSequence[i];
+                    display.color = colorSequence[i];
+                    yield return new WaitForSeconds(0.75f);
+                }
+                display.text = "";
+                yield return new WaitForSeconds(2);
             }
-            display.text = "";
-            yield return new WaitForSeconds(2);
-        }
+        else 
+            while (true)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    display.text = colorNames.PickRandom();
+                    display.color = colors.PickRandom();
+                    yield return new WaitForSeconds(0.75f);
+                }
+            }
     }
 }
