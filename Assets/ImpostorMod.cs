@@ -12,6 +12,8 @@ public class ImpostorMod : MonoBehaviour
     [HideInInspector]
     public KMBombModule Module;
     [HideInInspector]
+    public KMBombInfo BombInfo;
+    [HideInInspector]
     public int moduleId;
     [HideInInspector]
     public bool orgPresent;

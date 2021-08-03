@@ -22,7 +22,7 @@ public class FakeMurder : ImpostorMod
     private static readonly string[] fullNames = { "Miss Scarlet", "Professor Plum", "Mrs Peacock", "Reverend Green", "Colonel Mustard", "Mrs White" };
     private static readonly string[] weapons = { "Candlestick", "Dagger", "Lead Pipe", "Revolver", "Rope", "Spanner" };
     private static readonly string[] rooms = { "Dining Room", "Study", "Kitchen", "Lounge", "Billiard Room", "Conservatory", "Ballroom", "Hall", "Library" };
-    private static readonly string[] prefixes = { "Miss", "Professor", "Reverend", "Colonel", };
+    private static readonly string[] prefixes = { "Miss", "Professor", "Mrs", "Reverend", "Colonel", "Mrs"};
     private static readonly string[] names = { "Scarlet", "Plum", "Peacock", "Green", "Mustard", "White" };
 
     private string displayedName, displayedWeapon;
@@ -46,8 +46,11 @@ public class FakeMurder : ImpostorMod
         if (Case == 1)
         {
             int ending = Rnd.Range(0, 6);
-            int prefix = Enumerable.Range(0, 4).Where(x => x != ending).PickRandom();
-            displayedName = prefixes[prefix] + names[ending];
+            int prefix = Enumerable.Range(0, 6).Where(x => prefixes[x] != prefixes[ending]).PickRandom();
+            displayedName = prefixes[prefix] + " " + names[ending];
+            Debug.Log(displayedName.Length);
+            if (displayedName.Length >= 16)
+                texts[0].transform.localScale = new Vector3(0.0009f, 0.001f, 0.001f);
             displayedColor = colors[ending];
             Log(string.Format("the suspect displayed is {0}", displayedName));
         }
@@ -55,7 +58,7 @@ public class FakeMurder : ImpostorMod
         {
             displayedName = "Dr. Orchid";
             displayedColor = "#C83291".Color();
-            Log("the suspect displayed is Dr. Orchid. This is terrible. This should never happen. Dispose of the bomb immediately.");
+            Debug.LogFormat("[The Impostor #{0}] The suspect displayed is Dr. Orchid. This is terrible. This should never happen. Dispose of the bomb immediately.", moduleId);
         }
         else displayedName = fullNames.PickRandom();
         if (Case == 3)

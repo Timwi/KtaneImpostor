@@ -23,10 +23,12 @@ public class FakeColourFlash : ImpostorMod
     void Start()
     {
         Case = Rnd.Range(0, 4);
-        for (int i = 0; i < 8; i++)
+        wordSequence[0] = colorNames.PickRandom();
+        colorSequence[0] = colors.PickRandom();
+        for (int i = 1; i < 8; i++)
         {
-            wordSequence[i] = colorNames.PickRandom();
-            colorSequence[i] = colors.PickRandom();
+            wordSequence[i] = colorNames.Where(x => x != wordSequence[i - 1]).PickRandom();
+            colorSequence[i] = colors.Where(x => x != colorSequence[i - 1]).PickRandom();
         }
         switch (Case)
         {
@@ -70,7 +72,7 @@ public class FakeColourFlash : ImpostorMod
     }
     private IEnumerator Flash()
     {
-        if (Case != 4)
+        if (Case != 3)
             while (true)
             {
                 for (int i = 0; i < 8; i++)

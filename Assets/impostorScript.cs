@@ -24,6 +24,7 @@ public class impostorScript : MonoBehaviour {
     static int moduleIdCounter = 1;
     int moduleId;
     private int chosenMod;
+    private bool solved;
 
     void Awake () {
         moduleId = moduleIdCounter++;
@@ -51,9 +52,10 @@ public class impostorScript : MonoBehaviour {
     private void GetScript()
     {
         chosenScript = ChosenPrefab.GetComponent<ImpostorMod>();
-        chosenScript.moduleId = this.moduleId;
+        chosenScript.moduleId = moduleId;
         chosenScript.Audio = Audio;
         chosenScript.Module = Module;
+        chosenScript.BombInfo = Bomb;
         chosenScript.solve += delegate () { Solve(); };
         SL.transform.localPosition = SLP.StatusPositions[chosenScript.SLPos];
     }
@@ -69,7 +71,8 @@ public class impostorScript : MonoBehaviour {
         SelectableComp.UpdateChildren();
     }
     private void Solve()
-    {   
+    {
+        solved = true;
         Debug.LogFormat("[The Impostor #{0}] Module solved.", moduleId);
         Module.HandlePass();
         Audio.PlaySoundAtTransform("willSolve", transform);
@@ -81,7 +84,10 @@ public class impostorScript : MonoBehaviour {
     IEnumerator Hehe()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(15f, 30f));
-        Audio.PlaySoundAtTransform("hello", transform);
-        Debug.LogFormat("<The Impostor #{0}> Laugh occured.", moduleId);
+        if (!solved)
+        {
+            Audio.PlaySoundAtTransform("hello", transform);
+            Debug.LogFormat("<The Impostor #{0}> Laugh occured.", moduleId);
+        }
     }
 }
