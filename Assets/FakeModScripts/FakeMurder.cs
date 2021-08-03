@@ -22,7 +22,7 @@ public class FakeMurder : ImpostorMod
     private static readonly string[] fullNames = { "Miss Scarlet", "Professor Plum", "Mrs Peacock", "Reverend Green", "Colonel Mustard", "Mrs White" };
     private static readonly string[] weapons = { "Candlestick", "Dagger", "Lead Pipe", "Revolver", "Rope", "Spanner" };
     private static readonly string[] rooms = { "Dining Room", "Study", "Kitchen", "Lounge", "Billiard Room", "Conservatory", "Ballroom", "Hall", "Library" };
-    private static readonly string[] prefixes = { "Miss", "Professor", "Mrs", "Reverend", "Colonel", "Mrs" };
+    private static readonly string[] prefixes = { "Miss", "Professor", "Reverend", "Colonel", };
     private static readonly string[] names = { "Scarlet", "Plum", "Peacock", "Green", "Mustard", "White" };
 
     private string displayedName, displayedWeapon;
@@ -34,25 +34,33 @@ public class FakeMurder : ImpostorMod
     {
         chosenPerson = Rnd.Range(0, 6);
         displayedWeapon = weapons.PickRandom();
-        Case = Rnd.Range(0, 3);
+        Case = Rnd.Range(0, 4);
         flickerObjs.Add(texts[0].gameObject);
         if (Case == 0)
         {
             int colorIx = (chosenPerson + Rnd.Range(1, 6)) % 6;
             displayedColor = colors[colorIx];
-            Log(string.Format("...{0} is actually using {1}'s color. That doesn't seem normal.", fullNames[chosenPerson], fullNames[colorIx]));
+            Log(string.Format("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]));
         }
         else displayedColor = colors[chosenPerson];
         if (Case == 1)
         {
-            var pair = Enumerable.Range(0, 6).ToArray().Shuffle().Take(2).ToArray();
-            displayedName = prefixes[pair[0]] + " " + names[pair[1]];
-            Log(string.Format("...the suspect displayed is {0}. That doesn't seem normal.", displayedName));
+            int ending = Rnd.Range(0, 6);
+            int prefix = Enumerable.Range(0, 4).Where(x => x != ending).PickRandom();
+            displayedName = prefixes[prefix] + names[ending];
+            displayedColor = colors[ending];
+            Log(string.Format("the suspect displayed is {0}", displayedName));
+        }
+        else if (Case == 2)
+        {
+            displayedName = "Dr. Orchid";
+            displayedColor = "#C83291".Color();
+            Log("the suspect displayed is Dr. Orchid. This is terrible. This should never happen. Dispose of the bomb immediately.");
         }
         else displayedName = fullNames.PickRandom();
-        if (Case == 2)
+        if (Case == 3)
         {
-            Log("...the suspect is on the middle screen and the weapon is on the top screen. That doesn't seem normal.");
+            Log("the suspect is on the middle screen and the weapon is on the top screen");
             flickerObjs.Add(texts[1].gameObject);
             texts[0].text = displayedWeapon;
             texts[1].text = displayedName;

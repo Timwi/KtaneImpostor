@@ -22,7 +22,7 @@ public class FakeColourFlash : ImpostorMod
 
     void Start()
     {
-        Case = Rnd.Range(0, 5);
+        Case = Rnd.Range(0, 4);
         for (int i = 0; i < 8; i++)
         {
             wordSequence[i] = colorNames.PickRandom();
@@ -31,30 +31,35 @@ public class FakeColourFlash : ImpostorMod
         switch (Case)
         {
             case 0:
-                flickerObjs.Add(yes.gameObject);
-                yes.text = fakeYes.PickRandom();
-                Log(string.Format("...the left button says {0}, that doesn't seem normal.", yes.text));
-                break;
+                if (Rnd.Range(0,2) == 0)
+                {
+                    flickerObjs.Add(yes.gameObject);
+                    yes.text = fakeYes.PickRandom();
+                    Log(string.Format("the left button says {0}", yes.text));
+                    break;
+                }
+                else
+                {
+                    flickerObjs.Add(no.gameObject);
+                    no.text = fakeNo.PickRandom();
+                    Log(string.Format("the right button says {0}", no.text));
+                    break;
+                }
             case 1:
-                flickerObjs.Add(no.gameObject);
-                no.text = fakeNo.PickRandom();
-                Log(string.Format("...the right button says {0}, that doesn't seem normal.", no.text));
-                break;
-            case 2:
                 flickerObjs.Add(yes.gameObject);
                 flickerObjs.Add(no.gameObject);
                 yes.text = "NO";
                 no.text = "YES";
-                Log("...the 'YES' and 'NO' buttons have swapped, that doesn't seem normal.");
+                Log("the 'YES' and 'NO' buttons have swapped");
+                break;
+            case 2:
+                flickerObjs.Add(display.gameObject);
+                wordSequence[7] = weirdColors.PickRandom();
+                Log(string.Format("the last word is {0}", wordSequence[7]));
                 break;
             case 3:
                 flickerObjs.Add(display.gameObject);
-                wordSequence[7] = weirdColors.PickRandom();
-                Log(string.Format("...the last word is {0}, that doesn't seem normal.", wordSequence[7]));
-                break;
-            case 4:
-                flickerObjs.Add(display.gameObject);
-                Log("...the sequence never ends, that doesn't seem normal.");
+                Log("the sequence never ends");
                 break;
         }
         

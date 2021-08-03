@@ -43,7 +43,6 @@ public class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-        chosenMod = 7;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
         ChosenPrefab.transform.localRotation = Quaternion.identity;
@@ -77,8 +76,7 @@ public class impostorScript : MonoBehaviour {
         ChosenPrefab.SetActive(false);
         SL.transform.localPosition = SLP.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
-        for (int i = 0; i < chosenScript.buttons.Length; i++)
-            chosenScript.buttons[i] = null;
+        SelectableComp.Children = new KMSelectable[0];
     }
     IEnumerator Hehe()
     {
