@@ -27,4 +27,7 @@ public class TemplateFakeScript : ImpostorMod
         }
         Log(string.Format("Test message 2+2={0}", 2+2));
     }
+    public override void OnActivate()
+    {
+    }
 }

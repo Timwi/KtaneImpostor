@@ -13,6 +13,8 @@ public class ImpostorMod : MonoBehaviour
     public KMBombModule Module;
     [HideInInspector]
     public int moduleId;
+    [HideInInspector]
+    public bool orgPresent;
     ///<summary>A list of GameObjects which will flicker when the module strikes.</summary>
     [HideInInspector]
     public List<GameObject> flickerObjs;
@@ -27,6 +29,7 @@ public class ImpostorMod : MonoBehaviour
     /// </summary>
     public Action solve;
     private bool isHeld, solved;
+
 
     void Awake()
     {
@@ -44,6 +47,12 @@ public class ImpostorMod : MonoBehaviour
     {
         Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, msg);
     }
+
+    /// <summary>
+    /// Gets called when the lights turn on. Needs to be overridden.
+    /// </summary>
+    public virtual void OnActivate()
+    { }
 
     IEnumerator HoldBtn(KMSelectable btn)
     {
@@ -71,6 +80,8 @@ public class ImpostorMod : MonoBehaviour
         {
             Debug.LogFormat("[The Impostor #{0}] You weren't able to identify that I'm The Impostor. Flashing change...", moduleId);
             Audio.PlaySoundAtTransform("strike", Module.transform);
+            if (!orgPresent)
+                Module.HandleStrike();
             StartCoroutine(Flicker());
         }
     }
