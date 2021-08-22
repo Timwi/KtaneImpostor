@@ -58,7 +58,7 @@ public class FakeAstrology : ImpostorMod
                 else
                 {
                     buttonLabels[2].text = "poor\nomen";
-                    flickerObjs.Add(buttonLabels[1].gameObject);
+                    flickerObjs.Add(buttonLabels[2].gameObject);
                     Log("the good omen button says \"poor omen\"");
                     break;
                 }

@@ -38,12 +38,17 @@ public class impostorScript : MonoBehaviour {
         GetSelectables();
         StartCoroutine(Hehe());
         Module.OnActivate += delegate () { chosenScript.OnActivate(); };
-        chosenScript.orgPresent = Bomb.GetSolvableModuleNames().Contains("Organization");
+        if (Bomb.GetModuleNames().Contains("Organization"))
+        {
+            Debug.LogFormat("[The Impostor #{0}] Organization detected, the module will not award strikes.", moduleId);
+            chosenScript.orgPresent = true;
+        }
     }
     private void GetMod()
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
+chosenMod = Prefabs.Length - 2;
         ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         ChosenPrefab.transform.localPosition = Vector3.zero;
         ChosenPrefab.transform.localRotation = Quaternion.identity;

@@ -1249,13 +1249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 0}
   Module: {fileID: 0}
+  BombInfo: {fileID: 0}
   moduleId: 0
+  orgPresent: 0
   flickerObjs: []
   buttons:
   - {fileID: 114174851101928640}
   - {fileID: 114793074107764622}
   - {fileID: 114804459417882768}
   - {fileID: 114939945145204032}
+  childRowLength: 4
   texts:
   - {fileID: 102947396528636532}
   - {fileID: 102064322635477080}

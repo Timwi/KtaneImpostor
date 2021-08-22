@@ -2557,7 +2557,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 0}
   Module: {fileID: 0}
+  BombInfo: {fileID: 0}
   moduleId: 0
+  orgPresent: 0
   flickerObjs: []
   buttons:
   - {fileID: 114662148936731886}
@@ -2568,6 +2570,7 @@ MonoBehaviour:
   - {fileID: 114357322296939982}
   - {fileID: 114214215179264202}
   - {fileID: 114597449906771258}
+  childRowLength: 4
   buttonTexts:
   - {fileID: 102141776404756284}
   - {fileID: 102155321729535264}

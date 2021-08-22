@@ -16,23 +16,14 @@ public class FakeAnagrams : ImpostorMod
     private int Case;
 
     private static readonly string[] anagrams = { "STREAM", "MASTER", "TAMERS", "LOOPED", "POODLE", "POOLED", "CELLAR", "CALLER", "RECALL", "SEATED", "SEDATE", "TEASED", "RESCUE", "SECURE", "RECUSE", "RASHES", "SHEARS", "SHARES", "BARELY", "BARLEY", "BLEARY", "DUSTER", "RUSTED", "RUDEST" };
-    private static readonly string[] wordscramble = { "ARCHER", "ATTACK", "BANANA", "BLASTS", "BURSTS", "BUTTON", "CANNON", "CASING", "CHARGE", "DAMAGE", "DEFUSE", "DEVICE", "DISARM", "FLAMES", "KABOOM", "KEVLAR", "KEYPAD", "LETTER", "MODULE", "MORTAR", "NAPALM", "OTTAWA", "PERSON", "ROBOTS", "ROCKET", "SAPPER", "SEMTEX", "WEAPON", "WIDGET", "WIRING" };
     private string chosenWord;
 
     void Start()
     {
-        Case = Rnd.Range(0, 3);
+        Case = Rnd.Range(0, 2);
         switch (Case)
         {
             case 0:
-                chosenWord = wordscramble.PickRandom().ToCharArray().Shuffle().Join("");
-                Log("there's a scrambled word on the screen");
-                topDisp.text = chosenWord;
-                flickerObjs.Add(topDisp.gameObject);
-                for (int i = 0; i < 6; i++)
-                    buttonTexts[i].text = chosenWord[i].ToString();
-                break;
-            case 1:
                 chosenWord = anagrams.PickRandom();
                 Log("the anagram is on the bottom screen");
                 botDisp.text = chosenWord;
@@ -40,7 +31,7 @@ public class FakeAnagrams : ImpostorMod
                 for (int i = 0; i < 6; i++)
                     buttonTexts[i].text = chosenWord[i].ToString();
                 break;
-            case 2:
+            case 1:
                 chosenWord = anagrams.PickRandom();
                 Log("DEL and OK are on the left");
                 topDisp.text = chosenWord;

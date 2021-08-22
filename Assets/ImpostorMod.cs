@@ -17,7 +17,9 @@ public class ImpostorMod : MonoBehaviour
     public int moduleId;
     [HideInInspector]
     public bool orgPresent;
-    ///<summary>A list of GameObjects which will flicker when the module strikes.</summary>
+    ///<summary>
+    ///A list of GameObjects which will flicker when the module strikes.
+    ///</summary>
     [HideInInspector]
     public List<GameObject> flickerObjs;
 
