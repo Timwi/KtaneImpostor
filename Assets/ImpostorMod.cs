@@ -47,9 +47,9 @@ public class ImpostorMod : MonoBehaviour
     /// Sends a log message which works with the LFA. 
     /// </summary>
     /// <param name="msg">The message to be logged, use string.Format for interpolation.</param>
-    public void Log(string msg)
+    public void Log(string msg, params object[] args)
     {
-        Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, msg);
+        Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, string.Format(msg, args));
     }
 
     /// <summary>

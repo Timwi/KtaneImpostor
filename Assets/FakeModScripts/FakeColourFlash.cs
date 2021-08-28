@@ -33,18 +33,18 @@ public class FakeColourFlash : ImpostorMod
         switch (Case)
         {
             case 0:
-                if (Rnd.Range(0,2) == 0)
+                if (Ut.RandBool())
                 {
                     flickerObjs.Add(yes.gameObject);
                     yes.text = fakeYes.PickRandom();
-                    Log(string.Format("the left button says {0}", yes.text));
+                    Log("the left button says {0}", yes.text);
                     break;
                 }
                 else
                 {
                     flickerObjs.Add(no.gameObject);
                     no.text = fakeNo.PickRandom();
-                    Log(string.Format("the right button says {0}", no.text));
+                    Log("the right button says {0}", no.text);
                     break;
                 }
             case 1:
@@ -57,7 +57,7 @@ public class FakeColourFlash : ImpostorMod
             case 2:
                 flickerObjs.Add(display.gameObject);
                 wordSequence[7] = weirdColors.PickRandom();
-                Log(string.Format("the last word is {0}", wordSequence[7]));
+                Log("the last word is {0}", wordSequence[7]);
                 break;
             case 3:
                 flickerObjs.Add(display.gameObject);

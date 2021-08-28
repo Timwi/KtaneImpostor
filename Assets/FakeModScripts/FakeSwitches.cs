@@ -16,13 +16,12 @@ public class FakeSwitches : ImpostorMod
     private bool[] ledPositions = new bool[5];
     private bool[] ledVals = new bool[10];
     private int changedPos;
-    private static readonly string[] ordinals = { "1st", "2nd", "3rd", "4th", "5th" };
 
     void Start()
     {
         Case = Rnd.Range(0, 3);
         for (int i = 0; i < 5; i++)
-            switchPositions[i] = Rnd.Range(0, 2) == 0;
+            switchPositions[i] = Ut.RandBool();
         if (Case == 0)
         {
             for (int i = 0; i < 5; i++)
@@ -35,10 +34,12 @@ public class FakeSwitches : ImpostorMod
             Log("the switches are already in the correct positions");
         }
         else
+        {
             do
                 for (int i = 0; i < 5; i++)
-                    ledPositions[i] = Rnd.Range(0, 2) == 0;
+                    ledPositions[i] = Ut.RandBool();
             while (switchPositions.SequenceEqual(ledPositions));
+        }
         if (Case == 1)
         {
             for (int i = 0; i < 5; i++)
@@ -51,7 +52,7 @@ public class FakeSwitches : ImpostorMod
         if (Case == 2)
         {
             changedPos = Rnd.Range(0, 10);
-            Log(string.Format("the {0} LED pair has two of the same state.", ordinals[changedPos % 5]));
+            Log("the {0} LED pair has two of the same state.", Ut.Ordinal(changedPos % 5 + 1));
         }
     }
     public override void OnActivate()

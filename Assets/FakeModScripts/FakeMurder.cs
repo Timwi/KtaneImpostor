@@ -8,7 +8,7 @@ using Rnd = UnityEngine.Random;
 public class FakeMurder : ImpostorMod 
 {
     [SerializeField]
-    private TextMesh[] texts; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
+    private TextMesh[] texts;
 
     private Color[] colors = new Color[]
     {
@@ -40,7 +40,7 @@ public class FakeMurder : ImpostorMod
         {
             int colorIx = (chosenPerson + Rnd.Range(1, 6)) % 6;
             displayedColor = colors[colorIx];
-            Log(string.Format("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]));
+            Log("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]);
         }
         else displayedColor = colors[chosenPerson];
         if (Case == 1)
@@ -52,7 +52,7 @@ public class FakeMurder : ImpostorMod
             if (displayedName.Length >= 16)
                 texts[0].transform.localScale = new Vector3(0.0009f, 0.001f, 0.001f);
             displayedColor = colors[ending];
-            Log(string.Format("the suspect displayed is {0}", displayedName));
+            Log("the suspect displayed is {0}", displayedName);
         }
         else if (Case == 2)
         {

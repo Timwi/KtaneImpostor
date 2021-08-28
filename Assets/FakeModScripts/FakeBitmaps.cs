@@ -11,7 +11,6 @@ public class FakeBitmaps : ImpostorMod {
     public MeshRenderer BmpObject;
 
     private bool[][] _bitmap;
-    private static readonly string[] ordinals = { "1st", "2nd", "3rd", "4th" };
     private static readonly Color[] _lightColors = new[] { new Color(1, .9f, .9f), new Color(.9f, 1, .9f), new Color(.9f, .9f, 1), new Color(1, 1, .9f), new Color(.9f, 1, 1), new Color(1, .9f, 1) };
     private static readonly Color[] _darkColors = new[] { new Color(.75f, .5f, .5f), new Color(.5f, .75f, .5f), new Color(.5f, .5f, .75f), new Color(.75f, .75f, .5f), new Color(.5f, .75f, .75f), new Color(.75f, .5f, .75f) };
     private int _colorIx;
@@ -25,13 +24,13 @@ public class FakeBitmaps : ImpostorMod {
         {
             _bitmap[j] = new bool[8];
             for (int i = 0; i < 8; i++)
-                _bitmap[j][i] = Rnd.Range(0, 2) == 0;
+                _bitmap[j][i] = Ut.RandBool();
         }
         BmpObject.material.mainTexture = generateTexture();
         changedButton = Rnd.Range(0, 4);
         texts[changedButton].text = (Enumerable.Range(0, 10).Where(x => x != changedButton).PickRandom() + 1).ToString();
         flickerObjs.Add(texts[changedButton].gameObject);
-        Log(string.Format("the {0} button has its label set to {1}", ordinals[changedButton], texts[changedButton].text));
+        Log("the {0} button has its label set to {1}", Ut.Ordinal(changedButton + 1), texts[changedButton].text);
     }
 
     private Texture generateTexture()

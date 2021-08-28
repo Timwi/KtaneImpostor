@@ -27,22 +27,21 @@ public class FakeMysticSquare : ImpostorMod
         buttons[movedPos].gameObject.SetActive(false);  
         do skullPos = Rnd.Range(0, 9);
         while (skullPos == movedPos);
-        Case = Rnd.Range(0, 2);
-        switch (Case)
+        if (Ut.RandBool())
         {
-            case 0:
-                int brokePos = Rnd.Range(0, 8);
-                int result = Rnd.Range(0, 2) == 0 ? 0 : 9;
-                Log("there is a " + result);
-                flickerObjs.Add(texts[brokePos].gameObject);
-                order[brokePos] = result;
-                break;
-            case 1:
-                flickerObjs.Add(skull.gameObject);
-                skullPos = movedPos;
-                Log("the skull is already revealed");
-                break;
+            int brokePos = Rnd.Range(0, 8);
+            int result = Ut.RandBool() ? 0 : 9;
+            Log("there is a {0}", result);
+            flickerObjs.Add(texts[brokePos].gameObject);
+            order[brokePos] = result;
         }
+        else
+        {
+            flickerObjs.Add(skull.gameObject);
+            skullPos = movedPos;
+            Log("the skull is already revealed");
+        }
+
         for (int i = 0; i < 8; i++)
             texts[i].text = order[i].ToString();
         skull.localPosition = new Vector3(.063f - (skullPos % 3) * .045f, 0.0005f, -.028f + .0425f * (skullPos / 3));

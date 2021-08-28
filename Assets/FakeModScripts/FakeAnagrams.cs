@@ -21,28 +21,28 @@ public class FakeAnagrams : ImpostorMod
     void Start()
     {
         Case = Rnd.Range(0, 2);
-        switch (Case)
+        if (Ut.RandBool())
         {
-            case 0:
                 chosenWord = anagrams.PickRandom();
                 Log("the anagram is on the bottom screen");
                 botDisp.text = chosenWord;
                 flickerObjs.Add(botDisp.gameObject);
                 for (int i = 0; i < 6; i++)
                     buttonTexts[i].text = chosenWord[i].ToString();
-                break;
-            case 1:
-                chosenWord = anagrams.PickRandom();
-                Log("DEL and OK are on the left");
-                topDisp.text = chosenWord;
-                for (int i = 0; i < 8; i++)
-                    flickerObjs.Add(buttonTexts[i].gameObject);
-                buttonTexts[0].text = "DEL";
-                buttonTexts[3].text = "OK";
-                int[] order = { 1, 2, 6, 4, 5, 7 };
-                for (int i = 0; i < 6; i++)
-                    buttonTexts[order[i]].text = chosenWord[i].ToString();
-                break;
+        }
+        else
+        {
+            chosenWord = anagrams.PickRandom();
+            Log("DEL and OK are on the left");
+            topDisp.text = chosenWord;
+            for (int i = 0; i < 8; i++)
+                flickerObjs.Add(buttonTexts[i].gameObject);
+            buttonTexts[0].text = "DEL";
+            buttonTexts[3].text = "OK";
+            int[] order = { 1, 2, 6, 4, 5, 7 };
+            for (int i = 0; i < 6; i++)
+                buttonTexts[order[i]].text = chosenWord[i].ToString();
+
         }
     }
 }

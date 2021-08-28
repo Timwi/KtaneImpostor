@@ -9,7 +9,7 @@ using Rnd = UnityEngine.Random;
 public class FakeTwoBits : ImpostorMod 
 {
     [SerializeField]
-    private TextMesh[] letters; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable
+    private TextMesh[] letters;
     [SerializeField]
     private TextMesh display, query, submit;
 
@@ -41,7 +41,7 @@ public class FakeTwoBits : ImpostorMod
                 int changedPos = displayedLetters.IndexOf(init);
                 letters[changedPos].text = forbiddenLetters.PickRandom().ToString();
                 flickerObjs.Add(letters[changedPos].gameObject);
-                Log(string.Format("letter {0} is changed to a {1}", displayedLetters[changedPos], letters[changedPos].text));
+                Log("letter {0} is changed to a {1}", displayedLetters[changedPos], letters[changedPos].text);
                 break;
         }
     }

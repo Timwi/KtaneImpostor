@@ -17,7 +17,7 @@ public class impostorScript : MonoBehaviour {
     public GameObject[] Prefabs;
     public GameObject BG;
     public GameObject SL;
-    private GameObject ChosenPrefab;
+    private GameObject chosenPrefab;
     private ImpostorMod chosenScript;
         
     //Logging
@@ -48,15 +48,15 @@ public class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-chosenMod = Prefabs.Length - 2;
-        ChosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
-        ChosenPrefab.transform.localPosition = Vector3.zero;
-        ChosenPrefab.transform.localRotation = Quaternion.identity;
+chosenMod = Prefabs.Length - 1;
+        chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
+        chosenPrefab.transform.localPosition = Vector3.zero;
+        chosenPrefab.transform.localRotation = Quaternion.identity;
         Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, Prefabs[chosenMod].name);
     }
     private void GetScript()
     {
-        chosenScript = ChosenPrefab.GetComponent<ImpostorMod>();
+        chosenScript = chosenPrefab.GetComponent<ImpostorMod>();
         chosenScript.moduleId = moduleId;
         chosenScript.Audio = Audio;
         chosenScript.Module = Module;
@@ -81,7 +81,7 @@ chosenMod = Prefabs.Length - 2;
         Debug.LogFormat("[The Impostor #{0}] Module solved.", moduleId);
         Module.HandlePass();
         Audio.PlaySoundAtTransform("willSolve", transform);
-        ChosenPrefab.SetActive(false);
+        chosenPrefab.SetActive(false);
         SL.transform.localPosition = SLP.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
         SelectableComp.Children = new KMSelectable[0];

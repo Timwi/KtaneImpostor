@@ -24,21 +24,19 @@ public class FakeCreation : ImpostorMod
             displays[i].material.mainTexture = elements[elementOrder[i]];
         weatherDisplay.material.mainTexture = weathers.PickRandom();
 
-        Case = Rnd.Range(0, 2); 
-        switch (Case)
+        if (Ut.RandBool())
         {
-            case 0:
                 int changePos = Rnd.Range(0, 4);
                 displays[changePos].material.mainTexture = funnyElements[elementOrder[changePos]];
-                Log(string.Format("element {0} is replaced with {1}", elements[elementOrder[changePos]].name, funnyElements[elementOrder[changePos]].name));
-                flickerObjs.Add(displays[changePos].gameObject); //Replace null with whatever you're modifying
-                break;
-            case 1:
+                Log("element {0} is replaced with {1}", elements[elementOrder[changePos]].name, funnyElements[elementOrder[changePos]].name);
+                flickerObjs.Add(displays[changePos].gameObject); 
+        }
+        else
+        {
                 int newWeather = Rnd.Range(0, funnyWeathers.Length);
                 weatherDisplay.material.mainTexture = funnyWeathers[newWeather];
-                Log(string.Format("the weather is {0}", funnyWeathers[newWeather].name));
+                Log("the weather is {0}", funnyWeathers[newWeather].name);
                 flickerObjs.Add(weatherDisplay.gameObject);
-                break;
         }
     }
 }
