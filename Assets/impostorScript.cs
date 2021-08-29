@@ -19,6 +19,7 @@ public class impostorScript : MonoBehaviour {
     public GameObject SL;
     private GameObject chosenPrefab;
     private ImpostorMod chosenScript;
+    private ImpostorSettings settings = new ImpostorSettings();
         
     //Logging
     static int moduleIdCounter = 1;
@@ -33,6 +34,7 @@ public class impostorScript : MonoBehaviour {
     // Use this for initialization
     private void Start () 
     {
+        SetUpModSettings();
         GetMod();
         GetScript();
         GetSelectables();
@@ -48,7 +50,7 @@ public class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
-chosenMod = Prefabs.Length - 1;
+//chosenMod = Prefabs.Length - 1;
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
@@ -95,4 +97,72 @@ chosenMod = Prefabs.Length - 1;
             Debug.LogFormat("<The Impostor #{0}> Laugh occured.", moduleId);
         }
     }
+#pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Any other command will cause a strike.";
+#pragma warning restore 414
+
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        command = command.Trim().ToUpperInvariant();
+        yield return null;
+        chosenScript.buttons[0].OnInteract();
+        if (command == "DISARM")
+            yield return new WaitUntil(() => chosenScript.willSolve);
+        yield return new WaitForSeconds(0.2f);
+        chosenScript.buttons[0].OnInteractEnded();
+    }
+
+    IEnumerator TwitchHandleForcedSolve()
+    {
+        chosenScript.buttons[0].OnInteract(); ;
+        while (!chosenScript.willSolve)
+            yield return true;
+        yield return new WaitForSeconds(0.1f);
+        chosenScript.buttons[0].OnInteractEnded();
+    }
+
+    class ImpostorSettings
+    {
+        public Dictionary<string, bool> disabledModsList = new Dictionary<string, bool>();
+        public string note;
+    }
+    private void SetUpModSettings()
+    {
+        ModConfig<ImpostorSettings> config = new ModConfig<ImpostorSettings>("ImpostorSettings");
+        settings = config.Read();
+        foreach (GameObject prefab in Prefabs)
+        {
+            string key = "Disable" + prefab.name;
+            if (!settings.disabledModsList.ContainsKey(key))
+            {
+                Debug.Log("Added entry " + key + " to the settings file");
+                settings.disabledModsList.Add(key, false);
+            }
+        }
+        config.Write(settings);
+    }
+
+    private static Dictionary<string, object>[] TweaksEditorSettings = new Dictionary<string, object>[]
+    {
+            new Dictionary<string, object>
+            {
+            { "Filename", "ImpostorSettings.json"},
+            { "Name", "The Impostor" },
+            { "Listings", new List<Dictionary<string, object>>
+                {
+                   // new Dictionary<string, object>
+                   // {
+                   // { "Key", "disabledModsList" },
+                   // { "Text", "Prevent these mods from appearing."}
+                   // },
+                    new Dictionary<string, object>
+                    {
+                        {"Key", "note" },
+                        {"Text", "Please enter the ImpostorSettings.json file to manage disabled mods." }
+                    }
+                }
+            }
+            }
+    };
+
 }

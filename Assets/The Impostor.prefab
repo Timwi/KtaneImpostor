@@ -324,6 +324,7 @@ MonoBehaviour:
   - {fileID: 1886728838389886, guid: 14892766854a9c24c9cebe2860d7a126, type: 2}
   - {fileID: 1115122003379512, guid: 2ea34c872244faa4cb223f037b44b179, type: 2}
   - {fileID: 1516584449549710, guid: a71400bda02aee44f89301ea4a7a87c8, type: 2}
+  - {fileID: 176650, guid: 9a4ff5d12e5774e4489faaeed66a27f6, type: 2}
   BG: {fileID: 1336463298864312}
   SL: {fileID: 1240676701029190}
 --- !u!114 &114139553842080666

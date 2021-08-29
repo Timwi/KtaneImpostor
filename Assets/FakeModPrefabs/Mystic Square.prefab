@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 4810722642388896}
   - component: {fileID: 33431790672012124}
   - component: {fileID: 23550670533724642}
+  - component: {fileID: 114772857416915304}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -2822,6 +2823,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - GUI/KT 3D Text
+--- !u!114 &114772857416915304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604357488917094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - Legacy Shaders/Diffuse
 --- !u!114 &114804317998341048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2849,7 +2863,6 @@ MonoBehaviour:
   - {fileID: 114455634460630716}
   - {fileID: 114423896261199160}
   - {fileID: 114178573031806402}
-  childRowLength: 3
   texts:
   - {fileID: 102992879264568910}
   - {fileID: 102511757744570620}

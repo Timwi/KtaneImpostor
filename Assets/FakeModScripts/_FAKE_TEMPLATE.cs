@@ -16,7 +16,7 @@ public class TemplateFakeScript : ImpostorMod
 
     void Start()
     {
-        Case = Rnd.Range(0, 2); //However many cases you want there to be.
+        Case = Rnd.Range(0, 3); //However many cases you want there to be.
         switch (Case)
         {
             case 0:
@@ -25,8 +25,11 @@ public class TemplateFakeScript : ImpostorMod
             case 1:
                 flickerObjs.Add(null);
                 break;
+            case 2:
+                flickerObjs.Add(null);
+                break;
         }
-        Log(string.Format("Test message 2+2={0}", 2+2));
+        Log("Test message 2+2={0}", 2+2);
     }
     public override void OnActivate()
     {

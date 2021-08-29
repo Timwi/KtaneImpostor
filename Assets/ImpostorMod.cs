@@ -32,7 +32,8 @@ public class ImpostorMod : MonoBehaviour
     /// Lets the fake mod communicate to Impostor when it is going to solve.
     /// </summary>
     public Action solve;
-    private bool isHeld, solved;
+    public bool willSolve;
+    private bool isHeld;
 
 
     void Awake()
@@ -69,7 +70,7 @@ public class ImpostorMod : MonoBehaviour
         if (isHeld)
         {
             Audio.PlaySoundAtTransform("willSolve", Module.transform);
-            solved = true;
+            willSolve = true;
         }
 
     }
@@ -78,7 +79,7 @@ public class ImpostorMod : MonoBehaviour
         btn.AddInteractionPunch(0.25f);
         Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonRelease, btn.transform);
         isHeld = false;
-        if (solved)
+        if (willSolve)
             solve.Invoke();
         else
         {
@@ -91,7 +92,7 @@ public class ImpostorMod : MonoBehaviour
     }
     IEnumerator Flicker()
     {
-        solved = true;
+        willSolve = true;
         for (int i = 0; i < 6; i++)
         {
             foreach (GameObject obj in flickerObjs)

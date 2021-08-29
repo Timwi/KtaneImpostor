@@ -9,26 +9,35 @@ using Rnd = UnityEngine.Random;
 public class FakeConnectionCheck : ImpostorMod 
 {
     [SerializeField]
-    private GameObject[] objects; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
-    public override SLPositions SLPos  //Can be ignored if SL Position is TR
-    { get { return SLPositions.TR; } } 
+    private GameObject[] redLeds, greenLeds;
+    [SerializeField]
+    private TextMesh[] texts;
     private int Case;
 
     void Start()
     {
-        Case = Rnd.Range(0, 2); //However many cases you want there to be.
-        switch (Case)
+        for (int i = 0; i < 4; i++)
         {
-            case 0:
-                flickerObjs.Add(null); //Replace null with whatever you're modifying
-                break;
-            case 1:
-                flickerObjs.Add(null);
-                break;
+            (Ut.RandBool() ? redLeds[i] : greenLeds[i]).SetActive(true);
+            var pair = Enumerable.Range(1, 8).ToList().Shuffle(); //Makes sure that the two numbers aren't equal.
+            texts[2 * i].text = pair[0].ToString();
+            texts[2 * i + 1].text = pair[1].ToString();
         }
-        Log(string.Format("Test message 2+2={0}", 2+2));
-    }
-    public override void OnActivate()
-    {
+
+        int changedPos = Rnd.Range(0, 8);
+        flickerObjs.Add(texts[changedPos].gameObject);
+        if (Ut.RandBool())
+        {
+            int newVal = Ut.RandBool() ? 0 : 9;
+            texts[changedPos].text = newVal.ToString();
+            Log("there is a {0}", newVal);
+        }
+        else
+        {
+            int adjacentPos = changedPos % 2 == 0 ? changedPos + 1 : changedPos - 1;
+            texts[changedPos].text = texts[adjacentPos].text;
+            flickerObjs.Add(texts[adjacentPos].gameObject);
+            Log("there are two numbers that are the same on the same pair");
+        }
     }
 }
