@@ -25,12 +25,11 @@ public class FakeColorMath : ImpostorMod
         new Color32(0x83, 0x83, 0x83,  0xFF),
         new Color32(0x00, 0x00, 0x00,  0xFF)
     };
-
-
     void Start()
     {
         for (int i = 0; i < 8; i++)
             leds[i].material.color = colors.PickRandom();
+        flickerObjs.Add(text.gameObject);
         if (Ut.RandBool())
         {
             if (Ut.RandBool())

@@ -49,7 +49,19 @@ public class impostorScript : MonoBehaviour {
     private void GetMod()
     {
         BG.SetActive(false);
-        chosenMod = UnityEngine.Random.Range(0, Prefabs.Length);
+        List<int> allowedPrefabIndices = new List<int>();
+        for (int i = 0; i < Prefabs.Length; i++)
+        {
+            string key = "Disable " + Prefabs[i].name;
+            if (!settings.disabledModsList.ContainsKey(key))
+                Debug.LogFormat("[The Impostor #{0}] Prefab name {1} not found within modsettings dictionary!", moduleId, Prefabs[i].name);
+            else if (settings.disabledModsList[key])
+                allowedPrefabIndices.Add(i);
+        }
+        if (allowedPrefabIndices.Count == 0)
+            allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
+
+        chosenMod = allowedPrefabIndices.PickRandom();
 //chosenMod = Prefabs.Length - 1;
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
@@ -132,7 +144,7 @@ public class impostorScript : MonoBehaviour {
         settings = config.Read();
         foreach (GameObject prefab in Prefabs)
         {
-            string key = "Disable" + prefab.name;
+            string key = "Disable " + prefab.name;
             if (!settings.disabledModsList.ContainsKey(key))
             {
                 Debug.Log("Added entry " + key + " to the settings file");

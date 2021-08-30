@@ -17,6 +17,8 @@ public class ImpostorMod : MonoBehaviour
     public int moduleId;
     [HideInInspector]
     public bool orgPresent;
+    [HideInInspector]
+    public bool willSolve;
     ///<summary>
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
@@ -32,7 +34,6 @@ public class ImpostorMod : MonoBehaviour
     /// Lets the fake mod communicate to Impostor when it is going to solve.
     /// </summary>
     public Action solve;
-    public bool willSolve;
     private bool isHeld;
 
 
