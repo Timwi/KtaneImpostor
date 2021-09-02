@@ -51,7 +51,7 @@ public class FakeTicTacToe : ImpostorMod
                 for (int i = 0; i < 5; i++)
                     preorder.Add(RandomSymb());
                 grid = preorder.Cast<char?>().ToArray().Shuffle();
-            } while (ticTacToes.Any(line => !line.Select(x => grid[x]).HasDuplicates())); //If there's any line where all the cells match, redo.
+            } while (ticTacToes.Any(line => line.Select(x => grid[x]).Distinct().Count() == 1)); //If there's any line where all the cells match, redo.
         }
         upNext.text = RandomSymb().ToString();
         for (int i = 0; i < 9; i++)

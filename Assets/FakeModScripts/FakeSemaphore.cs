@@ -12,7 +12,7 @@ public class FakeSemaphore : ImpostorMod
 	private TextMesh[] texts;
     [SerializeField]
     private GameObject[] flags; 
-    private static readonly string[] dummies = {"K", "KO", " ", "YES", ">", "<", "MK", "OJ"};
+    private static readonly string[] dummies = {"K", "KO", " ", "YES", "MK", "OJ"};
 
     void Start()
     {

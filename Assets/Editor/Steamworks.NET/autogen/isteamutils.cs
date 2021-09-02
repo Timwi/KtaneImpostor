@@ -151,7 +151,8 @@ namespace Steamworks {
 
 		/// <summary>
 		/// <para> Returns true if the overlay is running &amp; the user can access it. The overlay process could take a few seconds to</para>
-		/// <para> start &amp; hook the game process, so this function will initially return false while the overlay is loading.</para>
+		/// <para> start &amp; hook the game process, so this function will initially return false 
+		/// the overlay is loading.</para>
 		/// </summary>
 		public static bool IsOverlayEnabled() {
 			InteropHelp.TestIfAvailableClient();

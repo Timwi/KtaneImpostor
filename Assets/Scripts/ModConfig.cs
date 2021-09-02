@@ -59,7 +59,7 @@ class ModConfig<T> where T : new()
         }
         catch (Exception e)
         {
-            Debug.LogFormat("An exception has occurred while attempting to read the settings from {0}\nDefault settings will be used for the type of {1}.", settingsPath, typeof(T).ToString());
+            Debug.LogFormat("An exception has occurred attempting to read the settings from {0}\nDefault settings will be used for the type of {1}.", settingsPath, typeof(T).ToString());
             Debug.LogException(e);
 
             SuccessfulRead = false;

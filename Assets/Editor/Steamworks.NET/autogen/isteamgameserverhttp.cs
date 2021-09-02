@@ -81,7 +81,8 @@ namespace Steamworks {
 		/// <summary>
 		/// <para> Sends the HTTP request, will return false on a bad handle, otherwise use SteamCallHandle to wait on</para>
 		/// <para> asynchronous response via callback for completion, and listen for HTTPRequestHeadersReceived_t and</para>
-		/// <para> HTTPRequestDataReceived_t callbacks while streaming.</para>
+		/// <para> HTTPRequestDataReceived_t callbacks 
+		/// streaming.</para>
 		/// </summary>
 		public static bool SendHTTPRequestAndStreamResponse(HTTPRequestHandle hRequest, out SteamAPICall_t pCallHandle) {
 			InteropHelp.TestIfAvailableGameServer();

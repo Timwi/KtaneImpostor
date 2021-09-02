@@ -19,7 +19,7 @@ public class impostorScript : MonoBehaviour {
     public GameObject SL;
     private GameObject chosenPrefab;
     private ImpostorMod chosenScript;
-    private ImpostorSettings settings = new ImpostorSettings();
+    private static ImpostorSettings settings = new ImpostorSettings();
         
     //Logging
     static int moduleIdCounter = 1;
@@ -31,9 +31,9 @@ public class impostorScript : MonoBehaviour {
         moduleId = moduleIdCounter++;
     }
 
-    // Use this for initialization
     private void Start () 
     {
+        Debug.LogFormat("<The Impostor #{0}> Impostor module loaded with version 2.0.0", moduleId);
         SetUpModSettings();
         GetMod();
         GetScript();
@@ -50,19 +50,25 @@ public class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         List<int> allowedPrefabIndices = new List<int>();
-        for (int i = 0; i < Prefabs.Length; i++)
+        if (!Application.isEditor)
         {
-            string key = "Disable " + Prefabs[i].name;
-            if (!settings.disabledModsList.ContainsKey(key))
-                Debug.LogFormat("[The Impostor #{0}] Prefab name {1} not found within modsettings dictionary!", moduleId, Prefabs[i].name);
-            else if (settings.disabledModsList[key])
-                allowedPrefabIndices.Add(i);
+            for (int i = 0; i < Prefabs.Length; i++)
+            {
+                string key = "Disable " + Prefabs[i].name;
+                if (!settings.disabledModsList.ContainsKey(key))
+                    Debug.LogFormat("[The Impostor #{0}] Prefab name {1} not found within modsettings dictionary!", moduleId, Prefabs[i].name);
+                else if (!settings.disabledModsList[key])
+                    allowedPrefabIndices.Add(i);
+            }
         }
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
 
         chosenMod = allowedPrefabIndices.PickRandom();
-//chosenMod = Prefabs.Length - 1;
+chosenMod = Prefabs.Length - 1;
+        Debug.Log(allowedPrefabIndices.Count());
+        Debug.Log(allowedPrefabIndices.Join());
+        Debug.Log(chosenMod);
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
@@ -104,10 +110,7 @@ public class impostorScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(15f, 30f));
         if (!solved)
-        {
             Audio.PlaySoundAtTransform("hello", transform);
-            Debug.LogFormat("<The Impostor #{0}> Laugh occured.", moduleId);
-        }
     }
 #pragma warning disable 414
     private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Any other command will cause a strike.";
@@ -126,7 +129,8 @@ public class impostorScript : MonoBehaviour {
 
     IEnumerator TwitchHandleForcedSolve()
     {
-        chosenScript.buttons[0].OnInteract(); ;
+        chosenScript.buttons[0].OnInteract();
+        yield return new WaitForSeconds(0.1f);
         while (!chosenScript.willSolve)
             yield return true;
         yield return new WaitForSeconds(0.1f);

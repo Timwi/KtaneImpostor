@@ -242,7 +242,8 @@ namespace Steamworks {
 		/// <para> definitions which are marked as "playtime item generators" can be spawned. The call</para>
 		/// <para> will return an empty result set if there is not enough playtime credit for a drop.</para>
 		/// <para> Your game should call TriggerItemDrop at an appropriate time for the user to receive</para>
-		/// <para> new items, such as between rounds or while the player is dead. Note that players who</para>
+		/// <para> new items, such as between rounds or 
+		/// the player is dead. Note that players who</para>
 		/// <para> hack their clients could modify the value of "dropListDefinition", so do not use it</para>
 		/// <para> to directly control rarity. It is primarily useful during testing and development,</para>
 		/// <para> where you may wish to perform experiments with different types of drops.</para>
