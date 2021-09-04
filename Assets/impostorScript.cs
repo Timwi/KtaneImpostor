@@ -65,7 +65,7 @@ public class impostorScript : MonoBehaviour {
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
 
         chosenMod = allowedPrefabIndices.PickRandom();
-chosenMod = Prefabs.Length - 1;
+//chosenMod = Prefabs.Length - 1;
         Debug.Log(allowedPrefabIndices.Count());
         Debug.Log(allowedPrefabIndices.Join());
         Debug.Log(chosenMod);
