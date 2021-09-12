@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabParent: 1
 --- !u!1 &1075053006295592
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -944,13 +944,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1075053006295592}
-  m_LocalRotation: {x: -0.000000115202326, y: -0.7071067, z: 0.7071068, w: -0.00000011520231}
-  m_LocalPosition: {x: 0.018900016, y: 0.016, z: -0.054099992}
-  m_LocalScale: {x: 0.11375, y: 0.03999993, z: 0.09999997}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.0189, y: 0.016, z: 0.0541}
+  m_LocalScale: {x: 0.11375, y: 0.039999913, z: 0.09999994}
   m_Children:
   - {fileID: 4040372615864598}
-  m_Father: {fileID: 4267938111419652}
-  m_RootOrder: 13
+  m_Father: {fileID: 4405743488780390}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4040372615864598
 Transform:
@@ -1096,7 +1096,6 @@ Transform:
   - {fileID: 4924709168378796}
   - {fileID: 4511196194575012}
   - {fileID: 4301881021935724}
-  - {fileID: 4035078992191186}
   m_Father: {fileID: 4405743488780390}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1281,6 +1280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4267938111419652}
+  - {fileID: 4035078992191186}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1884,7 +1884,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3f7997acb25f89549b03de7695299b3b, type: 3}
+  - {fileID: 2100000, guid: d25e07c5420f51647af45a4d7805cf55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2873,15 +2873,15 @@ TextMesh:
   m_GameObject: {fileID: 1975992736888152}
   m_Text: '#    b    U'
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: 0.35
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 3f7997acb25f89549b03de7695299b3b, type: 3}
+  m_Font: {fileID: 12800000, guid: be72b1726eb2ea94498518c24187bd96, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -3672,6 +3672,7 @@ MonoBehaviour:
   BombInfo: {fileID: 0}
   moduleId: 0
   orgPresent: 0
+  willSolve: 0
   flickerObjs: []
   buttons:
   - {fileID: 114194638204687226}

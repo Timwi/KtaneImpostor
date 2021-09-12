@@ -33,20 +33,23 @@ public class FakeMurder : ImpostorMod
     void Start()
     {
         chosenPerson = Rnd.Range(0, 6);
+        displayedName = fullNames[chosenPerson];
         displayedWeapon = weapons.PickRandom();
+        displayedColor = colors[chosenPerson];
         Case = Rnd.Range(0, 4);
         flickerObjs.Add(texts[0].gameObject);
         if (Case == 0)
         {
-            int colorIx = (chosenPerson + Rnd.Range(1, 6)) % 6;
+            int colorIx;
+            do colorIx = Rnd.Range(0, 5);
+            while (colorIx == chosenPerson);
             displayedColor = colors[colorIx];
             Log("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]);
-        }
-        else displayedColor = colors[chosenPerson];
-        if (Case == 1)
+         }
+        else if (Case == 1)
         {
             int ending = Rnd.Range(0, 6);
-            int prefix = Enumerable.Range(0, 6).Where(x => prefixes[x] != prefixes[ending]).PickRandom();
+            int prefix = Enumerable.Range(0, 6).Where(x => prefixes[x][0] != prefixes[ending][0]).PickRandom();
             displayedName = prefixes[prefix] + " " + names[ending];
             Debug.Log(displayedName.Length);
             if (displayedName.Length >= 16)
@@ -60,7 +63,6 @@ public class FakeMurder : ImpostorMod
             displayedColor = "#C83291".Color();
             Debug.LogFormat("[The Impostor #{0}] The suspect displayed is Dr. Orchid. This is terrible. This should never happen. Dispose of the bomb immediately.", moduleId);
         }
-        else displayedName = fullNames.PickRandom();
         if (Case == 3)
         {
             Log("the suspect is on the middle screen and the weapon is on the top screen");

@@ -1751,7 +1751,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3f7997acb25f89549b03de7695299b3b, type: 3}
+  - {fileID: 2100000, guid: d25e07c5420f51647af45a4d7805cf55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2425,15 +2425,15 @@ TextMesh:
   m_GameObject: {fileID: 1309862816373606}
   m_Text: '#    b    U'
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: 0.35
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 144
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 3f7997acb25f89549b03de7695299b3b, type: 3}
+  m_Font: {fileID: 12800000, guid: be72b1726eb2ea94498518c24187bd96, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
@@ -3209,6 +3209,7 @@ MonoBehaviour:
   BombInfo: {fileID: 0}
   moduleId: 0
   orgPresent: 0
+  willSolve: 0
   flickerObjs: []
   buttons:
   - {fileID: 114887571928410320}

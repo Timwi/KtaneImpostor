@@ -59,7 +59,7 @@ public class ImpostorMod : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     { }
-
+    
     IEnumerator HoldBtn(KMSelectable btn)
     {
         if (isHeld)
