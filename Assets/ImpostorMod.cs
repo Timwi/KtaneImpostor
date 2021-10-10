@@ -14,22 +14,22 @@ public class ImpostorMod : MonoBehaviour
     [HideInInspector]
     public KMBombInfo BombInfo;
     [HideInInspector]
-    public int moduleId;
-    [HideInInspector]
     public bool orgPresent;
     [HideInInspector]
     public bool willSolve;
+    [HideInInspector]
+    public int moduleId;
     ///<summary>
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
     [HideInInspector]
-    public List<GameObject> flickerObjs;
+    protected List<GameObject> flickerObjs;
 
     public KMSelectable[] buttons;
     /// <summary>
     /// The position of the status light. Defaults to Top-Right
     /// </summary>
-    public virtual SLPositions SLPos { get; set; }
+    public virtual SLPositions SLPos { get; protected set; }
     /// <summary>
     /// Lets the fake mod communicate to Impostor when it is going to solve.
     /// </summary>
@@ -48,7 +48,7 @@ public class ImpostorMod : MonoBehaviour
     /// <summary>
     /// Sends a log message which works with the LFA. 
     /// </summary>
-    /// <param name="msg">The message to be logged, use string.Format for interpolation.</param>
+    /// <param name="msg">The message to be logged, use string.Format's syntax for interpolation.</param>
     public void Log(string msg, params object[] args)
     {
         Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, string.Format(msg, args));
@@ -70,7 +70,7 @@ public class ImpostorMod : MonoBehaviour
         yield return new WaitForSeconds(3);
         if (isHeld)
         {
-            Audio.PlaySoundAtTransform("willSolve", Module.transform);
+            Audio.PlaySoundAtTransform("solve", Module.transform);
             willSolve = true;
         }
 

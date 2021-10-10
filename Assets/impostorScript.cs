@@ -39,7 +39,7 @@ public class impostorScript : MonoBehaviour {
         GetScript();
         GetSelectables();
         StartCoroutine(Hehe());
-        Module.OnActivate += delegate () { chosenScript.OnActivate(); };
+        Module.OnActivate += () => chosenScript.OnActivate();
         if (Bomb.GetModuleNames().Contains("Organization"))
         {
             Debug.LogFormat("[The Impostor #{0}] Organization detected, the module will not award strikes.", moduleId);
@@ -66,9 +66,6 @@ public class impostorScript : MonoBehaviour {
 
         chosenMod = allowedPrefabIndices.PickRandom();
 //chosenMod = Prefabs.Length - 1;
-        Debug.Log(allowedPrefabIndices.Count());
-        Debug.Log(allowedPrefabIndices.Join());
-        Debug.Log(chosenMod);
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
@@ -81,7 +78,7 @@ public class impostorScript : MonoBehaviour {
         chosenScript.Audio = Audio;
         chosenScript.Module = Module;
         chosenScript.BombInfo = Bomb;
-        chosenScript.solve += delegate () { Solve(); };
+        chosenScript.solve += () => Solve(); 
         SL.transform.localPosition = SLP.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()
@@ -100,7 +97,7 @@ public class impostorScript : MonoBehaviour {
         solved = true;
         Debug.LogFormat("[The Impostor #{0}] Module solved.", moduleId);
         Module.HandlePass();
-        Audio.PlaySoundAtTransform("willSolve", transform);
+        Audio.PlaySoundAtTransform("solve", transform);
         chosenPrefab.SetActive(false);
         SL.transform.localPosition = SLP.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
@@ -110,7 +107,7 @@ public class impostorScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(15f, 30f));
         if (!solved)
-            Audio.PlaySoundAtTransform("hello", transform);
+            Audio.PlaySoundAtTransform("hehe", transform);
     }
 #pragma warning disable 414
     private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Any other command will cause a strike.";
@@ -151,7 +148,7 @@ public class impostorScript : MonoBehaviour {
             string key = "Disable " + prefab.name;
             if (!settings.disabledModsList.ContainsKey(key))
             {
-                Debug.Log("Added entry " + key + " to the settings file");
+                Debug.Log("[The Impostor] Added entry " + key + " to the settings file");
                 settings.disabledModsList.Add(key, false);
             }
         }
