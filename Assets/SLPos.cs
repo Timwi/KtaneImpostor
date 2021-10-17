@@ -9,7 +9,7 @@ public enum SLPositions
     BR,
     Missing
 }
-public static class SLP
+public static class SLDict
 {
     public static Dictionary<SLPositions, Vector3> StatusPositions = new Dictionary<SLPositions, Vector3>()
     {

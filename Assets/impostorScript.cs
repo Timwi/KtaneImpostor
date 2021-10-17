@@ -79,7 +79,7 @@ public class impostorScript : MonoBehaviour {
         chosenScript.Module = Module;
         chosenScript.BombInfo = Bomb;
         chosenScript.solve += () => Solve(); 
-        SL.transform.localPosition = SLP.StatusPositions[chosenScript.SLPos];
+        SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()
     {
@@ -99,7 +99,7 @@ public class impostorScript : MonoBehaviour {
         Module.HandlePass();
         Audio.PlaySoundAtTransform("solve", transform);
         chosenPrefab.SetActive(false);
-        SL.transform.localPosition = SLP.StatusPositions[SLPositions.TR];
+        SL.transform.localPosition = SLDict.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
         SelectableComp.Children = new KMSelectable[0];
     }
@@ -148,7 +148,7 @@ public class impostorScript : MonoBehaviour {
             string key = "Disable " + prefab.name;
             if (!settings.disabledModsList.ContainsKey(key))
             {
-                Debug.Log("[The Impostor] Added entry " + key + " to the settings file");
+                Debug.LogFormat("[The Impostor] Added entry {0} to the settings file", key);
                 settings.disabledModsList.Add(key, false);
             }
         }

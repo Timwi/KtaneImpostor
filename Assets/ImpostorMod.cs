@@ -23,7 +23,7 @@ public class ImpostorMod : MonoBehaviour
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
     [HideInInspector]
-    protected List<GameObject> flickerObjs;
+    protected List<GameObject> flickerObjs = new List<GameObject>();
 
     public KMSelectable[] buttons;
     /// <summary>
