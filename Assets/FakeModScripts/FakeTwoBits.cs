@@ -25,12 +25,12 @@ public class FakeTwoBits : ImpostorMod
         switch (Case)
         {
             case 0:
-                Log("the display is permanently displaying \"WORKING...\"");
+                LogQuirk("the display is permanently displaying \"WORKING...\"");
                 flickerObjs.Add(display.gameObject);
                 display.text = "WORKING...";
                 break;
             case 1:
-                Log("the submit and query buttons are swapped");
+                LogQuirk("the submit and query buttons are swapped");
                 flickerObjs.Add(query.gameObject);
                 flickerObjs.Add(submit.gameObject);
                 query.text = "SUBMIT";
@@ -41,7 +41,7 @@ public class FakeTwoBits : ImpostorMod
                 int changedPos = displayedLetters.IndexOf(init);
                 letters[changedPos].text = forbiddenLetters.PickRandom().ToString();
                 flickerObjs.Add(letters[changedPos].gameObject);
-                Log("letter {0} is changed to a {1}", displayedLetters[changedPos], letters[changedPos].text);
+                LogQuirk("letter {0} is changed to a {1}", displayedLetters[changedPos], letters[changedPos].text);
                 break;
         }
     }

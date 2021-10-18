@@ -28,12 +28,12 @@ public class FakeChess : ImpostorMod
             case 0:
                 flickerObjs.Add(dispLetter.gameObject);
                 dispLetter.text = ((char)(Rnd.Range(7, 26) + 'a')).ToString();
-                Log("the displayed coordinate is {0}", dispLetter.text + dispNumber.text);
+                LogQuirk("the displayed coordinate is {0}", dispLetter.text + dispNumber.text);
                 break;
             case 1:
                 flickerObjs.Add(dispNumber.gameObject);
                 dispNumber.text = (Rnd.Range(7, 11) % 10).ToString();
-                Log("the displayed coordinate is {0}", dispLetter.text + dispNumber.text);
+                LogQuirk("the displayed coordinate is {0}", dispLetter.text + dispNumber.text);
                 break;
             case 2:
                 for (int i = 0; i < 6; i++)
@@ -43,7 +43,7 @@ public class FakeChess : ImpostorMod
                     letters[i].text = (i + 1).ToString();
                     numbers[i].text = ((char)(i + 'a')).ToString();
                 }
-                Log("the number and letter buttons are swapped");
+                LogQuirk("the number and letter buttons are swapped");
                 break;
             case 3:
                 for (int i = 0; i < 6; i++)
@@ -51,7 +51,7 @@ public class FakeChess : ImpostorMod
                     flickerObjs.Add(leds[i].gameObject);
                     leds[i].material.color = Color.black;
                 }
-                Log("the LEDs are all unlit");
+                LogQuirk("the LEDs are all unlit");
                 break;
         }
     }

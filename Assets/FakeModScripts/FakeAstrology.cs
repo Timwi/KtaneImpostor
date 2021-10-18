@@ -28,19 +28,19 @@ public class FakeAstrology : ImpostorMod
                     change = Rnd.Range(1, 3);
                     displays[change].material.mainTexture = elements.PickRandom();
                     flickerObjs.Add(displays[change].gameObject);
-                    Log("there is a duplicate element");
+                    LogQuirk("there is a duplicate element");
                     break;
                 case 1:
                     change = Rnd.Range(0, 1) * 2;
                     displays[change].material.mainTexture = planets.PickRandom();
                     flickerObjs.Add(displays[change].gameObject);
-                    Log("there is a duplicate planet");
+                    LogQuirk("there is a duplicate planet");
                     break;
                 case 2:
                     change = Rnd.Range(0, 1);
                     displays[change].material.mainTexture = zodiacs.PickRandom();
                     flickerObjs.Add(displays[change].gameObject);
-                    Log("there is a duplicate zodiac");
+                    LogQuirk("there is a duplicate zodiac");
                     break;
             }
         }
@@ -50,13 +50,13 @@ public class FakeAstrology : ImpostorMod
             {
                 buttonLabels[0].text = "good\nomen";
                 flickerObjs.Add(buttonLabels[0].gameObject);
-                Log("the poor omen button says \"good omen\"");
+                LogQuirk("the poor omen button says \"good omen\"");
             }
             else
             {
                 buttonLabels[2].text = "poor\nomen";
                 flickerObjs.Add(buttonLabels[2].gameObject);
-                Log("the good omen button says \"poor omen\"");
+                LogQuirk("the good omen button says \"poor omen\"");
             }
         }
     }

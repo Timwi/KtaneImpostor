@@ -35,12 +35,12 @@ public class FakeColorMath : ImpostorMod
             if (Ut.RandBool())
             {
                 text.color = Color.blue;
-                Log("The letter in the center of the module is blue");
+                LogQuirk("The letter in the center of the module is blue");
             }
             else
             {
                 text.color = Color.yellow;
-                Log("The letter in the center of the module is yellow");
+                LogQuirk("The letter in the center of the module is yellow");
             }
             text.text = "ASMD".PickRandom().ToString();
         }
@@ -48,7 +48,7 @@ public class FakeColorMath : ImpostorMod
         {
             text.color = Ut.RandBool() ? Color.red : Color.green;
             text.text = "BCEFGHIJKLNOPQRTUVWXYZ".PickRandom().ToString();
-            Log("The letter in the center of the module is {0}", text.text);
+            LogQuirk("The letter in the center of the module is {0}", text.text);
         }
     }
 }

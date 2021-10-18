@@ -27,15 +27,15 @@ public class FakeLetterKeys : ImpostorMod
 			{
 				case 0:
 					letters[changedKey] = Rnd.Range(0, 10).ToString();
-					Log("the {0} key is changed to a number ({1})", Ut.Ordinal(changedKey + 1), texts[changedKey].text);
+					LogQuirk("the {0} key is changed to a number ({1})", Ut.Ordinal(changedKey + 1), texts[changedKey].text);
 					break;
 				case 1:
 					letters[changedKey] = letters.Where(x => x != letters[changedKey]).PickRandom();
-					Log("there is a duplicate {0}", letters[changedKey]);
+					LogQuirk("there is a duplicate {0}", letters[changedKey]);
 					break;
 				case 2:
 					letters[changedKey] = "EFGHIJKLMNOPQRSTUVWXYZ".PickRandom().ToString();
-					Log("the {0} key is changed to letter {1}", Ut.Ordinal(changedKey + 1), letters[changedKey]);
+					LogQuirk("the {0} key is changed to letter {1}", Ut.Ordinal(changedKey + 1), letters[changedKey]);
 					break;
 			}
         }
@@ -45,7 +45,7 @@ public class FakeLetterKeys : ImpostorMod
 			num = Rnd.Range(0, 9).ToString() + letters.PickRandom();
 			if (Ut.RandBool())
 				num = num.Reverse().Join("");
-			Log("the display says {0}", num);
+			LogQuirk("the display says {0}", num);
         }
 		for (int i = 0; i < 4; i++)
 			texts[i].text = letters[i];

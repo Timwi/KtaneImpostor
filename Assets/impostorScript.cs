@@ -56,7 +56,7 @@ public class impostorScript : MonoBehaviour {
             {
                 string key = "Disable " + Prefabs[i].name;
                 if (!settings.disabledModsList.ContainsKey(key))
-                    Debug.LogFormat("[The Impostor #{0}] Prefab name {1} not found within modsettings dictionary!", moduleId, Prefabs[i].name);
+                    Debug.LogFormat("[The Impostor] Prefab name {0} not found within modsettings dictionary!", Prefabs[i].name);
                 else if (!settings.disabledModsList[key])
                     allowedPrefabIndices.Add(i);
             }
@@ -64,7 +64,8 @@ public class impostorScript : MonoBehaviour {
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
         chosenMod = allowedPrefabIndices.PickRandom();
-        chosenMod = 8;
+        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Orientation", StringComparison.InvariantCultureIgnoreCase));
+
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
@@ -151,7 +152,6 @@ public class impostorScript : MonoBehaviour {
                 settings.disabledModsList.Add(key, false);
             }
         }
-        settings.disabledModsList.OrderBy(x => x.Key);
         config.Write(settings);
     }
 

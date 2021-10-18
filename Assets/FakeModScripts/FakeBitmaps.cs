@@ -30,7 +30,7 @@ public class FakeBitmaps : ImpostorMod {
         changedButton = Rnd.Range(0, 4);
         texts[changedButton].text = (Enumerable.Range(0, 10).Where(x => x != changedButton).PickRandom() + 1).ToString();
         flickerObjs.Add(texts[changedButton].gameObject);
-        Log("the {0} button has its label set to {1}", Ut.Ordinal(changedButton + 1), texts[changedButton].text);
+        LogQuirk("the {0} button has its label set to {1}", Ut.Ordinal(changedButton + 1), texts[changedButton].text);
     }
 
     private Texture generateTexture()

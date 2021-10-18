@@ -20,7 +20,7 @@ public class FakeWordScramble : ImpostorMod
         if (Ut.RandBool())
         {
             chosenWord = wordscramble.PickRandom().ToCharArray().Shuffle().Join("");
-            Log("the word is on the bottom screen");
+            LogQuirk("the word is on the bottom screen");
             botDisp.text = chosenWord;
             flickerObjs.Add(botDisp.gameObject);
             for (int i = 0; i < 6; i++)
@@ -29,7 +29,7 @@ public class FakeWordScramble : ImpostorMod
         else
         {
             chosenWord = wordscramble.PickRandom().ToCharArray().Shuffle().Join("");
-            Log("DEL and OK are on the left");
+            LogQuirk("DEL and OK are on the left");
             topDisp.text = chosenWord;
             for (int i = 0; i < 8; i++)
                 flickerObjs.Add(buttonTexts[i].gameObject);

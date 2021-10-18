@@ -24,7 +24,7 @@ public class FakeAnagrams : ImpostorMod
         if (Ut.RandBool())
         {
                 chosenWord = anagrams.PickRandom();
-                Log("the anagram is on the bottom screen");
+                LogQuirk("the anagram is on the bottom screen");
                 botDisp.text = chosenWord;
                 flickerObjs.Add(botDisp.gameObject);
                 for (int i = 0; i < 6; i++)
@@ -33,7 +33,7 @@ public class FakeAnagrams : ImpostorMod
         else
         {
             chosenWord = anagrams.PickRandom();
-            Log("DEL and OK are on the left");
+            LogQuirk("DEL and OK are on the left");
             topDisp.text = chosenWord;
             for (int i = 0; i < 8; i++)
                 flickerObjs.Add(buttonTexts[i].gameObject);

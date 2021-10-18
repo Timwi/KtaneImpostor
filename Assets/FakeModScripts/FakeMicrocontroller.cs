@@ -60,20 +60,20 @@ public class FakeMicrocontroller : ImpostorMod
             case 0:
                 dot.gameObject.SetActive(false);
                 flickerObjs.Add(dot.gameObject);
-                Log("the dot is missing");
+                LogQuirk("the dot is missing");
                 break;
             case 1:
                 int otherLED;
                 do otherLED = Rnd.Range(0, PinCount);
                 while (otherLED == litLED);
                 leds[otherLED].material = whiteLED;
-                Log("there are two lit LEDs");
+                LogQuirk("there are two lit LEDs");
                 flickerObjs.Add(wholeLEDs[litLED]);
                 flickerObjs.Add(wholeLEDs[otherLED]);
                 break;
             case 2:
                 bigLabel.text = fakeLabels.PickRandom();
-                Log("the chip's type is {0}", bigLabel.text);
+                LogQuirk("the chip's type is {0}", bigLabel.text);
                 flickerObjs.Add(bigLabel.gameObject);
                 break;
         }

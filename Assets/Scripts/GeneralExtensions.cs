@@ -19,7 +19,7 @@ public static class GeneralExtensions
     {
         return min <= num && num <= max;
     }
-
+    
     public static string FormatTime(this float seconds)
     {
         bool addMilliseconds = seconds < 60;

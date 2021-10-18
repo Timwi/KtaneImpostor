@@ -30,7 +30,7 @@ public class FakeTicTacToe : ImpostorMod
             order = preorder.ToArray().Shuffle();
             line = ticTacToes[Rnd.Range(0, 8)];
             chosenWinner = RandomSymb();
-            Log("the game is already won by " + chosenWinner);
+            LogQuirk("the game is already won by " + chosenWinner);
             foreach (int ix in line)
             {
                 grid[ix] = chosenWinner;
@@ -43,7 +43,7 @@ public class FakeTicTacToe : ImpostorMod
         else
         {
             upNext.gameObject.SetActive(false);
-            Log("nothing is on the up-next display");
+            LogQuirk("nothing is on the up-next display");
             flickerObjs.Add(upNext.gameObject);
             do
             {

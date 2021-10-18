@@ -18,7 +18,7 @@ public class ImpostorMod : MonoBehaviour
     [HideInInspector]
     public bool willSolve;
     [HideInInspector]
-    public int moduleId;
+    public int moduleId { private get; set; }
     ///<summary>
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
@@ -34,10 +34,10 @@ public class ImpostorMod : MonoBehaviour
     /// Lets the fake mod communicate to Impostor when it is going to solve.
     /// </summary>
     public Action solve;
+    
     private bool isHeld;
 
-
-    void Awake()
+    private void Awake()
     {
         foreach (KMSelectable btn in buttons)
         {
@@ -46,12 +46,22 @@ public class ImpostorMod : MonoBehaviour
         }
     }
     /// <summary>
+    /// Sends a log message which works with the LFA using string.Format<br></br>Do not capitalize the message, or put punctuation at its end. 
+    /// </summary>
+    /// <example>LogQuirk("the button is red");</example>
+    /// <example>LogQuirk("the {0} button is blue", "left")</example>
+    /// <param name="msg">The message to be logged, use string.Format's syntax for interpolation.</param>
+    public void LogQuirk(string msg, params object[] args)
+    {
+        Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, string.Format(msg, args));
+    }
+    /// <summary>
     /// Sends a log message which works with the LFA. 
     /// </summary>
     /// <param name="msg">The message to be logged, use string.Format's syntax for interpolation.</param>
     public void Log(string msg, params object[] args)
     {
-        Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, string.Format(msg, args));
+        Debug.LogFormat("[The Impostor #{0}] {1}", moduleId, string.Format(msg, args));
     }
 
     /// <summary>
@@ -59,8 +69,8 @@ public class ImpostorMod : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     { }
-    
-    IEnumerator HoldBtn(KMSelectable btn)
+
+    private IEnumerator HoldBtn(KMSelectable btn)
     {
         if (isHeld)
             yield break;
@@ -75,7 +85,7 @@ public class ImpostorMod : MonoBehaviour
         }
 
     }
-    void ReleaseBtn(KMSelectable btn)
+    private void ReleaseBtn(KMSelectable btn)
     {
         btn.AddInteractionPunch(0.25f);
         Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonRelease, btn.transform);
@@ -91,7 +101,7 @@ public class ImpostorMod : MonoBehaviour
             StartCoroutine(Flicker());
         }
     }
-    IEnumerator Flicker()
+    private IEnumerator Flicker()
     {
         willSolve = true;
         for (int i = 0; i < 6; i++)

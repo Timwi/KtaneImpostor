@@ -28,14 +28,14 @@ public class FakeSillySlots : ImpostorMod
             flickerObjs.Add(wheels[pos]);
             wheels[pos].transform.localRotation = Quaternion.AngleAxis(190, Vector3.right);
             wheels[pos].GetComponent<MeshRenderer>().material.mainTexture = wheelTextures.PickRandom();
-            Log("there is a foreign symbol on the {0} slot", positions[pos]);
+            LogQuirk("there is a foreign symbol on the {0} slot", positions[pos]);
             display.text = realKeywords.PickRandom();
         }
         else
         {
             flickerObjs.Add(display.gameObject);
             display.text = fakeKeywords.PickRandom();
-            Log("the displayed keyword is {0}", display.text);
+            LogQuirk("the displayed keyword is {0}", display.text);
         }
     }
 }

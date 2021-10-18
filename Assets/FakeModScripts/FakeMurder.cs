@@ -44,7 +44,7 @@ public class FakeMurder : ImpostorMod
             do colorIx = Rnd.Range(0, 5);
             while (colorIx == chosenPerson);
             displayedColor = colors[colorIx];
-            Log("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]);
+            LogQuirk("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]);
          }
         else if (Case == 1)
         {
@@ -55,17 +55,17 @@ public class FakeMurder : ImpostorMod
             if (displayedName.Length >= 16)
                 texts[0].transform.localScale = new Vector3(0.0009f, 0.001f, 0.001f);
             displayedColor = colors[ending];
-            Log("the suspect displayed is {0}", displayedName);
+            LogQuirk("the suspect displayed is {0}", displayedName);
         }
         else if (Case == 2)
         {
             displayedName = "Dr. Orchid";
             displayedColor = "#C83291".Color();
-            Debug.LogFormat("[The Impostor #{0}] The suspect displayed is Dr. Orchid. This is terrible. This should never happen. Dispose of the bomb immediately.", moduleId);
+            Log("The suspect displayed is Dr. Orchid. This is terrible. This should never happen. Dispose of the bomb immediately.");
         }
         if (Case == 3)
         {
-            Log("the suspect is on the middle screen and the weapon is on the top screen");
+            LogQuirk("the suspect is on the middle screen and the weapon is on the top screen");
             flickerObjs.Add(texts[1].gameObject);
             texts[0].text = displayedWeapon;
             texts[1].text = displayedName;

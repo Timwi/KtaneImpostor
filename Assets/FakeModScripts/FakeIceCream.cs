@@ -21,14 +21,14 @@ public class FakeIceCream : ImpostorMod
             flickerObjs.Add(name.gameObject);
             name.text = fakeNames.PickRandom();
             flavor.text = realFlavors.PickRandom();
-            Log("the name is {0}", name.text);
+            LogQuirk("the name is {0}", name.text);
         }
         else
         {
             flickerObjs.Add(flavor.gameObject);
             name.text = realNames.PickRandom();
             flavor.text = fakeFlavors.PickRandom();
-            Log("the flavor is {0}", flavor.text);
+            LogQuirk("the flavor is {0}", flavor.text);
         }
     }
 }

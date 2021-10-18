@@ -23,7 +23,7 @@ public class FakeSemaphore : ImpostorMod
             flickerObjs.Add(texts[2].gameObject);
             flags[0].transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             flags[1].transform.localRotation = Quaternion.Euler(0f, 0f, ((Rnd.Range(0,2)==0) ? -45f : -90f));
-            Log(string.Format("the square buttons says \"{0}\"", chosen));
+            LogQuirk(string.Format("the square buttons says \"{0}\"", chosen));
         }
         else
         {
@@ -33,7 +33,7 @@ public class FakeSemaphore : ImpostorMod
             flickerObjs.Add(texts[1].gameObject);
             flags[0].transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
             flags[1].transform.localRotation = Quaternion.Euler(0f, 0f, ((Rnd.Range(0,2)==0) ? -45f : -90f));
-            Log("the left and right buttons have swapped");
+            LogQuirk("the left and right buttons have swapped");
         }
     }
 

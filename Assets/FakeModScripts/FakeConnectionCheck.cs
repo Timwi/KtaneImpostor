@@ -30,14 +30,14 @@ public class FakeConnectionCheck : ImpostorMod
         {
             int newVal = Ut.RandBool() ? 0 : 9;
             texts[changedPos].text = newVal.ToString();
-            Log("there is a {0}", newVal);
+            LogQuirk("there is a {0}", newVal);
         }
         else
         {
             int adjacentPos = changedPos % 2 == 0 ? changedPos + 1 : changedPos - 1;
             texts[changedPos].text = texts[adjacentPos].text;
             flickerObjs.Add(texts[adjacentPos].gameObject);
-            Log("there are two numbers that are the same on the same pair");
+            LogQuirk("there are two numbers that are the same on the same pair");
         }
     }
 }

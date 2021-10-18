@@ -140,16 +140,16 @@ public static class Ut
     /// <summary>
     /// Takes a dictionary and creates a new dictionary in which the keys of the original are the values of the output, and vice versa.
     /// </summary>
-    /// <typeparam name="K">The type of the original dictionary's keys.</typeparam>
-    /// <typeparam name="V">The type of the original dictionary's values.</typeparam>
+    /// <typeparam name="TKey">The type of the original dictionary's keys.</typeparam>
+    /// <typeparam name="TVal">The type of the original dictionary's values.</typeparam>
     /// <param name="dict">The dictionary to be inverted.</param>
     /// <returns>A new dictionary with the keys and values swapped.</returns>
     /// <exception cref="InvalidOperationException"></exception>"
-    public static Dictionary<V, K> InvertDictionary<K, V>(this Dictionary<K, V> dict)
+    public static Dictionary<TVal, TKey> InvertDictionary<TKey, TVal>(this Dictionary<TKey, TVal> dict)
     {
         if (dict == null)
             throw new ArgumentException("dict");
-        var output = new Dictionary<V, K>();
+        var output = new Dictionary<TVal, TKey>();
         if (dict.Select(x => x.Value).HasDuplicates())
             throw new InvalidOperationException("Inputted dictionary has multiple entries with the same value, making it impossible to invert.");
         foreach (var pair in dict)
@@ -157,34 +157,6 @@ public static class Ut
         return output;
     }
 
-    /// <summary>
-    /// Sets a given component of <paramref name="vect"/> to <paramref name="value"/>. <paramref name="component"/> must be equal to X, Y, Z, x, y or z.
-    /// </summary>
-    /// <param name="vect">The vector to be modified.</param>
-    /// <param name="component">The component of the vector to be modified. Must be X, Y, Z, x, y or z.</param>
-    /// <param name="value">The value to set the component to.</param>
-    /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public static void SetComponent(this Vector3 vect, char component, float value)
-    {
-        if (vect == null)
-            throw new ArgumentNullException("vect");
-        switch (component)
-        {
-            case 'X':
-            case 'x':
-                vect.Set(value, vect.y, vect.z);
-                break;
-            case 'Y':
-            case 'y':
-                vect.Set(vect.x, value, vect.z);
-                break;
-            case 'Z':
-            case 'z':
-                vect.Set(vect.x, vect.y, value);
-                break;
-            default: throw new ArgumentOutOfRangeException("component", string.Format("Given component name ({0}) does match any of the components of the vector (x/y/z).", component));
-        }
-    }
     /// <summary>
     ///     Linearly interpolates from <paramref name="start"/> to <paramref name="end"/> while <paramref name="t"/> is less than 0.5, and then interpolates backwards from <paramref name="end"/> to <paramref name="start"/> while <paramref name="t"/> is greater than 0.5.
     /// </summary>
@@ -280,6 +252,40 @@ public static class Ut
         for (int row = 0; row < height; row++)
             Debug.Log(loggingTag + " " + string.Join(separator, Enumerable.Range(row * height, width).Select(x => itemSet[grid[x] + offset].ToString()).ToArray()));
     }
+    /// <summary>
+    ///     Takes an IEnumerable <paramref name="collection"/> and cyclically shifts its entries to the right.<br></br>If the value of <paramref name="rightShift"/> is less than 0, <paramref name="collection"/> will be shifted to the left by its absolute value. 
+    /// </summary>
+    /// <typeparam name="T">The type of the collection.</typeparam>
+    /// <typeparam name="TElem">The type of the collection's items.</typeparam>
+    /// <param name="collection">The collection to be shifted.</param>
+    /// <param name="rightShift">The number of places to shift the collection right by. If this value is negative, the collection will be shifted <em>left</em> by its absolute value</param>
+    /// <returns></returns>
+    public static T ShiftRight<T, TElem>(this T collection, int rightShift) where T : IEnumerable<TElem>
+    {
+        if (collection == null)
+            throw new ArgumentNullException("collection unexpected null value");
+        if (rightShift < 0)
+            return (T)collection.Skip(-1 * rightShift).Concat(collection.Take(-1 * rightShift));
+        else return (T)collection.Skip(collection.Count() - rightShift).Concat(collection.Take(rightShift));
+    }
 
+    /// <summary>
+    ///     Splits an IEnumerable into several smaller IEnumerables with the same size.<br></br>If <paramref name="ignoreThrow"/> is true, the method will allow the last IEnumerable to have a size smaller than the <paramref name="groupSize"/>.
+    /// </summary>
+    /// <param name="collection">The collection to be split.</param>
+    /// <param name="groupSize">The size of each resulting IEnumerable</param>
+    /// <param name="ignoreThrow">If this value is true, a check for all groups being equal will be bypassed, allowing the final group to have a value less than the <paramref name="groupSize"/></param>
+    public static IEnumerable<IEnumerable<T>> SplitCount<T>(this IEnumerable<T> collection, int groupSize, bool ignoreThrow = false)
+    {
+        if (collection == null)
+            throw new ArgumentNullException("collection unexpected null value");
+        if (groupSize <= 0)
+            throw new ArgumentOutOfRangeException("Group size must be positive, received value " + groupSize);
+        if (collection.Count() % groupSize != 0 && !ignoreThrow)
+            throw new ArgumentException("Group size is not a multiple of the collection's count.");
+        int fullPartitionCount = (collection.Count() / groupSize);
+        for (int i = 0; i < fullPartitionCount; i++)
+            yield return collection.Skip(groupSize * i).Take(groupSize);
+        yield return collection.Skip(fullPartitionCount * groupSize);
+    }
 }
-    

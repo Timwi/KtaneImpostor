@@ -31,7 +31,7 @@ public class FakeSwitches : ImpostorMod
                 flickerObjs.Add(leds[i].gameObject);
                 flickerObjs.Add(leds[i + 5].gameObject);
             }
-            Log("the switches are already in the correct positions");
+            LogQuirk("the switches are already in the correct positions");
         }
         else
         {
@@ -44,7 +44,7 @@ public class FakeSwitches : ImpostorMod
         {
             for (int i = 0; i < 5; i++)
                 flickerObjs.Add(switches[i].gameObject);
-            Log("the switches are all in the middle");
+            LogQuirk("the switches are all in the middle");
         }
         else
             for (int i = 0; i < 5; i++)
@@ -52,7 +52,7 @@ public class FakeSwitches : ImpostorMod
         if (Case == 2)
         {
             changedPos = Rnd.Range(0, 10);
-            Log("the {0} LED pair has two of the same state.", Ut.Ordinal(changedPos % 5 + 1));
+            LogQuirk("the {0} LED pair has two of the same state.", Ut.Ordinal(changedPos % 5 + 1));
         }
     }
     public override void OnActivate()

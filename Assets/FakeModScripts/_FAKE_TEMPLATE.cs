@@ -29,7 +29,7 @@ public class TemplateFakeScript : ImpostorMod
                 flickerObjs.Add(null);
                 break;
         }
-        Log("Test message 2+2={0}", 2+2);
+        LogQuirk("Test message 2+2={0}", 2+2);
     }
     public override void OnActivate()
     {

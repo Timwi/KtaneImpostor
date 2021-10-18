@@ -20,7 +20,7 @@ public class FakePianoKeys : ImpostorMod
             symbols.Add(set.PickRandom().ToString());
         }
         if (symbols.HasDuplicates()) {
-            Log("the display has identical symbols");
+            LogQuirk("the display has identical symbols");
         } else {
             symbols.Clear();
             goto PKretry;
