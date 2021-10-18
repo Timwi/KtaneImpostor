@@ -65,7 +65,7 @@ public class impostorScript : MonoBehaviour {
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
 
         chosenMod = allowedPrefabIndices.PickRandom();
-//chosenMod = Prefabs.Length - 1;
+        chosenMod = 8;
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
@@ -78,7 +78,7 @@ public class impostorScript : MonoBehaviour {
         chosenScript.Audio = Audio;
         chosenScript.Module = Module;
         chosenScript.BombInfo = Bomb;
-        chosenScript.solve += Solve(); 
+        chosenScript.solve += () => Solve(); 
         SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()
