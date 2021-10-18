@@ -64,7 +64,7 @@ public class impostorScript : MonoBehaviour {
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
         chosenMod = allowedPrefabIndices.PickRandom();
-//chosenMod = Prefabs.Length - 1;
+        chosenMod = 8;
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
