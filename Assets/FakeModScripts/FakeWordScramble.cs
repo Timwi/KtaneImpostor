@@ -7,10 +7,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeWordScramble : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] buttonTexts;
-    [SerializeField]
-    private TextMesh topDisp, botDisp;
+    public TextMesh[] buttonTexts;
+    public TextMesh topDisp, botDisp;
 
     private static readonly string[] wordscramble = { "ARCHER", "ATTACK", "BANANA", "BLASTS", "BURSTS", "BUTTON", "CANNON", "CASING", "CHARGE", "DAMAGE", "DEFUSE", "DEVICE", "DISARM", "FLAMES", "KABOOM", "KEVLAR", "KEYPAD", "LETTER", "MODULE", "MORTAR", "NAPALM", "OTTAWA", "PERSON", "ROBOTS", "ROCKET", "SAPPER", "SEMTEX", "WEAPON", "WIDGET", "WIRING" };
     private string chosenWord;

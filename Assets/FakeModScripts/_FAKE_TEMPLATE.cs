@@ -8,8 +8,6 @@ using Rnd = UnityEngine.Random;
 
 public class TemplateFakeScript : ImpostorMod 
 {
-    [SerializeField]
-    private GameObject[] objects; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
     public override SLPositions SLPos  //Can be ignored if SL Position is TR
     { get { return SLPositions.TR; } } 
     private int Case;

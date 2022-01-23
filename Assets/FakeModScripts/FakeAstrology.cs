@@ -7,13 +7,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAstrology : ImpostorMod 
 {
-    [SerializeField]
-    private MeshRenderer[] displays; //SerializeField causes the variable to show up in the inspector,
-                                     //keeping it a private variable.
-    [SerializeField]
-    private Texture[] elements, planets, zodiacs;
-    [SerializeField]
-    private TextMesh[] buttonLabels;
+    public MeshRenderer[] displays;
+    public Texture[] elements, planets, zodiacs;
+    public TextMesh[] buttonLabels;
     int change;
     void Start()
     {

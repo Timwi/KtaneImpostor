@@ -8,8 +8,7 @@ using Rnd = UnityEngine.Random;
 //Coded by blananas2
 public class FakePianoKeys : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh display; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
+    public TextMesh display; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
     void Start()
     {
         flickerObjs.Add(display.gameObject);

@@ -8,10 +8,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeTwoBits : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] letters;
-    [SerializeField]
-    private TextMesh display, query, submit;
+    public TextMesh[] letters;
+    public TextMesh display, query, submit;
 
     private string[] table = { "KB", "DK", "GV", "TK", "PV", "KP", "BV", "VT", "PZ", "DT", "EE", "ZK", "KE", "CK", "ZP", "PP", "TP", "TG", "PD", "PT", "TZ", "EB", "EC", "CC", "CZ", "ZV", "CV", "GC", "BT", "GT", "BZ", "PK", "KZ", "KG", "VD", "CE", "VB", "KD", "GG", "DG", "PB", "VV", "GE", "KV", "DZ", "PE", "DB", "CD", "TD", "CB", "GB", "TV", "KK", "BG", "BP", "VP", "EP", "TT", "ED", "ZG", "DE", "DD", "EV", "TE", "ZD", "BB", "PC", "BD", "KC", "ZB", "EG", "BC", "TC", "ZE", "ZC", "GP", "ET", "VC", "TB", "VZ", "EZ", "EK", "DV", "CG", "VE", "DP", "BK", "PG", "GK", "GZ", "KT", "CT", "ZZ", "VG", "GD", "CP", "BE", "ZT", "VK", "DC" };
     private string forbiddenLetters = "AFHIJLMNOQRSUWXY";

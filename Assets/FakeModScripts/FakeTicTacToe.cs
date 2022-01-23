@@ -8,10 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeTicTacToe : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] displays;
-    [SerializeField]
-    private TextMesh upNext;
+    public TextMesh[] displays;
+    public TextMesh upNext;
+
     private char?[] grid = new char?[9].Select(x => x = null).ToArray();
     private static readonly int[][] ticTacToes = new int[][] { new int[]{0,1,2 },new int[]{3,4,5 },new int[]{6,7,8 },new int[]{0,3,6 },new int[]{1,4,7 },new int[]{2,5,8 },new int[]{0,4,8 },new int[]{2,4,6 }, };
     private char[] order;

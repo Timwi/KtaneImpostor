@@ -8,14 +8,10 @@ using Rnd = UnityEngine.Random;
 
 public class FakeNeutralization : ImpostorMod
 {
-    [SerializeField]
-    private TextMesh baseDisp, titrateDisp;
-    [SerializeField]
-    private TextMesh[] tubeLabels;
-    [SerializeField]
-    private Transform meterTF;
-    [SerializeField]
-    private MeshRenderer meter;
+    public TextMesh baseDisp, titrateDisp;
+    public TextMesh[] tubeLabels;
+    public Transform meterTF;
+    public MeshRenderer meter;
 
     private int Case;
     private static readonly string[] bases = { "NH₃", "LiOH", "NaOH", "KOH" };

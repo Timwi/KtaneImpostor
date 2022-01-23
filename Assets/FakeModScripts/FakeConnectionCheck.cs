@@ -8,10 +8,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeConnectionCheck : ImpostorMod 
 {
-    [SerializeField]
-    private GameObject[] redLeds, greenLeds;
-    [SerializeField]
-    private TextMesh[] texts;
+    public GameObject[] redLeds, greenLeds;
+    public TextMesh[] texts;
     private int Case;
 
     void Start()

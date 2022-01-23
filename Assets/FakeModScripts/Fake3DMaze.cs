@@ -3,12 +3,9 @@ using Rnd = UnityEngine.Random;
 
 public class Fake3DMaze : ImpostorMod 
 {
-    [SerializeField]
-    private MeshRenderer[] walls;
-    [SerializeField]
-    private MeshRenderer bottomLetter;
-    [SerializeField]
-    private Texture[] letters;
+    public MeshRenderer[] walls;
+    public MeshRenderer bottomLetter;
+    public Texture[] letters;
     void Start()
     {
         foreach (MeshRenderer rend in walls)

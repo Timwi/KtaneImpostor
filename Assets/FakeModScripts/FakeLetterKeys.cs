@@ -7,11 +7,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeLetterKeys : ImpostorMod
 {
-
-	[SerializeField]
-	private TextMesh[] texts;
-	[SerializeField]
-	private TextMesh number;
+	public TextMesh[] texts;
+	public TextMesh number;
 
 	private int changedKey;
 

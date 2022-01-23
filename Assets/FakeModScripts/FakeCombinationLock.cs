@@ -8,12 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeCombinationLock : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] ButtonTexts;
-    [SerializeField]
-    private TextMesh LockText;
-    [SerializeField]
-    private TextMesh ResetText;
+    public TextMesh[] ButtonTexts;
+    public TextMesh LockText;
+    public TextMesh ResetText;
     private int Case;
 
     void Start()

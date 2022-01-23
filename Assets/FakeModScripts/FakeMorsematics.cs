@@ -8,8 +8,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMorsematics : ImpostorMod 
 {
-    [SerializeField] MeshRenderer lights;
-    [SerializeField] Transform submissionArea;
+    public MeshRenderer lights;
+    public Transform submissionArea;
 
     private Color OFF = Color.black, ON = new Color(0.7f, 0.6f, 0.2f, 0.4f);
     int Case;

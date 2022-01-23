@@ -3,9 +3,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeLogic : ImpostorMod 
 {
-    [SerializeField] TextMesh[] letters, logicSymbols, buttonLabels;
-    [SerializeField] Transform[] parentheses;
-    [SerializeField] MeshRenderer[] leds, buttonRenderers;
+    public TextMesh[] letters, logicSymbols, buttonLabels;
+    public Transform[] parentheses;
+    public MeshRenderer[] leds, buttonRenderers;
     private int Case;
 
     static readonly string standardSymbols = "∧∨⊻|↓↔→←";

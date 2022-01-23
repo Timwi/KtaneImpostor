@@ -8,7 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAdventureGame : ImpostorMod 
 {
-    [SerializeField] TextMesh enemy, stat, item;
+    public TextMesh enemy, stat, item;
     private int Case;
 
     static readonly string[] standardEnemies = { "DEMON", "DRAGON", "EAGLE", "GOBLIN", "GOLEM", "TROLL", "LIZARD", "WIZARD" };

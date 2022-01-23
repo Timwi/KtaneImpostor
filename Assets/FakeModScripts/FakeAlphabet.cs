@@ -8,9 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAlphabet : ImpostorMod
 {
-    [SerializeField] TextMesh[] texts;
-    [SerializeField] SpriteRenderer[] spriteRenderers;
-    [SerializeField] Sprite[] keypadSymbols;
+    public TextMesh[] texts;
+    public SpriteRenderer[] spriteRenderers;
+    public Sprite[] keypadSymbols;
 
     private string decoyLetters = "38☺♣*Ñæøδπ$";
     static string[] positions = { "top-left", "top-right", "bottom-left", "bottom-right" };

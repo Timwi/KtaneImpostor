@@ -7,8 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeColourFlash : ImpostorMod
 {
-    [SerializeField]
-    private TextMesh yes, no, display; 
+    public TextMesh yes, no, display; 
     private static readonly string[] fakeYes = { "YEE", "YAS", "YEP", "YEA", "YEH", "YAH" };
     private static readonly string[] fakeNo = { "NOPE", "NAH", "NAW", "NOT", "NIL", "NADA" };
     private static readonly string[] colorNames = { "RED", "YELLOW", "GREEN", "BLUE", "MAGENTA", "WHITE" };
@@ -22,7 +21,7 @@ public class FakeColourFlash : ImpostorMod
 
     void Start()
     {
-        Case = Rnd.Range(0, 4);
+        Case = Rnd.Range(0, 3);
         wordSequence[0] = colorNames.PickRandom();
         colorSequence[0] = colors.PickRandom();
         for (int i = 1; i < 8; i++)
@@ -48,18 +47,11 @@ public class FakeColourFlash : ImpostorMod
                     break;
                 }
             case 1:
-                flickerObjs.Add(yes.gameObject);
-                flickerObjs.Add(no.gameObject);
-                yes.text = "NO";
-                no.text = "YES";
-                LogQuirk("the 'YES' and 'NO' buttons have swapped");
-                break;
-            case 2:
                 flickerObjs.Add(display.gameObject);
                 wordSequence[7] = weirdColors.PickRandom();
                 LogQuirk("the last word is {0}", wordSequence[7]);
                 break;
-            case 3:
+            case 2:
                 flickerObjs.Add(display.gameObject);
                 LogQuirk("the sequence never ends");
                 break;

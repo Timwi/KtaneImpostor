@@ -7,10 +7,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeSwitches : ImpostorMod 
 {
-    [SerializeField]
-    private Transform[] switches;
-    [SerializeField]
-    private MeshRenderer[] leds;
+    public Transform[] switches;
+    public MeshRenderer[] leds;
+
     private int Case;
     private bool[] switchPositions = new bool[5];
     private bool[] ledPositions = new bool[5];

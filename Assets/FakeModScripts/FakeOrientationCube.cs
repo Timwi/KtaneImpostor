@@ -8,11 +8,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeOrientationCube : ImpostorMod 
 {
-    [SerializeField]
-    private GameObject observer;
-    [SerializeField]
-    private Transform observerTF;
-    [SerializeField]
+    public GameObject observer;
+    public Transform observerTF;
     public TextMesh[] buttonLabels, cubeFaceLabels;
     private int Case;
     private static readonly string[] btnNames = { "left", "right", "clockwise", "counter-clockwise" };

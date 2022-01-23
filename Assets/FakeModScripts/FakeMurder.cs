@@ -7,8 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMurder : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] texts;
+    public TextMesh[] texts;
 
     private Color[] colors = new Color[]
     {

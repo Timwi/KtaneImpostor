@@ -8,20 +8,13 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMicrocontroller : ImpostorMod 
 {
-    [SerializeField]
-    private GameObject[] chipSizes, wholeLEDs;
-    [SerializeField]
-    private MeshRenderer[] leds;
-    [SerializeField]
-    private Material whiteLED;
-    [SerializeField]
-    private Transform dot;
-    [SerializeField]
-    private TextMesh bigLabel, number;
-    [SerializeField]
-    private Material[] bgMats;
-    [SerializeField]
-    private MeshRenderer bg;
+    public GameObject[] chipSizes, wholeLEDs;
+    public MeshRenderer[] leds;
+    public Material whiteLED;
+    public Transform dot;
+    public TextMesh bigLabel, number;
+    public Material[] bgMats;
+    public MeshRenderer bg;
 
     private static string[] realLabels = { "STRK", "LEDS", "CNTD", "EXPL"};
     private static string[] fakeLabels = { "CHGG", "BLAN", "BOMB", "BOOM", "DETN", "TIMR", "MICR", "IPST"};

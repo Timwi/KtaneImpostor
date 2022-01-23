@@ -8,12 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeSillySlots : ImpostorMod 
 {
-    [SerializeField]
-    private GameObject[] wheels;
-    [SerializeField]
-    private Texture[] wheelTextures;
-    [SerializeField]
-    private TextMesh display;
+    public GameObject[] wheels;
+    public Texture[] wheelTextures;
+    public TextMesh display;
     private static readonly string[] positions = { "left", "middle", "right" };
     private static readonly string[] realKeywords = { "Sassy", "Silly", "Soggy", "Sally", "Simon", "Sausage", "Steven" };
     private static readonly string[] fakeKeywords = { "Stumbles", "Stupid", "Spongy", "Stinky", "Spoiled", "Seven", "Swedish", "Skewed", "Sussy", "Small", "Slotted", "Samuel", "Sexual", "Samfun", "Sellout", "Strange", "Salmon", "Screaming", "Sticky", "Sloppy", "Sleepy",  };

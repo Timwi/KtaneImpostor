@@ -8,12 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeCreation : ImpostorMod 
 {
-    [SerializeField]
-    private MeshRenderer[] displays; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
-    [SerializeField]
-    private MeshRenderer weatherDisplay;
-    [SerializeField]
-    private Texture[] elements, funnyElements, weathers, funnyWeathers;
+    public MeshRenderer[] displays; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
+    public MeshRenderer weatherDisplay;
+    public Texture[] elements, funnyElements, weathers, funnyWeathers;
 
     private int Case;
     private int[] elementOrder;

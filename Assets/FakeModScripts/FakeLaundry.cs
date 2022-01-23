@@ -8,9 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeLaundry : ImpostorMod 
 {
-    [SerializeField] GameObject coinSlot;
-    [SerializeField] Transform[] dials, symbols;
-    [SerializeField] TextMesh topDisp, bottomDisp;
+    public GameObject coinSlot;
+    public Transform[] dials, symbols;
+    public TextMesh topDisp, bottomDisp;
     private int Case;
 
     string[] funnyIrons = { "TOASTER", "BUMPER CAR", "TWO SEATED\nBUMPER CAR", "DELUX\nBUMPER CAR", "BUMPER CAR\nWITH NO LEGS", "BATHTUB", "IRON BAR", "GOLD", "IRONY", "98 DEGREES", "800°F", "THE IRON MAN", "TONY STARK", "VITAMIN B-12", "IRON-59", "FIRE" };

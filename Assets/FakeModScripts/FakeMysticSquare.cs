@@ -8,12 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMysticSquare : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] texts;
-    [SerializeField]
-    private Transform[] btnObjects;
-    [SerializeField]
-    private Transform skull;
+    public TextMesh[] texts;
+    public Transform[] btnObjects;
+    public Transform skull;
     private int[] order = Enumerable.Range(1, 8).ToArray();
     int movedPos, skullPos;
     private int Case;

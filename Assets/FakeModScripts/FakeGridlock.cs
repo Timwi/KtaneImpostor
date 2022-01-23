@@ -8,10 +8,10 @@ using Rnd = UnityEngine.Random;
 
 public class FakeGridlock : ImpostorMod 
 {
-    [SerializeField] TextMesh topNum, bottomNum, nextBtn;
-    [SerializeField] MeshRenderer[] symbolsRenderers, backings;
-    [SerializeField] Material[] colors;
-    [SerializeField] Texture[] symbols, arrows;
+    public TextMesh topNum, bottomNum, nextBtn;
+    public MeshRenderer[] symbolsRenderers, backings;
+    public Material[] colors;
+    public Texture[] symbols, arrows;
 
     private int Case;
 

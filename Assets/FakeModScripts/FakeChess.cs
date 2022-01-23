@@ -8,12 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeChess : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh dispLetter, dispNumber;
-    [SerializeField]
-    private TextMesh[] letters, numbers;
-    [SerializeField]
-    private MeshRenderer[] leds;
+    public TextMesh dispLetter, dispNumber;
+    public TextMesh[] letters, numbers;
+    public MeshRenderer[] leds;
 
     private int Case;
 

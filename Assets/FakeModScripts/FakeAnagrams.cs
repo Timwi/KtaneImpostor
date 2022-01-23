@@ -7,10 +7,8 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAnagrams : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] buttonTexts;
-    [SerializeField]
-    private TextMesh topDisp, botDisp;
+    public TextMesh[] buttonTexts;
+    public TextMesh topDisp, botDisp;
     public override SLPositions SLPos  
     { get { return SLPositions.TL; } } 
     private int Case;

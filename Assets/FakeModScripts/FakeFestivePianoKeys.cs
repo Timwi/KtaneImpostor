@@ -8,8 +8,7 @@ using Rnd = UnityEngine.Random;
 //Coded by blananas2
 public class FakeFestivePianoKeys : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh display;
+    public TextMesh display;
     void Start()
     {
         flickerObjs.Add(display.gameObject);
