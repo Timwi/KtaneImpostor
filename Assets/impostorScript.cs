@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using KModkit;
 
@@ -64,7 +63,7 @@ public sealed class impostorScript : MonoBehaviour {
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
         chosenMod = allowedPrefabIndices.PickRandom();
-chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Crypto", StringComparison.InvariantCultureIgnoreCase));
+chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Logic", StringComparison.InvariantCultureIgnoreCase));
 
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;

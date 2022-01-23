@@ -41,7 +41,7 @@ public class FakeCryptography : ImpostorMod
     string GetColor(string word)
     {
         word = word.ToUpperInvariant();
-        else if (word.CountOf('T') >= 2)
+        if (word.CountOf('T') >= 2)
             return "65B86F"; //Green
         else if (word.Count(x => "AEIOU".Contains(x)) == 1)
             return "FBFEB1"; //Yellow
