@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
+using System.Linq;
 using Rnd = UnityEngine.Random;
 
 public class FakeGamepad : ImpostorMod 
 {
-    [SerializeField]
-    private TextMesh[] arrowButtonTexts;
-    [SerializeField]
-    private TextMesh[] letterButtonTexts;
-    [SerializeField]
-    private TextMesh[] displayTexts;
-
+    public TextMesh[] arrowButtonTexts, letterButtonTexts, displayTexts;
     private int Case;
 
     void Start()
@@ -22,7 +17,7 @@ public class FakeGamepad : ImpostorMod
         {
             case 0:
                 var arrowTexts = new string[] { "▶", "▲", "◀", "▼" };
-                for (int i = 0; i < arrowButtonTexts.Length; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     arrowButtonTexts[i].text = arrowTexts[(i + 2) % 4];
                     flickerObjs.Add(arrowButtonTexts[i].gameObject);
@@ -31,7 +26,7 @@ public class FakeGamepad : ImpostorMod
                 break;
             case 1:
                 var allowedLetters = "ABCDEFHJLPUY";
-                var deaf = Rnd.Range(0, 10) == 0;
+                var deaf = Rnd.Range(0, 5) == 0;
                 if (deaf)
                 {
                     displayTexts[0].text = "DE";
@@ -39,12 +34,10 @@ public class FakeGamepad : ImpostorMod
                 }
                 else
                 {
-                    for (int i = 0; i < displayTexts.Length; i++)
-                    {
-                        displayTexts[i].text = allowedLetters[Rnd.Range(0, allowedLetters.Length)].ToString() + allowedLetters[Rnd.Range(0, allowedLetters.Length)].ToString();
-                        flickerObjs.Add(displayTexts[i].gameObject);
-                    }
+                    for (int i = 0; i < 2; i++)
+                        displayTexts[i].text = allowedLetters.PickRandom().ToString() + allowedLetters.PickRandom().ToString();
                 }
+                flickerObjs.AddRange(displayTexts.Select(x => x.gameObject));
                 LogQuirk("the display texts show letters");
                 break;
             case 2:

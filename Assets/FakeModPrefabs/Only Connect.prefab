@@ -1312,12 +1312,12 @@ MonoBehaviour:
   - {fileID: 114223766078238296}
   - {fileID: 114258982983430742}
   buttonObjs:
-  - {fileID: 1781538869197820}
-  - {fileID: 1729230860702902}
-  - {fileID: 1514476461592356}
-  - {fileID: 1809768741711046}
-  - {fileID: 1303519030226664}
-  - {fileID: 1546806538891872}
+  - {fileID: 23003474298860624}
+  - {fileID: 23303543535549524}
+  - {fileID: 23068479351934756}
+  - {fileID: 23938989685029818}
+  - {fileID: 23316472663459918}
+  - {fileID: 23497935242881542}
   hieroglyphTextures:
   - {fileID: 2800000, guid: c7b1e0f41425a1a4e9a87801502723c1, type: 3}
   - {fileID: 2800000, guid: 49e44e6d64542f04da68f74e9192062e, type: 3}
@@ -1325,8 +1325,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 9bde0bbd83becf04b8053d125b23bd4f, type: 3}
   - {fileID: 2800000, guid: 7d22fd391870907489240ce45fe78af9, type: 3}
   - {fileID: 2800000, guid: 394b98d5afb1e694c81e1138e989915b, type: 3}
-  teamText: {fileID: 102628773917883318}
   susTexture: {fileID: 2800000, guid: 8c4d253e9fec57e4bbfae44503e369ff, type: 3}
+  teamText: {fileID: 102628773917883318}
 --- !u!114 &114962824250185536
 MonoBehaviour:
   m_ObjectHideFlags: 1
