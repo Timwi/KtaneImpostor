@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 4632431517996192}
   - component: {fileID: 114441267444821960}
   m_Layer: 0
-  m_Name: Neutralization
+  m_Name: neutralization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
