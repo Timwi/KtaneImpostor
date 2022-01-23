@@ -23,7 +23,7 @@ public abstract class ImpostorMod : MonoBehaviour
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
     [HideInInspector]
-    protected List<GameObject> flickerObjs = new List<GameObject>();
+    protected readonly List<GameObject> flickerObjs = new List<GameObject>();
 
     public KMSelectable[] buttons;
     /// <summary>
@@ -51,7 +51,7 @@ public abstract class ImpostorMod : MonoBehaviour
     /// <example>LogQuirk("the button is red");</example>
     /// <example>LogQuirk("the {0} button is blue", "left")</example>
     /// <param name="msg">The message to be logged, use string.Format's syntax for interpolation.</param>
-    public void LogQuirk(string msg, params object[] args)
+    protected void LogQuirk(string msg, params object[] args)
     {
         Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, string.Format(msg, args));
     }
@@ -59,7 +59,7 @@ public abstract class ImpostorMod : MonoBehaviour
     /// Sends a log message which works with the LFA. 
     /// </summary>
     /// <param name="msg">The message to be logged, use string.Format's syntax for interpolation.</param>
-    public void Log(string msg, params object[] args)
+    protected void Log(string msg, params object[] args)
     {
         Debug.LogFormat("[The Impostor #{0}] {1}", moduleId, string.Format(msg, args));
     }

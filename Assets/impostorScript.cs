@@ -100,7 +100,6 @@ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.Start
         chosenPrefab.SetActive(false);
         SL.transform.localPosition = SLDict.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
-        SelectableComp.Children = new KMSelectable[0];
     }
     IEnumerator Hehe()
     {
@@ -126,10 +125,9 @@ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.Start
     IEnumerator TwitchHandleForcedSolve()
     {
         chosenScript.buttons[0].OnInteract();
-        yield return new WaitForSeconds(0.1f);
         while (!chosenScript.willSolve)
             yield return true;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         chosenScript.buttons[0].OnInteractEnded();
     }
 
