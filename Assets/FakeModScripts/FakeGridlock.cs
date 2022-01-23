@@ -23,14 +23,20 @@ public class FakeGridlock : ImpostorMod
         Case = Rnd.Range(0, 3); //However many cases you want there to be.
         switch (Case)
         {
-            case 0: //PREV button
-                flickerObjs.Add(null); //Replace null with whatever you're modifying
+            case 0:
+                nextBtn.text = "PREV";
+                flickerObjs.Add(nextBtn.gameObject);
+                LogQuirk("the next button says previous");
                 break;
             case 1: //10 of 5
-                flickerObjs.Add(null);
+                topNum.text = (pageCount + Rnd.Range(1, 5)).ToString();
+                flickerObjs.Add(topNum.gameObject);
+                LogQuirk("the current page is higher than the page count");
                 break;
             case 2://no star
-                flickerObjs.Add(null);
+                RandomizeCell(starPos);
+                flickerObjs.AddRange(symbolsRenderers.Select(x => x.gameObject));
+                LogQuirk("no star is present");
                 break;
         }
     }
@@ -40,25 +46,30 @@ public class FakeGridlock : ImpostorMod
         bottomNum.text = pageCount.ToString();
 
         for (int i = 0; i < 16; i++)
-        {
-            int disp = Rnd.Range(0, 3);
-            if (disp == 0) //Arrow
-            {
-                symbolsRenderers[i].material.mainTexture = arrows[Rnd.Range(0, 8)];
-                symbolsRenderers[i].material.color = Color.white;
-            }
-            else if (disp == 1) //Star
-            {
-                symbolsRenderers[i].material.mainTexture = symbols[Rnd.Range(0, 3)];
-                symbolsRenderers[i].material.color = Color.white;
-                backings[i].material = colors[Rnd.Range(0,4)];
-            }
-            else
-                symbolsRenderers[i].material = colors[4];
-        }
+            RandomizeCell(i);
         starPos = Rnd.Range(0, 16);
+        symbolsRenderers[starPos].enabled = true;
         symbolsRenderers[starPos].material.mainTexture = symbols[3];
-        backings[starPos].material = colors.PickRandom();
-
+        backings[starPos].material = colors[Rnd.Range(0,4)];
+    }
+    void RandomizeCell(int ix)
+    {
+        int disp = Rnd.Range(0, 3);
+        symbolsRenderers[ix].enabled = true;
+        if (disp == 0) //Arrow
+        {
+            symbolsRenderers[ix].material.mainTexture = arrows[Rnd.Range(0, 8)];
+            backings[ix].material = colors[4];
+        }
+        else if (disp == 1) //Star
+        {
+            symbolsRenderers[ix].material.mainTexture = symbols[Rnd.Range(0, 3)];
+            backings[ix].material = colors[Rnd.Range(0, 4)];
+        }
+        else
+        {
+            symbolsRenderers[ix].enabled = false;
+            backings[ix].material = colors[4];
+        }
     }
 }
