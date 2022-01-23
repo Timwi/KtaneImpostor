@@ -5,7 +5,7 @@ using UnityEngine;
 using KModkit;
 using Rnd = UnityEngine.Random;
 
-public class ImpostorMod : MonoBehaviour
+public abstract class ImpostorMod : MonoBehaviour
 {
     [HideInInspector]
     public KMAudio Audio;
