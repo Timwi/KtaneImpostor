@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4193357193064046}
   - component: {fileID: 114783078503798898}
   m_Layer: 0
-  m_Name: LaundryModule
+  m_Name: Laundry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
