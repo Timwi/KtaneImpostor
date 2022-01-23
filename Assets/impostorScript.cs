@@ -64,7 +64,7 @@ public sealed class impostorScript : MonoBehaviour {
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
         chosenMod = allowedPrefabIndices.PickRandom();
-chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("The Gamepad", StringComparison.InvariantCultureIgnoreCase));
+chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Only Connect", StringComparison.InvariantCultureIgnoreCase));
 
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
