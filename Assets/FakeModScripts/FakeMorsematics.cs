@@ -8,7 +8,9 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMorsematics : ImpostorMod 
 {
-    [SerializeField] private MeshRenderer lights;
+    [SerializeField] MeshRenderer lights;
+    [SerializeField] Transform submissionArea;
+
     private Color OFF = Color.black, ON = new Color(0.7f, 0.6f, 0.2f, 0.4f);
     int Case;
 
@@ -20,27 +22,36 @@ public class FakeMorsematics : ImpostorMod
 
     void Start()
     {
-        Case = Rnd.Range(0, 2);
-        if (Case == 0) //Broken LED
+        Case = Rnd.Range(0, 3);
+        morses.Shuffle();
+        for (int i = 0; i < 3; i++)
+            sequences[i] = morses[i];
+        switch (Case)
         {
-            int brokenLED = Rnd.Range(0, 3);
-            morses.Shuffle();
-            for (int i = 0; i < 3; i++)
-                sequences[i] = morses[i];
-            sequences[brokenLED] = " ";
-            LogQuirk("the {0} LED is completely off", Ut.Ordinal(3 - brokenLED));
+            case 0:
+                int brokenLED = Rnd.Range(0, 3);
+                sequences[brokenLED] = " ";
+                LogQuirk("the {0} LED is completely off", Ut.Ordinal(3 - brokenLED));
+                flickerObjs.Add(lights.gameObject);
+                break;
+            case 1:
+                LogQuirk("the LEDs are flashing irregularly");
+                flickerObjs.Add(lights.gameObject);
+                break;
+            case 2:
+                LogQuirk("the submit button and display are flipped");
+                submissionArea.localScale = new Vector3(-1, +1, +1);
+                flickerObjs.Add(submissionArea.gameObject);
+                break;
         }
-        else
-            LogQuirk("the LEDs are flashing irregularly");
-        flickerObjs.Add(lights.gameObject);
     }
     public override void OnActivate()
     {
         for (int i = 0; i < 3; i++)
         {
-            if (Case == 0)
-                StartCoroutine(FlashSequence(i));
-            else StartCoroutine(GoOffOomfie(i));
+            if (Case == 1)
+                StartCoroutine(GoOffOomfie(i));
+            else StartCoroutine(FlashSequence(i));
         }
     }
     IEnumerator FlashSequence(int pos)

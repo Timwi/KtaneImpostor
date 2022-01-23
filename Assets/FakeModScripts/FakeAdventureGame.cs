@@ -14,9 +14,9 @@ public class FakeAdventureGame : ImpostorMod
     static readonly string[] standardEnemies = { "DEMON", "DRAGON", "EAGLE", "GOBLIN", "GOLEM", "TROLL", "LIZARD", "WIZARD" };
     static readonly string[] standardItems = { "BALLOON", "BATTERY", "BELLOWS", "CHEAT CODE", "CRYSTAL BALL", "FEATHER ", "HARD DRIVE", "LAMP", "MOONSTONE", "POTION", "SMALL DOG", "STEPLADDER", "SUNSTONE", "SYMBOL", "TICKET", "TROPHY", "BROADSWORD", "CABER", "NASTY KNIFE", "LONGBOW", "MAGIC ORB", "GRIMOIRE" };
     
-    static readonly string[] funnyEnemies = { "JOHN CENA", "DEAF", "BLAN", "EXISH", "ANTON", "UNITY", "15L H₂SO₄", "JACK BLACK", "TIMWI", "ELMO", "THE POPE", "MATPAT", "SANS", "GAMING", "NEW YORK", "EL PASO, TX", "MITT ROMNEY", "CLEMP", "MCNUGGET", "DICEY", "ALBANIA", "CENTURION" };
-    static readonly string[] funnyStats = { "{0} SWG", "{0} mSv", "{0}{1} radians", "{0} EYES", "{0} BITS", "${0}.{1}{2}", "{0}ND PLACE", "{0}{1}% ABV", "0.{0}{1} BAC", "{0} RETWEETS", "{0} FBI", "5{1} SHADES", "T-{0} SECONDS", "{0} LUST", "{0}{1} BMI", "0 BITCHES", "{1}.{0}{2} ETH", "{1} DABLOONS", "{0}0 CENT", "{0}:1 RATIO", "{0}{1}{2} CAL" };
-    static readonly string[] funnyItems = { "GUN", "STEPBROTHER", "HOLY WATER", "LARGE DOG", "BRICK", "TWIX BAR", "BOMB", "M249", "BOSNIAN FLAG", "SUBWAY WINGS", "BIG EGG", "FAT MAN", "PESTILENCE", "REDDIT GOLD" };
+    static readonly string[] funnyEnemies = { "JOHN CENA", "DEAF", "BLAN", "EXISH", "ANTON", "UNITY", "15L H₂SO₄", "JACK BLACK", "TIMWI", "ELMO", "THE POPE", "MATPAT", "SANS", "GAMING", "NEW YORK", "EL PASO, TX", "MITT ROMNEY", "CLEMP", "SMILFS", "MCNUGGET", "DICEY", "ALBANIA", "CENTURION", "RHOJUS", "LEMON" };
+    static readonly string[] funnyStats = { "{0} SWG", "{0} mSv", "{0}{1} radians", "{0} EYES", "${0}.{1}{2}", "{0}{1}% ABV", "0.{0}{1} BAC", "{0} RETWEETS", "{0} FBI", "5{1} SHADES", "T-{0} SECONDS", "{0} LUST", "{0}{1} BMI", "0 BITCHES", "{1}.{0}{2} ETH", "{1} DABLOONS", "{0}0 CENT", "{0}:1 RATIO", "{0}{1}{2} CAL", "{0} KROMER",  };
+    static readonly string[] funnyItems = { "GUN", "STEPBROTHER", "HOLY WATER", "LARGE DOG", "BRICK", "TWIX BAR", "BOMB", "M249", "BOSNIAN FLAG", "SUBWAY WINGS", "BIG EGG", "FAT MAN", "PESTILENCE", "REDDIT GOLD", "CLEAN KNIFE",  };
     void Start()
     {
         enemy.text = standardEnemies.PickRandom();

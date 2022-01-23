@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 8ec018d865d91884aaf8340623af5798
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Ostrich Sans
+  fontNames:
+  - Ostrich Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 79a20420dfbec8340a5dc1a2987669ab, type: 3}
+  - {fileID: 12800000, guid: 2b654805292cdfc4b81080f391082b8c, type: 3}
+  - {fileID: 12800000, guid: 463344d59174e7247ae796df6579ac51, type: 3}
+  - {fileID: 12800000, guid: 1ebe1d96973a920409b439b3a0e2bb63, type: 3}
+  - {fileID: 12800000, guid: baf07d67552214946938f65fd2e5ab6b, type: 3}
+  - {fileID: 12800000, guid: 791e5708f399e9248a0fc2c2527aa578, type: 3}
+  - {fileID: 12800000, guid: af9dabe8308185e44b716f636632b997, type: 3}
+  - {fileID: 12800000, guid: 1c3ddb09068fb6046919d43b00522ff1, type: 3}
+  - {fileID: 12800000, guid: 04f590d91b592cc4d9a9a3161b756289, type: 3}
+  - {fileID: 12800000, guid: f783b94c09eb3ed479ea59aee8951344, type: 3}
+  - {fileID: 12800000, guid: 4b95304da444d9c43be86d27b99befb3, type: 3}
+  - {fileID: 12800000, guid: f86b1bada9d24e343b994011d4c66c99, type: 3}
+  - {fileID: 12800000, guid: cddb0ecfcfed4d4499792b9ec5778944, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

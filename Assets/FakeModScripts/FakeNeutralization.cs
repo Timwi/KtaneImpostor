@@ -71,6 +71,7 @@ public class FakeNeutralization : ImpostorMod
             case 4:
                 titrateDisp.text = "Castrate";
                 LogQuirk("the titrate button says castrate");
+                flickerObjs.Add(titrateDisp.gameObject);
                 break;
 
         }
