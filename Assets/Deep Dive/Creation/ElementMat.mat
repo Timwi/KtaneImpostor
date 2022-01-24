@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Air
+  m_Name: ElementMat
   m_Shader: {fileID: 4800000, guid: d0d9cba34354e894ab59d2240717f625, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
