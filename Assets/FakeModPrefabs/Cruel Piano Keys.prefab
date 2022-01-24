@@ -2057,7 +2057,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a8e1d55d59dc1d74ab1332ad61fe4fa3, type: 2}
+  - {fileID: 2100000, guid: 459f256bef77eb54db6e6951a8af45d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3207,10 +3207,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
   willSolve: 0
-  flickerObjs: []
   buttons:
   - {fileID: 114887571928410320}
   - {fileID: 114906791708535674}

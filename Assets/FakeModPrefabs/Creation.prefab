@@ -594,7 +594,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: aa9cb75e461727644abc42b61bb1f4ed, type: 2}
+  - {fileID: 2100000, guid: d063e72516e5f8d439bd0f6573bd863c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -628,7 +628,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4db4b4b241d98044fb4195ecf0f04f57, type: 2}
+  - {fileID: 2100000, guid: 8e6eeef1e197a3b498f95df0281dee2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -662,7 +662,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4db4b4b241d98044fb4195ecf0f04f57, type: 2}
+  - {fileID: 2100000, guid: 8e6eeef1e197a3b498f95df0281dee2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -696,7 +696,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f0ecf97a8283f6642a9b735e0a6d7388, type: 2}
+  - {fileID: 2100000, guid: 56a8ec42b5617ed43a6f31968232677b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -798,7 +798,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7f47a0bede691414082e71eebe474a83, type: 2}
+  - {fileID: 2100000, guid: d063e72516e5f8d439bd0f6573bd863c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -866,7 +866,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ca7a98c3571e26c459477035a056ab65, type: 2}
+  - {fileID: 2100000, guid: 26fea86a3b6a7cb43bede5c74ac4c4b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -900,7 +900,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: cecff8a0b10b9f24b8b897ff93d6611c, type: 2}
+  - {fileID: 2100000, guid: d063e72516e5f8d439bd0f6573bd863c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1177,10 +1177,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
   willSolve: 0
-  flickerObjs: []
   buttons:
   - {fileID: 114017155904990584}
   - {fileID: 114755293686882454}

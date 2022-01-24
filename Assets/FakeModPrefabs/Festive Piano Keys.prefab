@@ -3560,10 +3560,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
   willSolve: 0
-  flickerObjs: []
   buttons:
   - {fileID: 114377648050155030}
   - {fileID: 114373361283595870}

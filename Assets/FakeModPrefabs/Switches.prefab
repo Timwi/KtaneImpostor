@@ -3198,16 +3198,14 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
-  flickerObjs: []
+  willSolve: 0
   buttons:
   - {fileID: 114628026935227220}
   - {fileID: 114659001354551062}
   - {fileID: 114467754553131624}
   - {fileID: 114510384276174768}
   - {fileID: 114557936740575866}
-  childRowLength: 5
   switches:
   - {fileID: 4807887214397240}
   - {fileID: 4862449744661478}

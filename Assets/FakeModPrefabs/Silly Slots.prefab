@@ -961,7 +961,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b97ecf0c6c53024488befd0a2205543d, type: 2}
+  - {fileID: 2100000, guid: 26fea86a3b6a7cb43bede5c74ac4c4b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1029,7 +1029,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7af3a2ce5dc254d40b8e3eee54d0b91a, type: 2}
+  - {fileID: 2100000, guid: 26cdee844cb231740941635a5e5962c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1097,7 +1097,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b68c6b5712f7d7248a80cf5394699db7, type: 2}
+  - {fileID: 2100000, guid: ca1aec409f6c2a649b81d3b5f3147bcf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1301,7 +1301,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9383d041b41e7604da033780beb939ad, type: 2}
+  - {fileID: 2100000, guid: d78997577841ebf46b1df22c4db7a51b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1818,10 +1818,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
   willSolve: 0
-  flickerObjs: []
   buttons:
   - {fileID: 114020914355647462}
   - {fileID: 114746760425325178}

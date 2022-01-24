@@ -17,6 +17,7 @@ public class FakeSillySlots : ImpostorMod
     private static readonly float[] wheelAngles = { 7, 39, 66, 101, 130, 160, 190, 220, 250, 280, 310, 340 };
     void Start()
     {
+        transform.Find("LED1").GetComponent<MeshRenderer>().material.SetFloat("Blend", 1);
         for (int i = 0; i < 3; i++)
             wheels[i].transform.localRotation = Quaternion.AngleAxis(wheelAngles.PickRandom(), Vector3.right);
         if (Ut.RandBool())

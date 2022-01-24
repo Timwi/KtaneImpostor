@@ -1509,7 +1509,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bdf32f76f35d20945ac0666d082d736c, type: 2}
+  - {fileID: 2100000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1747,7 +1747,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ea7383a11cc28a24cbea15073b68bf56, type: 2}
+  - {fileID: 2100000, guid: 2946c33ae4ef1264da6737743fa6908c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1781,7 +1781,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ea7383a11cc28a24cbea15073b68bf56, type: 2}
+  - {fileID: 2100000, guid: 2946c33ae4ef1264da6737743fa6908c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1815,7 +1815,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 71fd4b9053b24e5488cc0d45bfc80547, type: 2}
+  - {fileID: 2100000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2181,7 +2181,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1227884939457004}
-  m_Mesh: {fileID: 4300000, guid: de2ecf7201de1d347bce8844cca92160, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
 --- !u!33 &33011235420188924
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2209,7 +2209,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1554895282370278}
-  m_Mesh: {fileID: 4300000, guid: de2ecf7201de1d347bce8844cca92160, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
 --- !u!33 &33375170898954616
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2597,9 +2597,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
-  flickerObjs: []
+  willSolve: 0
   buttons:
   - {fileID: 114410634857404778}
   - {fileID: 114389322329427684}
@@ -2609,7 +2608,6 @@ MonoBehaviour:
   - {fileID: 114366645943490500}
   - {fileID: 114211672454571758}
   - {fileID: 114510588488275864}
-  childRowLength: 4
   buttonTexts:
   - {fileID: 102938962355578158}
   - {fileID: 102443630163726490}

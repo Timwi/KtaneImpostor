@@ -13,7 +13,7 @@ public class FakeMicrocontroller : ImpostorMod
     public Material whiteLED;
     public Transform dot;
     public TextMesh bigLabel, number;
-    public Material[] bgMats;
+    public Texture[] bgTextures;
     public MeshRenderer bg;
 
     private static string[] realLabels = { "STRK", "LEDS", "CNTD", "EXPL"};
@@ -34,7 +34,7 @@ public class FakeMicrocontroller : ImpostorMod
 
         chipVal = Rnd.Range(0, 3);
         chipSizes[chipVal].SetActive(true);
-        bg.material = bgMats[chipVal];
+        bg.material.mainTexture = bgTextures[chipVal];
         for (int i = PinCount; i < 10; i++)
             wholeLEDs[i].SetActive(false);
 

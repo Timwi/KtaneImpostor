@@ -1645,7 +1645,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 71fd4b9053b24e5488cc0d45bfc80547, type: 2}
+  - {fileID: 2100000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2121,7 +2121,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 71fd4b9053b24e5488cc0d45bfc80547, type: 2}
+  - {fileID: 2100000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2181,7 +2181,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603708462308740}
-  m_Mesh: {fileID: 4300000, guid: de2ecf7201de1d347bce8844cca92160, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
 --- !u!33 &33159365487813054
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2286,7 +2286,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1690952464654730}
-  m_Mesh: {fileID: 4300000, guid: de2ecf7201de1d347bce8844cca92160, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
 --- !u!33 &33805337337188144
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -2558,9 +2558,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
-  flickerObjs: []
+  willSolve: 0
   buttons:
   - {fileID: 114662148936731886}
   - {fileID: 114227722599269090}
@@ -2570,7 +2569,6 @@ MonoBehaviour:
   - {fileID: 114357322296939982}
   - {fileID: 114214215179264202}
   - {fileID: 114597449906771258}
-  childRowLength: 4
   buttonTexts:
   - {fileID: 102141776404756284}
   - {fileID: 102155321729535264}

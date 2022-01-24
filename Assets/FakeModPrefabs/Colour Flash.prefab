@@ -854,13 +854,11 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
-  flickerObjs: []
+  willSolve: 0
   buttons:
   - {fileID: 114495782708955846}
   - {fileID: 114982850522662310}
-  childRowLength: 2
   yes: {fileID: 102950858959330904}
   no: {fileID: 102506977086675136}
   display: {fileID: 102967004241504450}

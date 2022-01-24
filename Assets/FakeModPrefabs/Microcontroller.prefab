@@ -1288,7 +1288,7 @@ Transform:
   m_GameObject: {fileID: 1068376928082352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4851122609299446}
   m_RootOrder: 6
@@ -2854,7 +2854,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068376928082352}
-  m_Mesh: {fileID: 4300000, guid: bf336d4e7abbbc1479c598eaa1b3e490, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 1c46642b7f907d844bcdfcca8625afdd, type: 3}
 --- !u!33 &33205567136787732
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -3495,10 +3495,8 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
-  moduleId: 0
   orgPresent: 0
   willSolve: 0
-  flickerObjs: []
   buttons:
   - {fileID: 114205949397868178}
   - {fileID: 114571100965899678}
@@ -3533,10 +3531,10 @@ MonoBehaviour:
   dot: {fileID: 4255628789218680}
   bigLabel: {fileID: 102436248736410448}
   number: {fileID: 102731668935218274}
-  bgMats:
-  - {fileID: 2100000, guid: d64b9bb20ae479242878ba27e39e0455, type: 2}
-  - {fileID: 2100000, guid: f3a66085ff1c0844c9c12645c66cd248, type: 2}
-  - {fileID: 2100000, guid: e975abe124c5d794f8e6617155621d75, type: 2}
+  bgTextures:
+  - {fileID: 2800000, guid: 9c7975a8725c53240919fdff23f3d823, type: 3}
+  - {fileID: 2800000, guid: 3171fbcc8d2537c46ac9bd3997445a0b, type: 3}
+  - {fileID: 2800000, guid: a3270c32ed3feb54693c520634252b44, type: 3}
   bg: {fileID: 23991969772945250}
 --- !u!114 &114446783547776380
 MonoBehaviour:

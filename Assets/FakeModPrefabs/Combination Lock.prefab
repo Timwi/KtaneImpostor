@@ -1257,7 +1257,6 @@ MonoBehaviour:
   BombInfo: {fileID: 0}
   orgPresent: 0
   willSolve: 0
-  moduleId: 0
   buttons:
   - {fileID: 11430608}
   - {fileID: 11499544}
