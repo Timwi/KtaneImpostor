@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using KModkit;
+using System.Reflection;
 
-public sealed class impostorScript : MonoBehaviour {
+public sealed class impostorScript : MonoBehaviour
+{
 
     public KMBombInfo Bomb;
     public KMAudio Audio;
@@ -19,18 +21,19 @@ public sealed class impostorScript : MonoBehaviour {
     private GameObject chosenPrefab;
     private ImpostorMod chosenScript;
     private static ImpostorSettings settings = new ImpostorSettings();
-        
+
     //Logging
     static int moduleIdCounter = 1;
     int moduleId;
     private int chosenMod;
     private bool solved;
 
-    void Awake () {
+    void Awake()
+    {
         moduleId = moduleIdCounter++;
     }
 
-    private void Start () 
+    private void Start()
     {
         Debug.LogFormat("<The Impostor #{0}> Impostor module loaded with version 2.0.0", moduleId);
         SetUpModSettings();
@@ -49,6 +52,16 @@ public sealed class impostorScript : MonoBehaviour {
     {
         BG.SetActive(false);
         List<int> allowedPrefabIndices = new List<int>();
+        // Start janky Quinn Wuest code
+        if (GetMissionID() == "mod_how123_impostorous")
+        {
+            Debug.LogFormat("<The Impostor #{0}> Mission Impostorous detected. (mod_how123_impostorous)", moduleId);
+            var impMissionMods = new string[] { "Anagrams", "Bitmaps", "Connection Check", "Cruel Piano Keys", "Festive Piano Keys", "Letter Keys", "Murder", "Colour Flash", "Piano Keys", "Semaphore", "Switches", "Word Scramble" };
+            for (int i = 0; i < impMissionMods.Length; i++)
+                allowedPrefabIndices.Add(Array.IndexOf(Prefabs.Select(j => j.name).ToArray(), impMissionMods[i]));
+            goto missionDone;
+        }
+        // End janky Quinn Wuest code
         if (!Application.isEditor)
         {
             for (int i = 0; i < Prefabs.Length; i++)
@@ -62,9 +75,9 @@ public sealed class impostorScript : MonoBehaviour {
         }
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
+        missionDone:
         chosenMod = allowedPrefabIndices.PickRandom();
-chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Logic", StringComparison.InvariantCultureIgnoreCase));
-
+// chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Logic", StringComparison.InvariantCultureIgnoreCase));
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
@@ -77,7 +90,7 @@ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.Start
         chosenScript.Audio = Audio;
         chosenScript.Module = Module;
         chosenScript.BombInfo = Bomb;
-        chosenScript.solve += () => Solve(); 
+        chosenScript.solve += () => Solve();
         SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()
@@ -106,6 +119,20 @@ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.Start
         yield return new WaitForSeconds(UnityEngine.Random.Range(15f, 30f));
         if (!solved)
             Audio.PlaySoundAtTransform("hehe", transform);
+    }
+    private string GetMissionID()
+    {
+        try
+        {
+            Component gameplayState = GameObject.Find("GameplayState(Clone)").GetComponent("GameplayState");
+            Type type = gameplayState.GetType();
+            FieldInfo fieldMission = type.GetField("MissionToLoad", BindingFlags.Public | BindingFlags.Static);
+            return fieldMission.GetValue(gameplayState).ToString();
+        }
+        catch (NullReferenceException)
+        {
+            return "undefined";
+        }
     }
 #pragma warning disable 414
     private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Any other command will cause a strike.";
