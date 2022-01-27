@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using KModkit;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 public sealed class impostorScript : MonoBehaviour
 {
@@ -57,27 +58,39 @@ public sealed class impostorScript : MonoBehaviour
         {
             Debug.LogFormat("<The Impostor #{0}> Mission Impostorous detected. (mod_how123_impostorous)", moduleId);
             var impMissionMods = new string[] { "Anagrams", "Bitmaps", "Connection Check", "Cruel Piano Keys", "Festive Piano Keys", "Letter Keys", "Murder", "Colour Flash", "Piano Keys", "Semaphore", "Switches", "Word Scramble" };
-            for (int i = 0; i < impMissionMods.Length; i++)
-                allowedPrefabIndices.Add(Array.IndexOf(Prefabs.Select(j => j.name).ToArray(), impMissionMods[i]));
-            goto missionDone;
-        }
-        // End janky Quinn Wuest code
-        if (!Application.isEditor)
-        {
             for (int i = 0; i < Prefabs.Length; i++)
-            {
-                string key = "Disable " + Prefabs[i].name;
-                if (!settings.disabledModsList.ContainsKey(key))
-                    Debug.LogFormat("[The Impostor] Prefab name {0} not found within modsettings dictionary!", Prefabs[i].name);
-                else if (!settings.disabledModsList[key])
+                if (impMissionMods.Contains(Prefabs[i].name))
                     allowedPrefabIndices.Add(i);
+        }
+        else
+        {
+            var missionDesc = KTMissionGetter.Mission.Description;
+            var match = missionDesc == null ? null : Regex.Match(missionDesc, @"^\[Impostor\] (.*)$", RegexOptions.Multiline);
+            // Description formatting example: [Impostor] Cpk Smp Ag Com
+            if (match != null && match.Success)
+            {
+                var parameters = match.Groups[1].Value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < Prefabs.Length; i++)
+                    if (parameters.Contains(Prefabs[i].GetComponent<ImpostorMod>().ModAbbreviation))
+                        allowedPrefabIndices.Add(i);
+            }
+            // End janky Quinn Wuest code
+            else if (!Application.isEditor)
+            {
+                for (int i = 0; i < Prefabs.Length; i++)
+                {
+                    string key = "Disable " + Prefabs[i].name;
+                    if (!settings.disabledModsList.ContainsKey(key))
+                        Debug.LogFormat("[The Impostor] Prefab name {0} not found within modsettings dictionary!", Prefabs[i].name);
+                    else if (!settings.disabledModsList[key])
+                        allowedPrefabIndices.Add(i);
+                }
             }
         }
         if (allowedPrefabIndices.Count == 0)
             allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
-        missionDone:
         chosenMod = allowedPrefabIndices.PickRandom();
-// chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Logic", StringComparison.InvariantCultureIgnoreCase));
+ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Combination Lock", StringComparison.InvariantCultureIgnoreCase));
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;

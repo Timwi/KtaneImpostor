@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeColourFlash : ImpostorMod
 {
+    public override string ModAbbreviation { get { return "Cof"; } }
     public TextMesh yes, no, display; 
     private static readonly string[] fakeYes = { "YEE", "YAS", "YEP", "YEA", "YEH", "YAH" };
     private static readonly string[] fakeNo = { "NOPE", "NAH", "NAW", "NOT", "NIL", "NADA" };

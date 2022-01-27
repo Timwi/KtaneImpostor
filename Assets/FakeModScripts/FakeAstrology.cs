@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAstrology : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "As"; } }
     public MeshRenderer[] displays;
     public Texture[] elements, planets, zodiacs;
     public TextMesh[] buttonLabels;

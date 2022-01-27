@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeSillySlots : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Sys"; } }
     public GameObject[] wheels;
     public Texture[] wheelTextures;
     public TextMesh display;

@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeSwitches : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Sw"; } }
     public Transform[] switches;
     public MeshRenderer[] leds;
 

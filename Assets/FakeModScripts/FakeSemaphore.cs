@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 //Coded by blananas2
 public class FakeSemaphore : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Smp"; } }
     public TextMesh[] texts;
     public GameObject[] flags; 
     private static readonly string[] dummies = {"K", "KO", " ", "YES", "MK", "OJ"};

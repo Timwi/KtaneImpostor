@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeLetterKeys : ImpostorMod
 {
+	public override string ModAbbreviation { get { return "Lk"; } }
 	public TextMesh[] texts;
 	public TextMesh number;
 

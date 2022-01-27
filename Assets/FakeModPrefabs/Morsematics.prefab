@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 33997278192136610}
   - component: {fileID: 114310440703827900}
   - component: {fileID: 23599739610627646}
+  - component: {fileID: 114278236452334484}
   m_Layer: 0
   m_Name: ReceiveSwitch Highlight
   m_TagString: Untagged
@@ -123,6 +124,7 @@ GameObject:
   - component: {fileID: 4945878078574560}
   - component: {fileID: 33693151733935372}
   - component: {fileID: 23385237610451702}
+  - component: {fileID: 114596688958128504}
   m_Layer: 0
   m_Name: Lights
   m_TagString: Untagged
@@ -835,7 +837,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Mobile/DiffuseTint
+  - KT/Mobile/Diffuse
+--- !u!114 &114278236452334484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099880240528632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Outline
 --- !u!114 &114310440703827900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -889,6 +904,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
+  - KT/Mobile/DiffuseTint
+--- !u!114 &114596688958128504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419034783386820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1005838349, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShaderNames:
+  - KT/Mobile/DiffuseTint
+  - KT/Mobile/DiffuseTint
+  - KT/Mobile/DiffuseTint
   - KT/Mobile/DiffuseTint
 --- !u!114 &114706747281367308
 MonoBehaviour:

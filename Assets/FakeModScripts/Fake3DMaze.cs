@@ -3,6 +3,7 @@ using Rnd = UnityEngine.Random;
 
 public class Fake3DMaze : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "3dmz"; } }
     public MeshRenderer[] walls;
     public MeshRenderer bottomLetter;
     public Texture[] letters;

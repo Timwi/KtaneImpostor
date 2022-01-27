@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeTicTacToe : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Ttt"; } }
     public TextMesh[] displays;
     public TextMesh upNext;
 

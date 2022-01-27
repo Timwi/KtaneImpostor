@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAdjacentLetters : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Adj"; } }
     public TextMesh[] labels;
     private static readonly string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 

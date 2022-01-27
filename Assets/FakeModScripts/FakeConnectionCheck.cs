@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeConnectionCheck : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Cck"; } }
     public GameObject[] redLeds, greenLeds;
     public TextMesh[] texts;
     private int Case;

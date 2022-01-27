@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeWordScramble : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Ws"; } }
     public TextMesh[] buttonTexts;
     public TextMesh topDisp, botDisp;
 

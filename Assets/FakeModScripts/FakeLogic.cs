@@ -3,6 +3,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeLogic : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Lo"; } }
     public TextMesh[] letters, logicSymbols, buttonLabels;
     public Transform[] parentheses;
     public MeshRenderer[] leds, buttonRenderers;
