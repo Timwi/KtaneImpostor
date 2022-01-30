@@ -52,15 +52,30 @@ public sealed class impostorScript : MonoBehaviour
     private void GetMod()
     {
         BG.SetActive(false);
+        List<int> allowedPrefabIndices = GetAvailableIndices();
+
+        chosenMod = allowedPrefabIndices.PickRandom();
+ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Combination Lock", StringComparison.InvariantCultureIgnoreCase));
+        chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
+        chosenPrefab.transform.localPosition = Vector3.zero;
+        chosenPrefab.transform.localRotation = Quaternion.identity;
+        Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, Prefabs[chosenMod].name);
+    }
+    private List<int> GetAvailableIndices()
+    {
         List<int> allowedPrefabIndices = new List<int>();
         // Start janky Quinn Wuest code
-        if (GetMissionID() == "mod_how123_impostorous")
+        string missionID = GetMissionID();
+        if (MissionData.allMissions.Count(m => m.missionID == missionID) == 1)
         {
-            Debug.LogFormat("<The Impostor #{0}> Mission Impostorous detected. (mod_how123_impostorous)", moduleId);
-            var impMissionMods = new string[] { "Anagrams", "Bitmaps", "Connection Check", "Cruel Piano Keys", "Festive Piano Keys", "Letter Keys", "Murder", "Colour Flash", "Piano Keys", "Semaphore", "Switches", "Word Scramble" };
-            for (int i = 0; i < Prefabs.Length; i++)
-                if (impMissionMods.Contains(Prefabs[i].name))
-                    allowedPrefabIndices.Add(i);
+            MissionData fittingMission = MissionData.allMissions.Single(m => m.missionID == missionID);
+            Debug.LogFormat("<The Impostor #{0}> Preset mission detected. ({1})", moduleId, fittingMission.missionID);
+            foreach (string name in fittingMission.availableMods)
+            {
+                for (int i = 0; i < Prefabs.Length; i++)
+                    if (name == Prefabs[i].name || name == Prefabs[i].GetComponent<ImpostorMod>().ModAbbreviation)
+                        allowedPrefabIndices.Add(i);
+            }
         }
         else
         {
@@ -88,13 +103,8 @@ public sealed class impostorScript : MonoBehaviour
             }
         }
         if (allowedPrefabIndices.Count == 0)
-            allowedPrefabIndices = Enumerable.Range(0, Prefabs.Length).ToList();
-        chosenMod = allowedPrefabIndices.PickRandom();
- chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Combination Lock", StringComparison.InvariantCultureIgnoreCase));
-        chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
-        chosenPrefab.transform.localPosition = Vector3.zero;
-        chosenPrefab.transform.localRotation = Quaternion.identity;
-        Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, Prefabs[chosenMod].name);
+            return Enumerable.Range(0, Prefabs.Length).ToList();
+        else return allowedPrefabIndices();
     }
     private void GetScript()
     {
