@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeIceCream : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Ic"; } }
     public TextMesh name, flavor;
     private static readonly string[] realNames = { "Mike", "Tim", "Tom", "Dave", "Adam", "Cheryl", "Sean", "Ashley", "Jessica", "Taylor", "Simon", "Sally", "Jade", "Sam", "Gary", "Victor", "George", "Jacob", "Pat", "Bob" };
     private static readonly string[] realFlavors = { "Cookies and Cream", "Neapolitan", "Tutti Frutti", "The Classic", "Rocky Road", "Double Chocolate", "Mint Chocolate Chip", "Double Strawberry", "Raspberry Ripple", "Vanilla" };

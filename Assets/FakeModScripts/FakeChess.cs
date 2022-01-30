@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeChess : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Ch"; } }
     public TextMesh dispLetter, dispNumber;
     public TextMesh[] letters, numbers;
     public MeshRenderer[] leds;

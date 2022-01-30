@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAdventureGame : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Av"; } }
     public TextMesh enemy, stat, item;
     private int Case;
 

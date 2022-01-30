@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeBitmaps : ImpostorMod {
 
+    public override string ModAbbreviation { get { return "Bitm"; } }
     public TextMesh[] texts;
     public MeshRenderer BmpObject;
 

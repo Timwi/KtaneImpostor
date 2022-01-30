@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeColorMath : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Com"; } }
     public MeshRenderer[] leds;
     public TextMesh text;
     private static readonly Color32[] colors = new[]

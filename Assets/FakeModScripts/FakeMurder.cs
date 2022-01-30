@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMurder : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Mu"; } }
     public TextMesh[] texts;
 
     private Color[] colors = new Color[]

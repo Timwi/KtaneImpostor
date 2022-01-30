@@ -4,6 +4,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeGamepad : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Gp"; } }
     public TextMesh[] arrowButtonTexts, letterButtonTexts, displayTexts;
     private int Case;
 

@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMicrocontroller : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Mcc"; } }
     public GameObject[] chipSizes, wholeLEDs;
     public MeshRenderer[] leds;
     public Material whiteLED;

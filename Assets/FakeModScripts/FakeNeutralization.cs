@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeNeutralization : ImpostorMod
 {
+    public override string ModAbbreviation { get { return "Neut"; } }
     public TextMesh baseDisp, titrateDisp;
     public TextMesh[] tubeLabels;
     public Transform meterTF;

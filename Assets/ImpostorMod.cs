@@ -37,6 +37,8 @@ public abstract class ImpostorMod : MonoBehaviour
     
     private bool isHeld;
 
+    public abstract string ModAbbreviation { get; }
+
     private void Awake()
     {
         foreach (KMSelectable btn in buttons)

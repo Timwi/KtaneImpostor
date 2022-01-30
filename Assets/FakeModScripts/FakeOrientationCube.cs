@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeOrientationCube : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Oqb"; } }
     public GameObject observer;
     public Transform observerTF;
     public TextMesh[] buttonLabels, cubeFaceLabels;

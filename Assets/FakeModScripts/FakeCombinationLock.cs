@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeCombinationLock : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Cl"; } }
     public TextMesh[] ButtonTexts;
     public TextMesh LockText;
     public TextMesh ResetText;

@@ -4,6 +4,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeOnlyConnect : ImpostorMod
 {
+    public override string ModAbbreviation { get { return "Oc"; } }
     public MeshRenderer[] buttonObjs;
     public Texture[] hieroglyphTextures;
     public Texture susTexture;

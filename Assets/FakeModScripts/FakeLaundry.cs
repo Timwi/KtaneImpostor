@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeLaundry : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Ln"; } }
     public GameObject coinSlot;
     public Transform[] dials, symbols;
     public TextMesh topDisp, bottomDisp;

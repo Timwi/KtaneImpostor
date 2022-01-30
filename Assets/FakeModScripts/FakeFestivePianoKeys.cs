@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 //Coded by blananas2
 public class FakeFestivePianoKeys : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Fk"; } }
     public TextMesh display;
     void Start()
     {

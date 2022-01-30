@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 //Coded by blananas2
 public class FakePianoKeys : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Pk"; } }
     public TextMesh display; //SerializeField causes the variable to show up in the inspector, while keeping it a private variable.
     void Start()
     {

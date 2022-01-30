@@ -7,6 +7,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAnagrams : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Ag"; } }
     public TextMesh[] buttonTexts;
     public TextMesh topDisp, botDisp;
     public override SLPositions SLPos  

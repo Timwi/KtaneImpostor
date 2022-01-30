@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeAlphabet : ImpostorMod
 {
+    public override string ModAbbreviation { get { return "Apb"; } }
     public TextMesh[] texts;
     public SpriteRenderer[] spriteRenderers;
     public Sprite[] keypadSymbols;

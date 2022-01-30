@@ -5,6 +5,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeScrew : ImpostorMod
 {
+    public override string ModAbbreviation { get { return "Scw"; } }
     public MeshRenderer[] screwHoles;
     public Texture[] screwTextures;
     public Texture cyanTexture;

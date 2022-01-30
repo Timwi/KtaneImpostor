@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeTwoBits : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "2b"; } }
     public TextMesh[] letters;
     public TextMesh display, query, submit;
 

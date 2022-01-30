@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeGridlock : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Gl"; } }
     public TextMesh topNum, bottomNum, nextBtn;
     public MeshRenderer[] symbolsRenderers, backings;
     public Material[] colors;

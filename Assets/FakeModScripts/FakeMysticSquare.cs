@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMysticSquare : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Mysq"; } }
     public TextMesh[] texts;
     public Transform[] btnObjects;
     public Transform skull;

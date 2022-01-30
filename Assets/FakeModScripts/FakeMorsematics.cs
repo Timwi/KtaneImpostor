@@ -8,6 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMorsematics : ImpostorMod 
 {
+    public override string ModAbbreviation { get { return "Mmt"; } }
     public MeshRenderer lights;
     public Transform submissionArea;
 

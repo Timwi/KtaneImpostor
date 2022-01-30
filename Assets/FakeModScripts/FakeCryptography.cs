@@ -9,6 +9,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeCryptography : ImpostorMod
 {
+    public override string ModAbbreviation { get { return "Cy"; } }
     public TextMesh[] buttonLetters;
     public Text display;
     private string formattedText;
