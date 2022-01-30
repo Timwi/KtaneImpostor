@@ -8,16 +8,11 @@ using Rnd = UnityEngine.Random;
 
 public class FakeChordQualities : ImpostorMod
 {
-    [SerializeField]
-    private Transform _wheelButton;
-    [SerializeField]
-    private TextMesh[] _textMeshes;
-    [SerializeField]
-    private Material _lightMat;
-    [SerializeField]
-    private Renderer[] _buttonRenderers;
-    [SerializeField]
-    private TextMesh[] _noteTextMeshes;
+    public Transform _wheelButton;
+    public Material _lightMat;
+    public Renderer[] _buttonRenderers;
+    public TextMesh[] _textMeshes, _noteTextMeshes;
+    public override string ModAbbreviation { get { return "Cq"; } }
 
     private void Start()
     {
