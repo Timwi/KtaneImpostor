@@ -104,7 +104,7 @@ public sealed class impostorScript : MonoBehaviour
         }
         if (allowedPrefabIndices.Count == 0)
             return Enumerable.Range(0, Prefabs.Length).ToList();
-        else return allowedPrefabIndices();
+        else return allowedPrefabIndices;
     }
     private void GetScript()
     {
