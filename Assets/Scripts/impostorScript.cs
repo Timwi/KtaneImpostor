@@ -53,9 +53,12 @@ public sealed class impostorScript : MonoBehaviour
     {
         BG.SetActive(false);
         List<int> allowedPrefabIndices = GetAvailableIndices();
+        allowedPrefabIndices.RemoveAll(x => Prefabs[x].name.StartsWith("Combination"));
 
         chosenMod = allowedPrefabIndices.PickRandom();
- //chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Sea Shells", StringComparison.InvariantCultureIgnoreCase));
+#if UNITY_EDITOR
+        //chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Combination", StringComparison.InvariantCultureIgnoreCase));
+#endif
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
