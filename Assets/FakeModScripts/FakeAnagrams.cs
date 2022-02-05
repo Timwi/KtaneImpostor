@@ -5,29 +5,27 @@ using System.Linq;
 using UnityEngine;
 using Rnd = UnityEngine.Random;
 
-public class FakeAnagrams : ImpostorMod 
+public class FakeAnagrams : ImpostorMod
 {
     public override string ModAbbreviation { get { return "Ag"; } }
     public TextMesh[] buttonTexts;
     public TextMesh topDisp, botDisp;
-    public override SLPositions SLPos  
-    { get { return SLPositions.TL; } } 
-    private int Case;
+    public override SLPositions SLPos
+    { get { return SLPositions.TL; } }
 
     private static readonly string[] anagrams = { "STREAM", "MASTER", "TAMERS", "LOOPED", "POODLE", "POOLED", "CELLAR", "CALLER", "RECALL", "SEATED", "SEDATE", "TEASED", "RESCUE", "SECURE", "RECUSE", "RASHES", "SHEARS", "SHARES", "BARELY", "BARLEY", "BLEARY", "DUSTER", "RUSTED", "RUDEST" };
     private string chosenWord;
 
     void Start()
     {
-        Case = Rnd.Range(0, 2);
         if (Ut.RandBool())
         {
-                chosenWord = anagrams.PickRandom();
-                LogQuirk("the anagram is on the bottom screen");
-                botDisp.text = chosenWord;
-                flickerObjs.Add(botDisp.gameObject);
-                for (int i = 0; i < 6; i++)
-                    buttonTexts[i].text = chosenWord[i].ToString();
+            chosenWord = anagrams.PickRandom();
+            LogQuirk("the anagram is on the bottom screen");
+            botDisp.text = chosenWord;
+            flickerObjs.Add(botDisp.gameObject);
+            for (int i = 0; i < 6; i++)
+                buttonTexts[i].text = chosenWord[i].ToString();
         }
         else
         {
@@ -41,7 +39,6 @@ public class FakeAnagrams : ImpostorMod
             int[] order = { 1, 2, 6, 4, 5, 7 };
             for (int i = 0; i < 6; i++)
                 buttonTexts[order[i]].text = chosenWord[i].ToString();
-
         }
     }
 }

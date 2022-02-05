@@ -55,7 +55,7 @@ public sealed class impostorScript : MonoBehaviour
         List<int> allowedPrefabIndices = GetAvailableIndices();
 
         chosenMod = allowedPrefabIndices.PickRandom();
- chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Combination Lock", StringComparison.InvariantCultureIgnoreCase));
+ chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Sea Shells", StringComparison.InvariantCultureIgnoreCase));
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
