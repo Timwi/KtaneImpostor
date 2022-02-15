@@ -15,6 +15,6 @@ public class MissionData {
 
     public static readonly List<MissionData> allMissions = new List<MissionData>()
     {
-        new MissionData("mod_how123_impostorous", "Anagrams", "Bitmaps", "Connection Check", "Cruel Piano Keys", "Festive Piano Keys", "Letter Keys", "Murder", "Colour Flash", "Piano Keys", "Semaphore", "Switches", "Word Scramble"),
+        new MissionData("mod_how123_impostorous", "Anagrams", "Bitmaps", "Connection Check", "Cruel Piano Keys", "Festive Piano Keys", "Letter Keys", "Murder", "Colour Flash", "Piano Keys", "Semaphore", "Switches", "Word Scramble", "Morsematics"),
     };
 }

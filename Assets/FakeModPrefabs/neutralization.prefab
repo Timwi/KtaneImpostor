@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 4632431517996192}
   - component: {fileID: 114441267444821960}
   m_Layer: 0
-  m_Name: neutralization
+  m_Name: Neutralization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3507,7 +3507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Mobile/Diffuse
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114872304312505408
 MonoBehaviour:
   m_ObjectHideFlags: 1
