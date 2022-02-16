@@ -65,7 +65,7 @@ public class FakeColourFlash : ImpostorMod
     }
     private IEnumerator Flash()
     {
-        if (Case != 3)
+        if (Case != 2)
             while (true)
             {
                 for (int i = 0; i < 8; i++)
