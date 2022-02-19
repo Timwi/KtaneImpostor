@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using KModkit;
-using Rnd = UnityEngine.Random;
 
 public abstract class ImpostorMod : MonoBehaviour
 {
@@ -16,14 +14,13 @@ public abstract class ImpostorMod : MonoBehaviour
     [HideInInspector]
     public bool orgPresent;
     [HideInInspector]
-    public bool willSolve;
-    [HideInInspector]
     public int moduleId { private get; set; }
     ///<summary>
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
     [HideInInspector]
     protected readonly List<GameObject> flickerObjs = new List<GameObject>();
+    public bool willSolve { get; private set; }
 
     public KMSelectable[] buttons;
     /// <summary>
