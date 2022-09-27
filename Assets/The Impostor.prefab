@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 114454383462897410}
   - component: {fileID: 114853960920223876}
   - component: {fileID: 114139553842080666}
+  - component: {fileID: 114705111068907418}
   - component: {fileID: 114094268724210168}
   m_Layer: 0
   m_Name: The Impostor
@@ -303,6 +304,7 @@ MonoBehaviour:
   Module: {fileID: 114853960920223876}
   ModHL: {fileID: 114570430299588062}
   SelectableComp: {fileID: 114139553842080666}
+  ColorblindMode: {fileID: 114705111068907418}
   Prefabs:
   - {fileID: 1550249878003252, guid: 8ee23fa9b50dea74c9140624c20b6887, type: 2}
   - {fileID: 1496146339640070, guid: 2ea9a82f1cf71824b9c1ebd560a347dc, type: 2}
@@ -339,6 +341,7 @@ MonoBehaviour:
   - {fileID: 1026434878623364, guid: f2e53631c7bada9448d5f695182b8ef3, type: 2}
   - {fileID: 1042596459853502, guid: 364211e80727f7c469e9fcbd370f45c4, type: 2}
   - {fileID: 1739422796036338, guid: 1b71c445a4cd37648be439bc86f787a1, type: 2}
+  - {fileID: 127088, guid: 446a8431ba913d7459ea0aa3f495516b, type: 2}
   BG: {fileID: 1336463298864312}
   SL: {fileID: 1240676701029190}
 --- !u!114 &114139553842080666
@@ -387,6 +390,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 1, y: 1, z: 1}
   OutlineAmount: 0
+--- !u!114 &114705111068907418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1676409040304040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cfb889a07d5fd4e9baed7960bb397f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorblindMode: 0
 --- !u!114 &114835097253833782
 MonoBehaviour:
   m_ObjectHideFlags: 1
