@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Mobile/Diffuse
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114171568229063550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - Legacy Shaders/Diffuse
+  - KT/Mobile/Diffuse
 --- !u!114 &114288500244445142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Mobile/Diffuse
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114603982099948876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1389,7 +1389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Mobile/Diffuse
+  - KT/Mobile/DiffuseTint
 --- !u!114 &114775079243612584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1405,12 +1405,12 @@ MonoBehaviour:
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
   orgPresent: 0
-  willSolve: 0
+  ColorblindMode: 0
   buttons:
   - {fileID: 114776595466837296}
   - {fileID: 114288500244445142}
   - {fileID: 114578291463309042}
-  name: {fileID: 102626048740602828}
+  customerName: {fileID: 102626048740602828}
   flavor: {fileID: 102392506312123502}
 --- !u!114 &114776595466837296
 MonoBehaviour:
@@ -1472,4 +1472,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShaderNames:
-  - KT/Mobile/Diffuse
+  - KT/Mobile/DiffuseTint
