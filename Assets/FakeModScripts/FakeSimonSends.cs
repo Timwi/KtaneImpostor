@@ -12,7 +12,7 @@ public class FakeSimonSends : ImpostorMod
     public TextMesh ColorblindDiodeText;
     public Light[] Lights;
     public MeshRenderer[] SendsButtons;
-    public GameObject[] SendsButtonTexts;
+    public TextMesh[] SendsButtonTexts;
 
     private static readonly string[] _morse = ".-|-...|-.-.|-..|.|..-.|--.|....|..|.---|-.-|.-..|--|-.|---|.--.|--.-|.-.|...|-|..-|...-|.--|-..-|-.--|--..".Split('|');
     private static readonly string[] _colorblindTextNames = { "BLACK", "BLUE", "GREEN", "CYAN", "RED", "MAGENTA", "YELLOW", "WHITE" };
@@ -35,17 +35,14 @@ public class FakeSimonSends : ImpostorMod
 
         switch (Rnd.Range(0, 2))
         {
-            case 0: // colors of the buttons are out of order
-                var materials = SendsButtons.Select(btn => btn.sharedMaterial).ToList().Shuffle();
-                // Throw the player a bone by making sure that *every* color is in the wrong place, not just some of them
-                while (Enumerable.Range(0, materials.Count).Any(ix => materials[ix] == SendsButtons[ix].sharedMaterial))
-                    materials.Shuffle();
-                for (var i = 0; i < materials.Count; i++)
-                    SendsButtonTexts[i].transform.SetParent(SendsButtons[materials.IndexOf(SendsButtons[i].sharedMaterial)].transform, false);
-                for (var i = 0; i < materials.Count; i++)
-                    SendsButtons[i].sharedMaterial = materials[i];
-                LogQuirk("the colors of the buttons are not in the order KBGCRMYW");
-                flickerObjs.AddRange(SendsButtons.Select(btn => btn.gameObject));
+            case 0: // one of the colors on the buttons is duplicated
+                var nums = Enumerable.Range(0, SendsButtons.Length).ToList().Shuffle();
+                SendsButtons[nums[0]].sharedMaterial = SendsButtons[nums[1]].sharedMaterial;
+                SendsButtonTexts[nums[0]].text = SendsButtonTexts[nums[1]].text;
+                SendsButtonTexts[nums[0]].color = SendsButtonTexts[nums[1]].color;
+                LogQuirk("two of the buttons are {0}", "black,blue,green,cyan,red,magenta,yellow,white".Split(',')[nums[1]]);
+                flickerObjs.Add(SendsButtons[nums[0]].gameObject);
+                flickerObjs.Add(SendsButtons[nums[1]].gameObject);
                 break;
 
             case 1: // one of the color channels is missing
