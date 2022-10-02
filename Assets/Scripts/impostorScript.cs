@@ -27,17 +27,14 @@ public sealed class impostorScript : MonoBehaviour
     int moduleId;
     private int chosenMod;
     private bool solved;
-    private bool colorblindMode;
 
     void Awake()
     {
         moduleId = moduleIdCounter++;
     }
-
     private void Start()
     {
         Debug.LogFormat("<The Impostor #{0}> Impostor module loaded with version 2.0.0", moduleId);
-        colorblindMode = ColorblindMode.ColorblindModeActive;
         SetUpModSettings();
         GetMod();
         GetScript();
@@ -54,7 +51,7 @@ public sealed class impostorScript : MonoBehaviour
     {
         BG.SetActive(false);
         List<int> allowedPrefabIndices = GetAvailableIndices();
-        allowedPrefabIndices.RemoveAll(x => Prefabs[x].name.StartsWith("Combination"));
+        //allowedPrefabIndices.RemoveAll(x => Prefabs[x].name.StartsWith("Combination"));
 
         chosenMod = allowedPrefabIndices.PickRandom();
 #if UNITY_EDITOR
@@ -118,7 +115,8 @@ public sealed class impostorScript : MonoBehaviour
         chosenScript.Module = Module;
         chosenScript.BombInfo = Bomb;
         chosenScript.solve += () => Solve();
-        chosenScript.ColorblindMode = colorblindMode;
+        if (ColorblindMode.ColorblindModeActive)
+            chosenScript.OnColorblindToggle(true);
         SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()

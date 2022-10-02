@@ -13,7 +13,6 @@ public abstract class ImpostorMod : MonoBehaviour
     public KMBombInfo BombInfo;
     [HideInInspector]
     public bool orgPresent;
-    [HideInInspector]
     public int moduleId { private get; set; }
     ///<summary>
     ///A list of GameObjects which will flicker when the module strikes.
@@ -21,7 +20,7 @@ public abstract class ImpostorMod : MonoBehaviour
     [HideInInspector]
     protected readonly List<GameObject> flickerObjs = new List<GameObject>();
     [HideInInspector]
-    public bool ColorblindMode;
+    public bool cb;
 
     public bool willSolve { get; private set; }
 
@@ -71,7 +70,10 @@ public abstract class ImpostorMod : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     { }
-
+    public virtual void OnColorblindToggle(bool cb)
+    { 
+        this.cb = cb; 
+    }
     private IEnumerator HoldBtn(KMSelectable btn)
     {
         if (isHeld)

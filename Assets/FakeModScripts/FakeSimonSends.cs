@@ -56,10 +56,6 @@ public class FakeSimonSends : ImpostorMod
                 break;
         }
 
-        for (var i = 0; i < SendsButtonTexts.Length; i++)
-            SendsButtonTexts[i].gameObject.SetActive(ColorblindMode);
-        ColorblindDiodeText.gameObject.SetActive(ColorblindMode);
-
         StartCoroutine(Blink());
     }
 
@@ -76,10 +72,10 @@ public class FakeSimonSends : ImpostorMod
             bool blue = _morseB != null && _morseB[_morseBPos] == '#';
             var color = new Color(red ? bright : dark, green ? bright : dark, blue ? bright : dark);
             Diode.material.color = color;
-            ColorblindDiodeText.gameObject.SetActive(ColorblindMode);
+            ColorblindDiodeText.gameObject.SetActive(cb);
             ColorblindDiodeText.text = _colorblindTextNames[(red ? 4 : 0) + (green ? 2 : 0) + (blue ? 1 : 0)];
             foreach (var text in SendsButtonTexts)
-                text.gameObject.SetActive(ColorblindMode);
+                text.gameObject.SetActive(cb);
             foreach (var light in Lights)
                 light.color = new Color(red ? 1 : 0, green ? 1 : 0, blue ? 1 : 0);
             yield return new WaitForSeconds(1);
@@ -91,6 +87,12 @@ public class FakeSimonSends : ImpostorMod
         foreach (var light in Lights)
             light.gameObject.SetActive(false);
         ColorblindDiodeText.gameObject.SetActive(false);
+    }
+    public override void OnColorblindToggle(bool cb)
+    {
+        for (var i = 0; i < SendsButtonTexts.Length; i++)
+            SendsButtonTexts[i].gameObject.SetActive(cb);
+        ColorblindDiodeText.gameObject.SetActive(cb);
     }
 
     private static string getMorse(char letter)
