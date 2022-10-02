@@ -10,6 +10,7 @@ public class FakeColorMath : ImpostorMod
 {
     public override string ModAbbreviation { get { return "Com"; } }
     public MeshRenderer[] leds;
+    public TextMesh[] cbTexts;
     public TextMesh text;
     private static readonly Color32[] colors = new[]
     {
@@ -24,10 +25,15 @@ public class FakeColorMath : ImpostorMod
         new Color32(0x83, 0x83, 0x83,  0xFF),
         new Color32(0x00, 0x00, 0x00,  0xFF)
     };
+    private static readonly string[] colorNames = { "B", "G", "P", "Y", "W", "M", "R", "O", "A", "K" };
     void Start()
     {
         for (int i = 0; i < 8; i++)
-            leds[i].material.color = colors.PickRandom();
+        {
+            int color = Rnd.Range(0, 10);
+            leds[i].material.color = colors[color];
+            cbTexts[i].text = colorNames[color];
+        }
         flickerObjs.Add(text.gameObject);
         if (Ut.RandBool())
         {
@@ -49,5 +55,10 @@ public class FakeColorMath : ImpostorMod
             text.text = "BCEFGHIJKLNOPQRTUVWXYZ".PickRandom().ToString();
             LogQuirk("The letter in the center of the module is {0}", text.text);
         }
+    }
+    protected override void OnColorblindToggle(bool cb)
+    {
+        foreach (var text in cbTexts)
+            text.gameObject.SetActive(cb);
     }
 }

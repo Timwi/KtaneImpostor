@@ -64,13 +64,18 @@ public abstract class ImpostorMod : MonoBehaviour
     {
         Debug.LogFormat("[The Impostor #{0}] {1}", moduleId, string.Format(msg, args));
     }
+    public void ToggleColorblind()
+    {
+        cb = !cb;
+        OnColorblindToggle(cb);
+    }
 
     /// <summary>
     /// Gets called when the lights turn on. Needs to be overridden.
     /// </summary>
     public virtual void OnActivate()
     { }
-    public virtual void OnColorblindToggle(bool cb)
+    protected virtual void OnColorblindToggle(bool cb)
     { 
         this.cb = cb; 
     }

@@ -1781,7 +1781,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778704487723654}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1802,7 +1802,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874008842690984}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1823,7 +1823,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032663625552944}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1865,7 +1865,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068790246993780}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1886,7 +1886,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1241772503916290}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1928,7 +1928,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1982342448583548}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1949,7 +1949,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050198901397494}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1970,7 +1970,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062855692094934}
-  m_Text: '-'
+  m_Text: 
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -2164,7 +2164,7 @@ MonoBehaviour:
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
   orgPresent: 0
-  willSolve: 0
+  cb: 0
   buttons:
   - {fileID: 114957391881120908}
   - {fileID: 114480725273443646}
@@ -2180,6 +2180,15 @@ MonoBehaviour:
   - {fileID: 23421018544508126}
   - {fileID: 23893727611773794}
   - {fileID: 23107175104391470}
+  cbTexts:
+  - {fileID: 102187886333219626}
+  - {fileID: 102706159355122650}
+  - {fileID: 102175243682853346}
+  - {fileID: 102142860262287454}
+  - {fileID: 102943624091368204}
+  - {fileID: 102847584630961076}
+  - {fileID: 102705715171350596}
+  - {fileID: 102937174126157382}
   text: {fileID: 102717226216394856}
 --- !u!114 &114348798828114872
 MonoBehaviour:

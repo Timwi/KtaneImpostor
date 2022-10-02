@@ -1056,7 +1056,6 @@ GameObject:
   - component: {fileID: 4177440836464484}
   - component: {fileID: 33825756710000386}
   - component: {fileID: 23898893243523304}
-  - component: {fileID: 95700591151910760}
   - component: {fileID: 114321173412590080}
   m_Layer: 0
   m_Name: Component_PuzzleBackground
@@ -3163,7 +3162,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a1ff0892f6ce2c64d9187e53f8276136, type: 2}
+  - {fileID: 2100000, guid: 8bfd64a83fd12d246a3abc1e661c29bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4340,23 +4339,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1736478094746346}
   m_Mesh: {fileID: 4300000, guid: 21a5e45674cb2ce4a8185c9b62a34208, type: 3}
---- !u!95 &95700591151910760
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1795417906874102}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 1c46642b7f907d844bcdfcca8625afdd, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!102 &102106563744260156
 TextMesh:
   serializedVersion: 3
@@ -5566,7 +5548,7 @@ MonoBehaviour:
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
   orgPresent: 0
-  willSolve: 0
+  cb: 0
   buttons:
   - {fileID: 114575130398494110}
   - {fileID: 114367670439682434}

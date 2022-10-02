@@ -55,7 +55,7 @@ public sealed class impostorScript : MonoBehaviour
 
         chosenMod = allowedPrefabIndices.PickRandom();
 #if UNITY_EDITOR
-        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Simon Sends", StringComparison.InvariantCultureIgnoreCase));
+        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Color Math", StringComparison.InvariantCultureIgnoreCase));
 #endif
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
@@ -116,7 +116,7 @@ public sealed class impostorScript : MonoBehaviour
         chosenScript.BombInfo = Bomb;
         chosenScript.solve += () => Solve();
         if (ColorblindMode.ColorblindModeActive)
-            chosenScript.OnColorblindToggle(true);
+            chosenScript.ToggleColorblind();
         SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()
@@ -161,18 +161,23 @@ public sealed class impostorScript : MonoBehaviour
         }
     }
 #pragma warning disable 414
-    private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Any other command will cause a strike.";
+    private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Use <!{0} colorblind> to toggle colorblind mode. Any other command will cause a strike.";
 #pragma warning restore 414
 
     IEnumerator ProcessTwitchCommand(string command)
     {
         command = command.Trim().ToUpperInvariant();
         yield return null;
-        chosenScript.buttons[0].OnInteract();
-        if (command == "DISARM")
-            yield return new WaitUntil(() => chosenScript.willSolve);
-        yield return new WaitForSeconds(0.2f);
-        chosenScript.buttons[0].OnInteractEnded();
+        if (command.EqualsAny("COLORBLIND", "COLOURBLIND", "COLOR-BLIND", "COLOUR-BLIND", "CB"))
+            chosenScript.ToggleColorblind();
+        else
+        {
+            chosenScript.buttons[0].OnInteract();
+            if (command == "DISARM")
+                yield return new WaitUntil(() => chosenScript.willSolve);
+            yield return new WaitForSeconds(0.2f);
+            chosenScript.buttons[0].OnInteractEnded();
+        }
     }
 
     IEnumerator TwitchHandleForcedSolve()

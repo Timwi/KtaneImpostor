@@ -52,7 +52,7 @@ public class FakeNumberPad : ImpostorMod
                 SubTexts[0].text = "YES";
                 SubTexts[1].text = "NO";
                 flickerObjs.AddRange(SubTexts.Select(i => i.gameObject));
-                LogQuirk("the submit button and clear buttons say YES and NO");
+                LogQuirk("the submit and clear buttons say YES and NO");
                 break;
             case 2:
                 var rndColor = Rnd.Range(0, FakeColors.Length);

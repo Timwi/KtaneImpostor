@@ -1645,7 +1645,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
+  - {fileID: 2100000, guid: bdf32f76f35d20945ac0666d082d736c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2121,7 +2121,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7169aefa86b57034b91f9dfdb9d4c3d8, type: 3}
+  - {fileID: 2100000, guid: bdf32f76f35d20945ac0666d082d736c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2559,7 +2559,7 @@ MonoBehaviour:
   Module: {fileID: 0}
   BombInfo: {fileID: 0}
   orgPresent: 0
-  willSolve: 0
+  cb: 0
   buttons:
   - {fileID: 114662148936731886}
   - {fileID: 114227722599269090}
