@@ -15,9 +15,9 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ButtonHighlightMat
-    second: {fileID: 2100000, guid: fd40a6d1be5c6754a994670f56d4d026, type: 2}
+    second: {fileID: 2100000, guid: f9d188355ef18c14980bb13f5e073a40, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0

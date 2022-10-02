@@ -20,6 +20,9 @@ public abstract class ImpostorMod : MonoBehaviour
     ///</summary>
     [HideInInspector]
     protected readonly List<GameObject> flickerObjs = new List<GameObject>();
+    [HideInInspector]
+    public bool ColorblindMode;
+
     public bool willSolve { get; private set; }
 
     public KMSelectable[] buttons;
@@ -31,7 +34,7 @@ public abstract class ImpostorMod : MonoBehaviour
     /// Lets the fake mod communicate to Impostor when it is going to solve.
     /// </summary>
     public Action solve;
-    
+
     private bool isHeld;
 
     public abstract string ModAbbreviation { get; }
@@ -82,7 +85,6 @@ public abstract class ImpostorMod : MonoBehaviour
             Audio.PlaySoundAtTransform("solve", Module.transform);
             willSolve = true;
         }
-
     }
     private void ReleaseBtn(KMSelectable btn)
     {

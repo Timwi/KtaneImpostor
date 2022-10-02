@@ -2,19 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using KModkit;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using UnityEngine;
 
 public sealed class impostorScript : MonoBehaviour
 {
-
     public KMBombInfo Bomb;
     public KMAudio Audio;
     public KMBombModule Module;
     public KMHighlightable ModHL;
     public KMSelectable SelectableComp;
+    public KMColorblindMode ColorblindMode;
 
     public GameObject[] Prefabs;
     public GameObject BG;
@@ -28,6 +27,7 @@ public sealed class impostorScript : MonoBehaviour
     int moduleId;
     private int chosenMod;
     private bool solved;
+    private bool colorblindMode;
 
     void Awake()
     {
@@ -37,6 +37,7 @@ public sealed class impostorScript : MonoBehaviour
     private void Start()
     {
         Debug.LogFormat("<The Impostor #{0}> Impostor module loaded with version 2.0.0", moduleId);
+        colorblindMode = ColorblindMode.ColorblindModeActive;
         SetUpModSettings();
         GetMod();
         GetScript();
@@ -57,7 +58,7 @@ public sealed class impostorScript : MonoBehaviour
 
         chosenMod = allowedPrefabIndices.PickRandom();
 #if UNITY_EDITOR
-        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Number Pad", StringComparison.InvariantCultureIgnoreCase));
+        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Simon Sends", StringComparison.InvariantCultureIgnoreCase));
 #endif
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
@@ -117,6 +118,7 @@ public sealed class impostorScript : MonoBehaviour
         chosenScript.Module = Module;
         chosenScript.BombInfo = Bomb;
         chosenScript.solve += () => Solve();
+        chosenScript.ColorblindMode = colorblindMode;
         SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
     private void GetSelectables()

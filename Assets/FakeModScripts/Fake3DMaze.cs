@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Rnd = UnityEngine.Random;
 
 public class Fake3DMaze : ImpostorMod 
 {

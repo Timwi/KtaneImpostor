@@ -16,7 +16,7 @@ ModelImporter:
       name: Component_PuzzleBack_mat
     second: {fileID: 2100000, guid: 5707eb1af3ce05548894713385554516, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
