@@ -88,7 +88,7 @@ public class FakeSimonSends : ImpostorMod
             light.gameObject.SetActive(false);
         ColorblindDiodeText.gameObject.SetActive(false);
     }
-    protected override void OnColorblindToggle(bool cb)
+    protected override void OnColorblindToggle()
     {
         for (var i = 0; i < SendsButtonTexts.Length; i++)
             SendsButtonTexts[i].gameObject.SetActive(cb);

@@ -67,18 +67,18 @@ public abstract class ImpostorMod : MonoBehaviour
     public void ToggleColorblind()
     {
         cb = !cb;
-        OnColorblindToggle(cb);
+        OnColorblindToggle();
     }
 
     /// <summary>
-    /// Gets called when the lights turn on. Needs to be overridden.
+    /// Gets called when the lights turn on.
     /// </summary>
     public virtual void OnActivate()
     { }
-    protected virtual void OnColorblindToggle(bool cb)
-    { 
-        this.cb = cb; 
-    }
+    /// <summary>
+    /// Gets called when colorblind mode is toggled.
+    /// </summary>
+    protected virtual void OnColorblindToggle() { }
     private IEnumerator HoldBtn(KMSelectable btn)
     {
         if (isHeld)

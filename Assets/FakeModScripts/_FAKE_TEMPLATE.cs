@@ -31,8 +31,5 @@ public class TemplateFakeScript : ImpostorMod
         LogQuirk("Test message 2+2={0}", 2+2);
     }
     public override void OnActivate() { }
-    protected override void OnColorblindToggle(bool cb)
-    {
-        base.OnColorblindToggle(cb);
-    }
+    protected override void OnColorblindToggle() { }
 }

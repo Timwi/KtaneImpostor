@@ -56,7 +56,7 @@ public class FakeColorMath : ImpostorMod
             LogQuirk("The letter in the center of the module is {0}", text.text);
         }
     }
-    protected override void OnColorblindToggle(bool cb)
+    protected override void OnColorblindToggle()
     {
         foreach (var text in cbTexts)
             text.gameObject.SetActive(cb);

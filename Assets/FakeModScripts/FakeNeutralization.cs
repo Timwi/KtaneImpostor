@@ -13,12 +13,13 @@ public class FakeNeutralization : ImpostorMod
     public TextMesh[] tubeLabels;
     public Transform meterTF;
     public MeshRenderer meter;
+    public TextMesh cbText;
 
     private int Case;
     private static readonly string[] bases = { "NH₃", "LiOH", "NaOH", "KOH" };
     private static readonly string[] acids = { "HF", "HCl", "HBr", "HI", "H₂SO₄", "HNO₃", "H₂CO₃" };
     private static readonly Color32[] colors = { Color.red, Color.green, Color.yellow, Color.blue, new Color32(252, 3, 202, 255), new Color32(207, 3, 252, 255), new Color32(252, 123, 3, 255), };
-    private static readonly string[] colorNames = { "pink", "purple", "orange" };
+    private static readonly string[] colorNames = { "Red", "Green", "Yellow", "Blue", "Pink", "Purple", "Orange" };
     private static readonly float[] standardScales = { 1.43f, 3.73f, 6.12f, 8.44f };
     private static readonly float[] offScales = { 0, 2.7f, 5, 7.3f, 9.6f };
     private static readonly string[] offScaleNames = { "0", "7.5", "12.5", "17.5", "22.5" };
@@ -26,7 +27,7 @@ public class FakeNeutralization : ImpostorMod
     void Start()
     {
         baseDisp.text = bases.PickRandom();
-        meter.material.color = colors[Rnd.Range(0, 4)];
+        int chosenColor = Rnd.Range(0,4);
         meterTF.localScale = new Vector3(22.2222f, 50, standardScales.PickRandom());
 
         Case = Rnd.Range(0, 5);
@@ -39,9 +40,8 @@ public class FakeNeutralization : ImpostorMod
                 flickerObjs.Add(baseDisp.gameObject);
                 break;
             case 1:
-                int chosenColor = Rnd.Range(0, 3);
-                meter.material.color = colors[4 + chosenColor];
-                LogQuirk("the acid color is " + colorNames[chosenColor]);
+                chosenColor = 4 + Rnd.Range(0, 3);
+                LogQuirk("the acid color is " + colorNames[chosenColor].ToLower());
                 flickerObjs.Add(meter.gameObject);
                 break;
             case 2:
@@ -72,5 +72,12 @@ public class FakeNeutralization : ImpostorMod
                 break;
 
         }
+
+        meter.material.color = colors[chosenColor];
+        cbText.text = colorNames[chosenColor];
+    }
+    protected override void OnColorblindToggle()
+    {
+        cbText.gameObject.SetActive(cb);
     }
 }
