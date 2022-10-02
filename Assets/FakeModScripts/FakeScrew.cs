@@ -10,6 +10,7 @@ public class FakeScrew : ImpostorMod
     public Texture[] screwTextures;
     public Texture cyanTexture;
     public TextMesh[] buttonTexts;
+    public TextMesh[] cbTexts;
     public TextMesh screenText;
 
     private int Case;
@@ -19,7 +20,10 @@ public class FakeScrew : ImpostorMod
         Case = Rnd.Range(0, 5);
         var shuff = Enumerable.Range(0, 6).ToArray().Shuffle();
         for (int i = 1; i < 6; i++)
+        {
             screwHoles[i].material.mainTexture = screwTextures[shuff[i]];
+            cbTexts[i].text = "BGMRWY"[shuff[i]].ToString();
+        }
         var btnLetters = Enumerable.Range(0, 4).ToArray().Shuffle();
         for (int i = 0; i < buttonTexts.Length; i++)
             buttonTexts[i].text = "ABCD"[btnLetters[i]].ToString();
@@ -68,6 +72,7 @@ public class FakeScrew : ImpostorMod
             case 3:
                 var cyanHole = Rnd.Range(1, 6);
                 screwHoles[cyanHole].material.mainTexture = cyanTexture;
+                cbTexts[cyanHole].text = "C";
                 flickerObjs.Add(screwHoles[cyanHole].gameObject);
                 LogQuirk("there is a cyan colored hole");
                 break;
@@ -77,5 +82,10 @@ public class FakeScrew : ImpostorMod
                 LogQuirk("the screen has a letter instead of a number");
                 break;
         }
+    }
+    protected override void OnColorblindToggle()
+    {
+        foreach (TextMesh text in cbTexts)
+            text.gameObject.SetActive(cb);
     }
 }

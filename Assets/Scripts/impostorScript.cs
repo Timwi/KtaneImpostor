@@ -55,7 +55,7 @@ public sealed class impostorScript : MonoBehaviour
 
         chosenMod = allowedPrefabIndices.PickRandom();
 #if UNITY_EDITOR
-        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("Color Math", StringComparison.InvariantCultureIgnoreCase));
+        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("The Screw", StringComparison.InvariantCultureIgnoreCase));
 #endif
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
