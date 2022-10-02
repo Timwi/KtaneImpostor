@@ -53,7 +53,7 @@ public class FakeLaundry : ImpostorMod
                     if (special.Contains("\n"))
                         bottomDisp.transform.localScale = new Vector3(.01f, .005f, .01f);
                     bottomDisp.text = special;
-                    LogQuirk("The ironing display says {0}", special.Replace('\n', ' '));
+                    LogQuirk("The special display says {0}", special.Replace('\n', ' '));
                     flickerObjs.Add(bottomDisp.gameObject);
                 }
                 break;

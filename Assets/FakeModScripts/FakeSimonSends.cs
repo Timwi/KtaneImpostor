@@ -48,9 +48,9 @@ public class FakeSimonSends : ImpostorMod
             case 1: // one of the color channels is missing
                 switch (Rnd.Range(0, 3))
                 {
-                    case 0: _morseR = null; LogQuirk("the red color channel was missing from the diode"); break;
-                    case 1: _morseG = null; LogQuirk("the green color channel was missing from the diode"); break;
-                    case 2: _morseB = null; LogQuirk("the blue color channel was missing from the diode"); break;
+                    case 0: _morseR = null; LogQuirk("the red color channel is missing from the diode"); break;
+                    case 1: _morseG = null; LogQuirk("the green color channel is missing from the diode"); break;
+                    case 2: _morseB = null; LogQuirk("the blue color channel is missing from the diode"); break;
                 }
                 flickerObjs.Add(Diode.gameObject);
                 break;
