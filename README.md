@@ -5,9 +5,9 @@ This module was originally uploaded by Blananas2, and has been reuploaded and re
 The Impostor mimics the appearance of another modded module, but with a small difference. Hold down any button to solve the module, but simply tapping a button will cause a strike!
 ---
 # Behavior Authors:
-- Quinn Wuest: Combination Lock, The Gamepad, Number Pad, Only Connect, The Screw, Sea Shells
-- Timwi: Simon Sends
-- Blananas2: Semaphore, Piano Keys (standard, cruel & festive)1
+- **Quinn Wuest**: Combination Lock, The Gamepad, Number Pad, Only Connect, The Screw, Sea Shells
+- **Timwi**: Simon Sends
+- **Blananas2**: Semaphore, Piano Keys (standard, cruel & festive)1
 All other behaviors written by tandyCake
 ---
 # List of Quirks
