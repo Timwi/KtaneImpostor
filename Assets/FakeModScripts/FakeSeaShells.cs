@@ -35,13 +35,13 @@ public class FakeSeaShells : ImpostorMod
 
     void Start()
     {
-        _dispText += _screenPhrases[0][Rnd.Range(0, _screenPhrases[0].Length)];
-        _dispText += _screenPhrases[1][Rnd.Range(0, _screenPhrases[1].Length)];
+        _dispText += _screenPhrases[0].PickRandom();
+        _dispText += _screenPhrases[1].PickRandom();
         _dispText += "on ";
-        _dispText += _screenPhrases[2][Rnd.Range(0, _screenPhrases[2].Length)];
+        _dispText += _screenPhrases[2].PickRandom();
         DisplayText.text = _dispText;
-        var chosenWordIx = Rnd.Range(0, _btnTextsShort.Length);
-        var chosenWordList = _btnTextsShort[chosenWordIx].Shuffle().ToList();
+        int chosenWordIx = Rnd.Range(0, _btnTextsShort.Length);
+        List<string> chosenWordList = _btnTextsShort[chosenWordIx].Shuffle().ToList();
         chosenWordList.Add(_btnTextsLong[chosenWordIx]);
         for (int i = 0; i < BtnTexts.Length - 1; i++)
             BtnTexts[i].text = chosenWordList[i];
@@ -52,46 +52,46 @@ public class FakeSeaShells : ImpostorMod
         {
             case 0:
                 _dispText = "";
-                _dispText += _fakeScreenPhrases[0][Rnd.Range(0, _fakeScreenPhrases[0].Length)];
-                _dispText += _screenPhrases[1][Rnd.Range(0, _screenPhrases[1].Length)];
+                _dispText += _fakeScreenPhrases[0].PickRandom();
+                _dispText += _screenPhrases[1].PickRandom();
                 _dispText += "on ";
-                _dispText += _screenPhrases[2][Rnd.Range(0, _screenPhrases[2].Length)];
+                _dispText += _screenPhrases[2].PickRandom();
                 DisplayText.text = _dispText;
                 flickerObjs.Add(DisplayText.gameObject);
-                LogQuirk("the display reads {0}", _dispText);
+                LogQuirk("the display reads {0}", _dispText.Replace("\n", ""));
                 break;
             case 1:
                 _dispText = "";
-                _dispText += _screenPhrases[0][Rnd.Range(0, _screenPhrases[0].Length)];
-                _dispText += _screenPhrases[1][Rnd.Range(0, _screenPhrases[1].Length)];
+                _dispText += _screenPhrases[0].PickRandom();
+                _dispText += _screenPhrases[1].PickRandom();
                 _dispText += "on ";
-                _dispText += _fakeScreenPhrases[2][Rnd.Range(0, _fakeScreenPhrases[2].Length)];
+                _dispText += _fakeScreenPhrases[2].PickRandom();
                 DisplayText.text = _dispText;
                 flickerObjs.Add(DisplayText.gameObject);
-                LogQuirk("the display reads {0}", _dispText.ToUpperInvariant());
+                LogQuirk("the display reads {0}", _dispText.Replace("\n", ""));
                 break;
             case 2:
                 _dispText = "";
-                _dispText += _fakeScreenPhrases[0][Rnd.Range(0, _fakeScreenPhrases[0].Length)];
-                _dispText += _fakeScreenPhrases[1][Rnd.Range(0, _fakeScreenPhrases[1].Length)];
+                _dispText += _fakeScreenPhrases[0].PickRandom();
+                _dispText += _fakeScreenPhrases[1].PickRandom();
                 _dispText += "on ";
-                _dispText += _screenPhrases[2][Rnd.Range(0, _screenPhrases[2].Length)];
+                _dispText += _screenPhrases[2].PickRandom();
                 DisplayText.text = _dispText;
                 flickerObjs.Add(DisplayText.gameObject);
-                LogQuirk("the display reads {0}", _dispText);
+                LogQuirk("the display reads {0}", _dispText.Replace("\n", ""));
                 break;
             case 3:
-                var rndBtn = Rnd.Range(0, 4);
+                int rndBtn = Rnd.Range(0, 4);
                 BtnTexts[rndBtn].text = _fakeBtnTexts[chosenWordIx];
                 flickerObjs.Add(BtnTexts[rndBtn].gameObject);
                 LogQuirk("one of the buttons says {0}", _fakeBtnTexts[chosenWordIx].ToUpperInvariant());
                 break;
             case 4:
-                var rndBtn1 = Rnd.Range(0, 4);
-                newBtn:
-                var rndBtn2 = Rnd.Range(0, 4);
-                if (rndBtn2 == rndBtn1)
-                    goto newBtn;
+                int rndBtn1 = Rnd.Range(0, 4);
+                int rndBtn2;
+                do rndBtn2 = Rnd.Range(0, 4);
+                while (rndBtn1 == rndBtn2);
+
                 BtnTexts[rndBtn1].text = BtnTexts[rndBtn2].text;
                 flickerObjs.Add(BtnTexts[rndBtn1].gameObject);
                 flickerObjs.Add(BtnTexts[rndBtn2].gameObject);
