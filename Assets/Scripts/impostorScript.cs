@@ -15,6 +15,7 @@ public sealed class impostorScript : MonoBehaviour
     public KMSelectable SelectableComp;
     public KMColorblindMode ColorblindMode;
 
+    public string TestMod; //For testing, only works in Unity
     public GameObject[] Prefabs;
     public GameObject BG;
     public GameObject SL;
@@ -51,11 +52,11 @@ public sealed class impostorScript : MonoBehaviour
     {
         BG.SetActive(false);
         List<int> allowedPrefabIndices = GetAvailableIndices();
-        //allowedPrefabIndices.RemoveAll(x => Prefabs[x].name.StartsWith("Combination"));
 
         chosenMod = allowedPrefabIndices.PickRandom();
+
 #if UNITY_EDITOR
-        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith("The Screw", StringComparison.InvariantCultureIgnoreCase));
+        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith(TestMod, StringComparison.InvariantCultureIgnoreCase));
 #endif
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
