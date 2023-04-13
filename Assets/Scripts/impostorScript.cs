@@ -33,6 +33,7 @@ public sealed class impostorScript : MonoBehaviour
     {
         moduleId = moduleIdCounter++;
     }
+
     private void Start()
     {
         Debug.LogFormat("<The Impostor #{0}> Impostor module loaded with version 2.0.0", moduleId);
@@ -48,21 +49,23 @@ public sealed class impostorScript : MonoBehaviour
             chosenScript.orgPresent = true;
         }
     }
+
     private void GetMod()
     {
         BG.SetActive(false);
         List<int> allowedPrefabIndices = GetAvailableIndices();
 
         chosenMod = allowedPrefabIndices.PickRandom();
+        if (Application.isEditor && !(TestMod.Replace(" ", "") == "")) {
+            chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith(TestMod, StringComparison.InvariantCultureIgnoreCase));
+        }
 
-#if UNITY_EDITOR
-        chosenMod = Enumerable.Range(0, Prefabs.Length).First(x => Prefabs[x].name.StartsWith(TestMod, StringComparison.InvariantCultureIgnoreCase));
-#endif
         chosenPrefab = Instantiate(Prefabs[chosenMod], Vector3.zero, Quaternion.identity, this.transform);
         chosenPrefab.transform.localPosition = Vector3.zero;
         chosenPrefab.transform.localRotation = Quaternion.identity;
         Debug.LogFormat("[The Impostor #{0}] I may look like {1}, but do not be fooled...", moduleId, Prefabs[chosenMod].name);
     }
+
     private List<int> GetAvailableIndices()
     {
         List<int> allowedPrefabIndices = new List<int>();
@@ -108,6 +111,7 @@ public sealed class impostorScript : MonoBehaviour
             return Enumerable.Range(0, Prefabs.Length).ToList();
         else return allowedPrefabIndices;
     }
+
     private void GetScript()
     {
         chosenScript = chosenPrefab.GetComponent<ImpostorMod>();
@@ -120,6 +124,7 @@ public sealed class impostorScript : MonoBehaviour
             chosenScript.ToggleColorblind();
         SL.transform.localPosition = SLDict.StatusPositions[chosenScript.SLPos];
     }
+
     private void GetSelectables()
     {
         KMSelectable[] btns = chosenScript.buttons;
@@ -131,6 +136,7 @@ public sealed class impostorScript : MonoBehaviour
         }
         SelectableComp.UpdateChildren();
     }
+
     private void Solve()
     {
         solved = true;
@@ -141,12 +147,14 @@ public sealed class impostorScript : MonoBehaviour
         SL.transform.localPosition = SLDict.StatusPositions[SLPositions.TR];
         BG.SetActive(true);
     }
+
     IEnumerator Hehe()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(15f, 30f));
         if (!solved)
             Audio.PlaySoundAtTransform("hehe", transform);
     }
+
     private string GetMissionID()
     {
         try
@@ -161,6 +169,7 @@ public sealed class impostorScript : MonoBehaviour
             return "undefined";
         }
     }
+
 #pragma warning disable 414
     private readonly string TwitchHelpMessage = @"Use <!{0} disarm> to solve the module. Use <!{0} colorblind> to toggle colorblind mode. Any other command will cause a strike.";
 #pragma warning restore 414
@@ -195,6 +204,7 @@ public sealed class impostorScript : MonoBehaviour
         public Dictionary<string, bool> disabledModsList = new Dictionary<string, bool>();
         public string note;
     }
+    
     private void SetUpModSettings()
     {
         ModConfig<ImpostorSettings> config = new ModConfig<ImpostorSettings>("ImpostorSettings");

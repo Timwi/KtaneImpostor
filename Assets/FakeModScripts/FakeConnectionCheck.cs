@@ -9,8 +9,12 @@ using Rnd = UnityEngine.Random;
 public class FakeConnectionCheck : ImpostorMod 
 {
     public override string ModAbbreviation { get { return "Cck"; } }
+
     public GameObject[] redLeds, greenLeds;
     public TextMesh[] texts;
+    public Material[] susmats;
+    public GameObject[] ccwtf;
+
     private int Case;
 
     void Start()
@@ -24,19 +28,36 @@ public class FakeConnectionCheck : ImpostorMod
         }
 
         int changedPos = Rnd.Range(0, 8);
-        flickerObjs.Add(texts[changedPos].gameObject);
-        if (Ut.RandBool())
-        {
-            int newVal = Ut.RandBool() ? 0 : 9;
-            texts[changedPos].text = newVal.ToString();
-            LogQuirk("there is a {0}", newVal);
-        }
-        else
-        {
-            int adjacentPos = changedPos % 2 == 0 ? changedPos + 1 : changedPos - 1;
-            texts[changedPos].text = texts[adjacentPos].text;
-            flickerObjs.Add(texts[adjacentPos].gameObject);
-            LogQuirk("there are two numbers that are the same on the same pair");
+
+        Case = Rnd.Range(0, 4);
+
+        switch (Case) {
+            case 0:
+                flickerObjs.Add(texts[changedPos].gameObject);
+                int newVal = Ut.RandBool() ? 0 : 9;
+                texts[changedPos].text = newVal.ToString();
+                LogQuirk("there is a {0}", newVal);
+            break;
+            case 1:
+                flickerObjs.Add(texts[changedPos].gameObject);
+                int adjacentPos = changedPos % 2 == 0 ? changedPos + 1 : changedPos - 1;
+                texts[changedPos].text = texts[adjacentPos].text;
+                flickerObjs.Add(texts[adjacentPos].gameObject);
+                LogQuirk("there are two numbers that are the same on the same pair");
+            break;
+            case 2: //added by Blan
+                changedPos = changedPos % 4;
+                flickerObjs.Add(ccwtf[changedPos].gameObject);
+                bool rng = Ut.RandBool();
+                redLeds[changedPos].GetComponent<MeshRenderer>().material = susmats[rng ? 0 : 1];
+                greenLeds[changedPos].GetComponent<MeshRenderer>().material = susmats[rng ? 0 : 1];
+                LogQuirk("there is a {0} LED", rng ? "yellow" : "blue");
+            break;
+            case 3:
+                flickerObjs.Add(texts[8].gameObject);
+                texts[8].text = "CHEGG";
+                LogQuirk("the button says 'CHEGG'");
+            break;
         }
     }
 }

@@ -14,6 +14,7 @@ public abstract class ImpostorMod : MonoBehaviour
     [HideInInspector]
     public bool orgPresent;
     public int moduleId { private get; set; }
+    
     ///<summary>
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
@@ -46,6 +47,7 @@ public abstract class ImpostorMod : MonoBehaviour
             btn.OnInteractEnded += delegate () { ReleaseBtn(btn); };
         }
     }
+
     /// <summary>
     /// Sends a log message which works with the LFA using string.Format<br></br>Do not capitalize the message, or put punctuation at its end. 
     /// </summary>
@@ -56,6 +58,7 @@ public abstract class ImpostorMod : MonoBehaviour
     {
         Debug.LogFormat("[The Impostor #{0}] ...{1}, that doesn't seem normal.", moduleId, string.Format(msg, args));
     }
+
     /// <summary>
     /// Sends a log message which works with the LFA. 
     /// </summary>
@@ -75,6 +78,7 @@ public abstract class ImpostorMod : MonoBehaviour
     /// </summary>
     public virtual void OnActivate()
     { }
+
     /// <summary>
     /// Gets called when colorblind mode is toggled.
     /// </summary>
@@ -93,6 +97,7 @@ public abstract class ImpostorMod : MonoBehaviour
             willSolve = true;
         }
     }
+
     private void ReleaseBtn(KMSelectable btn)
     {
         btn.AddInteractionPunch(0.25f);
@@ -109,6 +114,7 @@ public abstract class ImpostorMod : MonoBehaviour
             StartCoroutine(Flicker());
         }
     }
+
     private IEnumerator Flicker()
     {
         willSolve = true;

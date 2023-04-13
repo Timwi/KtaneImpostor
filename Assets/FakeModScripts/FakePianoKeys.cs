@@ -33,7 +33,7 @@ public class FakePianoKeys : ImpostorMod
                 }
                 if (!symbols.HasDuplicates()) {
                     symbols.Clear();
-                    goto retry0;LogQuirk("the display has identical symbols");
+                    goto retry0;
                 }
                 LogQuirk("the display has identical symbols");
             break;
