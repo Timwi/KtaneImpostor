@@ -7,8 +7,8 @@ The Impostor mimics the appearance of another modded module, but with a small di
 # Behavior Authors:
 - **Quinn Wuest**: Combination Lock, The Gamepad, Number Pad, Only Connect, The Screw, Sea Shells
 - **Timwi**: Simon Sends
-- **Blananas2**: Semaphore, Piano Keys (standard, cruel & festive)1
-All other behaviors written by tandyCake
+- **Blananas2**: Semaphore, Piano Keys (standard, cruel & festive) hi if you see this blan was an idiot and forgot to add the new mods here
+- All other behaviors written by tandyCake
 ---
 # List of Quirks
 ### 3D Maze
