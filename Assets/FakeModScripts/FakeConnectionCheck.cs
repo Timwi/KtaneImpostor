@@ -14,6 +14,7 @@ public class FakeConnectionCheck : ImpostorMod
     public TextMesh[] texts;
     public Material[] susmats;
     public GameObject[] ccwtf;
+    private static readonly string[] fakeWords = {"CHEGG", "CHAIR", "CHORTLE", "CHALK", "CHAT", "CHEAP", "CHEAT", "CHIP", "CHILL", "CHIME", "CHOP", "CHUNK", "CHEW", "CHUCK", "CHAIN", "CHEESE", "CHOOSE", "CHARGE", "CHOW"};
 
     private int Case;
 
@@ -30,6 +31,7 @@ public class FakeConnectionCheck : ImpostorMod
         int changedPos = Rnd.Range(0, 8);
 
         Case = Rnd.Range(0, 4);
+        Case = 3; //ZAMN
 
         switch (Case) {
             case 0:
@@ -55,8 +57,9 @@ public class FakeConnectionCheck : ImpostorMod
             break;
             case 3:
                 flickerObjs.Add(texts[8].gameObject);
-                texts[8].text = "CHEGG";
-                LogQuirk("the button says 'CHEGG'");
+                string word = fakeWords.PickRandom();
+                texts[8].text = word;
+                LogQuirk("the button says '{0}'", word);
             break;
         }
     }

@@ -72,6 +72,6 @@ public class FakeCruelPianoKeys : ImpostorMod
             break;
         }
 
-        display.text = symbols.Join("    ");
+        display.text = symbols.Join("   ");
     }
 }
