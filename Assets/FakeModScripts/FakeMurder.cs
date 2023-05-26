@@ -44,7 +44,7 @@ public class FakeMurder : ImpostorMod
             do colorIx = Rnd.Range(0, 5);
             while (colorIx == chosenPerson);
             displayedColor = colors[colorIx];
-            LogQuirk("{0} is actually using {1}'s color.", fullNames[chosenPerson], fullNames[colorIx]);
+            LogQuirk("{0} is actually using {1}'s color", fullNames[chosenPerson], fullNames[colorIx]);
          }
         else if (Case == 1)
         {

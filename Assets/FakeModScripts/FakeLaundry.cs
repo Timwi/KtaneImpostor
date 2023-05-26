@@ -14,12 +14,12 @@ public class FakeLaundry : ImpostorMod
     public TextMesh topDisp, bottomDisp;
     private int Case;
 
-    string[] funnyIrons = { "TOASTER", "BUMPER CAR", "TWO SEATED\nBUMPER CAR", "DELUX\nBUMPER CAR", "BUMPER CAR\nWITH NO LEGS", "BATHTUB", "IRON BAR", "GOLD", "IRONY", "98 DEGREES", "800°F", "THE IRON MAN", "TONY STARK", "VITAMIN B-12", "IRON-59", "FIRE" };
-    string[] funnySpecials = { "INCREASED MOISTURE", "ZERO", "APATHY", "PINKS", "FRENCH CLOTHES", "I GIVE UP", "LONG CYCLE", "SYMBOL CYCLE", "SMELFED CLIMPS", "NO TETRISSPRINT", "PLEASE BLEACH", "DRY WASHING", "NEGATIVE HEAT", "TOO COLD", "WASH CAREFULLY", "DON'T SPEAK", "ALL-CHLORINE\nBLEACH" };
+    string[] funnyIrons = { "TOASTER", "BUMPER CAR", "TWO SEATED\nBUMPER CAR", "DELUX\nBUMPER CAR", "BUMPER CAR\nWITH NO LEGS", "BATHTUB", "IRON BAR", "GOLD", "IRONY", "98 DEGREES", "800°F", "TONY STARK", "VITAMIN B-12", "IRON-59", "FIRE", "IRAN" };
+    string[] funnySpecials = { "INCREASED MOIST", "ZERO", "APATHY", "PINKS", "FRENCH CLOTHES", "I GIVE UP", "LONG CYCLE", "SYMBOL CYCLE", "SMELFED CLIMPS", "NO TETRISSPRINT", "PLEASE BLEACH", "DRY WASHING", "NEGATIVE HEAT", "TOO COLD", "WASH CAREFULLY", "DON'T SPEAK", "ALL-CHLORINE\nBLEACH" };
 
     void Start()
     {
-        Case = Rnd.Range(0, 3); //However many cases you want there to be.
+        Case = Rnd.Range(0, 3);
         switch (Case)
         {
             case 0:
