@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -194,6 +194,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &908701346
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4679080439823042, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085380733565076, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+      propertyPath: m_Name
+      value: Silly Slots (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 95014521671112150, guid: 63e61b9ac4e3a604c970cad925c9df50,
+        type: 2}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 63e61b9ac4e3a604c970cad925c9df50, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &922311205
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,10 +349,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1336463298864312, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114094268724210168, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15,
+        type: 2}
+      propertyPath: Prefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 1000013007834198, guid: 9a90054f5a7d806439e91e1b8eaea3db,
+        type: 2}
     - target: {fileID: 114094268724210168, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15,
         type: 2}
       propertyPath: TestMod
-      value: cruel piano
+      value: Silly Slots
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676409040304040, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15, type: 2}
