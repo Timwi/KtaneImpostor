@@ -21,6 +21,9 @@ public class FakeSimonSends : ImpostorMod
 
     void Start()
     {
+        foreach (Light light in Lights)
+            light.range *= transform.lossyScale.x;
+
         var available = Enumerable.Range(0, 26).ToList().Shuffle();
         var r = (char) (available[0] + 'A');
         var g = (char) (available[1] + 'A');
