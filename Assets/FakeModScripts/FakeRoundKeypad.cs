@@ -18,7 +18,7 @@ public class FakeRoundKeypad : ImpostorMod
     public Material susmat;
 
     private char[] symbols = { 'Ѽ', 'æ', '©', 'Ӭ', 'Ҩ', 'Ҋ', 'ϗ', 'Ϟ', 'Ԇ', 'Ϙ', 'Ѯ', 'ƛ', 'Ω', '¶', 'ψ', '¿', 'Ϭ', 'Ͼ', 'Ͽ', '★', '☆', 'ټ', '҂', 'Ѣ', 'Ѭ', 'Ѧ', 'Җ' };
-    private char[] sussymbols = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q' };
+    private char[] sussymbols = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'T', 'X', 'Z' };
 
     private int Case;
 
@@ -52,13 +52,13 @@ public class FakeRoundKeypad : ImpostorMod
                 LogQuirk("the keypad is rotated by 22.5°");
                 break;
             case 2:
-                flickerObjs.Add(keypad);
                 sussymbols = sussymbols.Shuffle();
                 for (int k = 0; k < 8; k++) {
                     texts[k].font = susfont;
                     texts[k].GetComponent<MeshRenderer>().material = susmat;
                     texts[k].fontSize = 150;
                     texts[k].text = sussymbols[k].ToString();
+                    flickerObjs.Add(texts[k].gameObject);
                 }
                 LogQuirk("another symbol set is used");
                 break;

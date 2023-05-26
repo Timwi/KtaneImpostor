@@ -31,7 +31,6 @@ public class FakeConnectionCheck : ImpostorMod
         int changedPos = Rnd.Range(0, 8);
 
         Case = Rnd.Range(0, 4);
-        Case = 3; //ZAMN
 
         switch (Case) {
             case 0:
