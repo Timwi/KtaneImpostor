@@ -7,7 +7,7 @@ The Impostor mimics the appearance of another modded module, but with a small di
 # Behavior Authors:
 - **Quinn Wuest**: Combination Lock, The Gamepad, Number Pad, Only Connect, The Screw, Sea Shells
 - **Timwi**: Simon Sends
-- **Blananas2**: Semaphore, Piano Keys (standard, cruel & festive) hi if you see this blan was an idiot and forgot to add the new mods here
+- **Blananas2**: Connection Check, Emoji Math, Piano Keys (standard, Cruel & Festive), Round Keypad, Semaphore
 - All other behaviors written by tandyCake
 ---
 # List of Quirks
@@ -57,11 +57,18 @@ The Impostor mimics the appearance of another modded module, but with a small di
 ### Connection Check
 - There is a 0 or a 9 on the module.
 - There is a pair with two of the same number on it.
+- There is a blue or yellow LED.
+- The top button doesn't say "CHECK".
 ### Creation
 - One of the starting elements is one which is not in the original module.
 - The weather is one which is not in the original module.
 ### Cryptography
 - The text is in Spanish.
+### Emoji Math
+- The display isn't encrypted with emoticons.
+- The text is not red.
+- There are no symbols before the operator.
+- The '-' button is a '+' instead.
 ### The Gamepad
 - The arrows buttons point in the opposite directions.
 - The display shows letters instead of numbers.
@@ -120,8 +127,14 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - The observer is missing.
 - The observer is at a 45° angle.
 - The top face of the cube is labeled with a different side.
-### Piano Keys: Standard, Cruel & Festive
+### Piano Keys: standard, Cruel & Festive
 - The display has duplicate symbols on it.
+- The key colors are inverted.
+- The keys are upside-down.
+### Round Keypad
+- A symbol is missing.
+- The keypad is rotated by 22.5°.
+- A different symbol set is used.
 ### The Screw
 - There is a duplicate colored hole.
 - The buttons have numbers on them instead of letters.
@@ -134,6 +147,7 @@ The Impostor mimics the appearance of another modded module, but with a small di
 ### Semaphore
 - The "OK" button has a different label.
 - The left and right arrows are swapped.
+- The flags are waving.
 ### Silly Slots
 - One of the symbols on the slots is one which doesn't appear in the original module.
 - The displayed keyword is one which doesn't appear in the original module.
