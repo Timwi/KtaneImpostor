@@ -15,6 +15,7 @@ public class FakeAnagrams : ImpostorMod
 
     private static readonly string[] anagrams = { "STREAM", "MASTER", "TAMERS", "LOOPED", "POODLE", "POOLED", "CELLAR", "CALLER", "RECALL", "SEATED", "SEDATE", "TEASED", "RESCUE", "SECURE", "RECUSE", "RASHES", "SHEARS", "SHARES", "BARELY", "BARLEY", "BLEARY", "DUSTER", "RUSTED", "RUDEST" };
     private string chosenWord;
+    private static readonly string consonants = "BCDFGHJKLMNPQRSTVWXZ";
 
     void Start()
     {
@@ -24,21 +25,16 @@ public class FakeAnagrams : ImpostorMod
             LogQuirk("the anagram is on the bottom screen");
             botDisp.text = chosenWord;
             flickerObjs.Add(botDisp.gameObject);
-            for (int i = 0; i < 6; i++)
-                buttonTexts[i].text = chosenWord[i].ToString();
         }
         else
         {
-            chosenWord = anagrams.PickRandom();
-            LogQuirk("DEL and OK are on the left");
-            topDisp.text = chosenWord;
-            for (int i = 0; i < 8; i++)
-                flickerObjs.Add(buttonTexts[i].gameObject);
-            buttonTexts[0].text = "DEL";
-            buttonTexts[3].text = "OK";
-            int[] order = { 1, 2, 6, 4, 5, 7 };
             for (int i = 0; i < 6; i++)
-                buttonTexts[order[i]].text = chosenWord[i].ToString();
+                chosenWord += consonants.PickRandom();
+            LogQuirk("the \"anagram\" consists of only consonants");
+            topDisp.text = chosenWord;
+            flickerObjs.Add(topDisp.gameObject);
         }
+        for (int i = 0; i < 6; i++)
+            buttonTexts[i].text = chosenWord[i].ToString();
     }
 }
