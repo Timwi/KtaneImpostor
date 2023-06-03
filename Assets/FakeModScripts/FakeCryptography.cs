@@ -19,19 +19,19 @@ public class FakeCryptography : ImpostorMod
     void Start()
     {
 
-        string[] clauses = wholeExcerpt.Split(new[] { '.', '?', '!', ';' }, StringSplitOptions.RemoveEmptyEntries);
-        string[] pickedWords = clauses.PickRandom().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                                                        .Select(
-                                                                word => word.Where(
-                                                                                ch => char.IsLetter(ch)
-                                                                                  ).Join("").Trim().ToUpper()
-                                                               ).ToArray();
+        var clauses = wholeExcerpt.Split(new[] { '.', '?', '!', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                                        .Where(x => !x.All(ch => char.IsWhiteSpace(ch)));
+        var pickedWords = clauses.PickRandom().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                                                .Select(
+                                                    word => word.Where(
+                                                            ch => char.IsLetter(ch)
+                                                                ).Join("").Trim().ToUpper());
         string[] formattedWords = pickedWords.Select(w => string.Format("<color=#{0}>{1}</color>", GetColor(w), w)).ToArray();
         formattedText = formattedWords.Join(" ").Trim();
         flickerObjs.Add(display.gameObject);
         LogQuirk("the text is in Spanish");
 
-        char[] availableAlphabet = pickedWords.SelectMany(x => x).Distinct().ToArray().Shuffle();
+        char[] availableAlphabet = pickedWords.SelectMany(x => x).Where(ch => char.IsLetter(ch)).Distinct().ToArray().Shuffle();
         for (int i = 0; i < 5; i++)
             buttonLetters[i].text = availableAlphabet[i].ToString();
     }
