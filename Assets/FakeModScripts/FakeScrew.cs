@@ -39,8 +39,7 @@ public class FakeScrew : ImpostorMod
                 } while (rnd1 == rnd2);
                 var dupeShuff = Enumerable.Range(0, 6).ToArray().Shuffle();
                 dupeShuff[rnd1] = dupeShuff[rnd2];
-                flickerObjs.Add(screwHoles[rnd1].gameObject);
-                flickerObjs.Add(screwHoles[rnd2].gameObject);
+                AddFlicker(screwHoles[rnd1], screwHoles[rnd2]);
                 for (int i = 0; i < screwHoles.Length; i++)
                     screwHoles[i].material.mainTexture = screwTextures[dupeShuff[i]];
                 LogQuirk("there is a duplicate colored hole, at holes {0} and {1}", rnd1 + 1, rnd2 + 1);
@@ -50,7 +49,7 @@ public class FakeScrew : ImpostorMod
                 for (int i = 0; i < buttonTexts.Length; i++)
                 {
                     buttonTexts[i].text = (numShuff[i] + 1).ToString();
-                    flickerObjs.Add(buttonTexts[i].gameObject);
+                    AddFlicker(buttonTexts[i]);
                 }
                 LogQuirk("the buttons have numbers instead of letters");
                 break;
@@ -64,7 +63,7 @@ public class FakeScrew : ImpostorMod
                 } while (btnRand == letterRand || letterRand == 8); // 'I' may look too much like '1'
                 newLetters[btnRand] = letterRand;
                 newLetters.Shuffle();
-                flickerObjs.Add(buttonTexts[Array.IndexOf(newLetters, letterRand)].gameObject);
+                AddFlicker(buttonTexts[Array.IndexOf(newLetters, letterRand)]);
                 for (int i = 0; i < 4; i++)
                     buttonTexts[i].text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[newLetters[i]].ToString();
                 LogQuirk("one of the buttons has the letter {0}", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[letterRand]);
@@ -73,12 +72,12 @@ public class FakeScrew : ImpostorMod
                 var cyanHole = Rnd.Range(1, 6);
                 screwHoles[cyanHole].material.mainTexture = cyanTexture;
                 cbTexts[cyanHole].text = "C";
-                flickerObjs.Add(screwHoles[cyanHole].gameObject);
+                AddFlicker(screwHoles[cyanHole]);
                 LogQuirk("there is a cyan colored hole");
                 break;
             case 4:
                 screenText.text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".PickRandom().ToString();
-                flickerObjs.Add(screenText.gameObject);
+                AddFlicker(screenText);
                 LogQuirk("the screen has a letter instead of a number");
                 break;
         }

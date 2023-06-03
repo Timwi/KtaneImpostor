@@ -24,7 +24,7 @@ public class FakeAnagrams : ImpostorMod
             chosenWord = anagrams.PickRandom();
             LogQuirk("the anagram is on the bottom screen");
             botDisp.text = chosenWord;
-            flickerObjs.Add(botDisp.gameObject);
+            AddFlicker(botDisp);
         }
         else
         {
@@ -32,7 +32,7 @@ public class FakeAnagrams : ImpostorMod
                 chosenWord += consonants.PickRandom();
             LogQuirk("the \"anagram\" consists of only consonants");
             topDisp.text = chosenWord;
-            flickerObjs.Add(topDisp.gameObject);
+            AddFlicker(topDisp);
         }
         for (int i = 0; i < 6; i++)
             buttonTexts[i].text = chosenWord[i].ToString();

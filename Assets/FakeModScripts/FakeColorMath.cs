@@ -34,7 +34,7 @@ public class FakeColorMath : ImpostorMod
             leds[i].material.color = colors[color];
             cbTexts[i].text = colorNames[color];
         }
-        flickerObjs.Add(text.gameObject);
+        AddFlicker(text);
         if (Ut.RandBool())
         {
             if (Ut.RandBool())

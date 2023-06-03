@@ -26,7 +26,7 @@ public class FakePianoKeys : ImpostorMod
         switch (Case)
         {
             case 0: //Identical symbols
-                flickerObjs.Add(display.gameObject);
+                AddFlicker(display);
                 retry0:
                 for (int i = 0; i < 3; i++) {
                     symbols.Add(set.PickRandom().ToString());
@@ -39,7 +39,7 @@ public class FakePianoKeys : ImpostorMod
             break;
             case 1: //Inverted colors
                 for (int o = 0; o < 12; o++) {
-                    flickerObjs.Add(objs[o].gameObject);
+                    AddFlicker(objs[o]);
                     objs[o].material = mats[(o < 7 ? 0 : 1)];
                 }
                 retry1:
@@ -54,7 +54,7 @@ public class FakePianoKeys : ImpostorMod
             break;
             case 2: //Vertically flipped or upside down
                 for (int o = 0; o < 12; o++) {
-                    flickerObjs.Add(objs[o].gameObject);
+                    AddFlicker(objs[o]);
                 }
                 Vector3 origPos = whole.transform.localPosition;
                 Vector3 origScale = whole.transform.localScale;

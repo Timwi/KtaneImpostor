@@ -24,31 +24,29 @@ public class FakeChess : ImpostorMod
         switch (Case)
         {
             case 0:
-                flickerObjs.Add(dispLetter.gameObject);
+                AddFlicker(dispLetter);
                 dispLetter.text = ((char)(Rnd.Range(7, 26) + 'a')).ToString();
                 LogQuirk("the displayed coordinate is {0}", dispLetter.text + dispNumber.text);
                 break;
             case 1:
-                flickerObjs.Add(dispNumber.gameObject);
+                AddFlicker(dispNumber);
                 dispNumber.text = (Rnd.Range(7, 11) % 10).ToString();
                 LogQuirk("the displayed coordinate is {0}", dispLetter.text + dispNumber.text);
                 break;
             case 2:
                 for (int i = 0; i < 6; i++)
                 {
-                    flickerObjs.Add(letters[i].gameObject);
-                    flickerObjs.Add(numbers[i].gameObject);
                     letters[i].text = (i + 1).ToString();
                     numbers[i].text = ((char)(i + 'a')).ToString();
                 }
+                AddFlicker(letters);
+                AddFlicker(numbers);
                 LogQuirk("the number and letter buttons are swapped");
                 break;
             case 3:
                 for (int i = 0; i < 6; i++)
-                {
-                    flickerObjs.Add(leds[i].gameObject);
                     leds[i].material.color = Color.black;
-                }
+                AddFlicker(leds);
                 LogQuirk("the LEDs are all unlit");
                 break;
         }

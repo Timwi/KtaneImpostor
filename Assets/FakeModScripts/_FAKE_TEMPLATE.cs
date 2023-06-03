@@ -19,13 +19,13 @@ public class TemplateFakeScript : ImpostorMod
         switch (Case)
         {
             case 0:
-                flickerObjs.Add(null); //Replace null with whatever you're modifying
+                AddFlicker(new GameObject()); //Replace new GameObject() with whatever you're modifying
                 break;
             case 1:
-                flickerObjs.Add(null);
+                AddFlicker(new GameObject());
                 break;
             case 2:
-                flickerObjs.Add(null);
+                AddFlicker(new GameObject());
                 break;
         }
         LogQuirk("Test message 2+2={0}", 2+2);

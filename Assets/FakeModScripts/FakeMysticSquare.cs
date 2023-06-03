@@ -30,12 +30,12 @@ public class FakeMysticSquare : ImpostorMod
             int brokePos = Rnd.Range(0, 8);
             int result = Ut.RandBool() ? 0 : 9;
             LogQuirk("there is a {0}", result);
-            flickerObjs.Add(texts[brokePos].gameObject);
+            AddFlicker(texts[brokePos]);
             order[brokePos] = result;
         }
         else
         {
-            flickerObjs.Add(skull.gameObject);
+            AddFlicker(skull);
             skullPos = movedPos;
             LogQuirk("the skull is already revealed");
         }

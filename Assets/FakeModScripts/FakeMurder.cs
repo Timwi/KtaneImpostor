@@ -37,7 +37,7 @@ public class FakeMurder : ImpostorMod
         displayedWeapon = weapons.PickRandom();
         displayedColor = colors[chosenPerson];
         Case = Rnd.Range(0, 4);
-        flickerObjs.Add(texts[0].gameObject);
+        AddFlicker(texts[0]);
         if (Case == 0)
         {
             int colorIx;
@@ -66,7 +66,7 @@ public class FakeMurder : ImpostorMod
         if (Case == 3)
         {
             LogQuirk("the suspect is on the middle screen and the weapon is on the top screen");
-            flickerObjs.Add(texts[1].gameObject);
+            AddFlicker(texts[1]);
             texts[0].text = displayedWeapon;
             texts[1].text = displayedName;
         }

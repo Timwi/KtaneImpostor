@@ -36,19 +36,19 @@ public class FakeComplicatedButtons : ImpostorMod
         switch (Case)
         {
             case 0:
-                flickerObjs.Add(buttonRenderers[randomButton].gameObject);
+                AddFlicker(buttonRenderers[randomButton]);
                 buttonRenderers[randomButton].material.mainTexture = null;
                 buttonRenderers[randomButton].material.color = new Color32(180, 38, 255, 255);
                 LogQuirk("button {0} is purple", randomButton+1);
                 break;
             case 1:
-                flickerObjs.Add(buttonTexts[randomButton].gameObject);
+                AddFlicker(buttonTexts[randomButton]);
                 buttonTexts[randomButton].text = funkyWords.PickRandom();
                 LogQuirk("button {0} says {1}", randomButton+1, buttonTexts[randomButton].text);
                 break;
             case 2:
                 int randomBottom = Rnd.Range(0, 2)+1;
-                flickerObjs.Add(buttonRenderers[randomBottom].gameObject);
+                AddFlicker(buttonRenderers[randomBottom]);
                 buttons[randomBottom].GetComponent<MeshFilter>().mesh = shortButtonMesh;
                 Transform buttonTransform = buttons[randomBottom].gameObject.transform;
                 buttonTransform.localPosition = new Vector3(-0.0185f, 0.0038f, buttonTransform.localPosition.z);

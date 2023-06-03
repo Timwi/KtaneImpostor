@@ -26,17 +26,17 @@ public class FakeGridlock : ImpostorMod
         {
             case 0:
                 nextBtn.text = "PREV";
-                flickerObjs.Add(nextBtn.gameObject);
+                AddFlicker(nextBtn);
                 LogQuirk("the next button says previous");
                 break;
             case 1: //10 of 5
                 topNum.text = (pageCount + Rnd.Range(1, 5)).ToString();
-                flickerObjs.Add(topNum.gameObject);
+                AddFlicker(topNum);
                 LogQuirk("the current page is higher than the page count");
                 break;
             case 2://no star
                 RandomizeCell(starPos);
-                flickerObjs.AddRange(symbolsRenderers.Select(x => x.gameObject));
+                AddFlicker(symbolsRenderers);
                 LogQuirk("no star is present");
                 break;
         }

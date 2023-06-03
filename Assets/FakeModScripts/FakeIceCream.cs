@@ -18,14 +18,14 @@ public class FakeIceCream : ImpostorMod
     {
         if (Ut.RandBool())
         {
-            flickerObjs.Add(customerName.gameObject);
+            AddFlicker(customerName);
             customerName.text = fakeNames.PickRandom();
             flavor.text = realFlavors.PickRandom();
             LogQuirk("the name is {0}", customerName.text);
         }
         else
         {
-            flickerObjs.Add(flavor.gameObject);
+            AddFlicker(flavor);
             customerName.text = realNames.PickRandom();
             flavor.text = fakeFlavors.PickRandom();
             LogQuirk("the flavor is {0}", flavor.text);

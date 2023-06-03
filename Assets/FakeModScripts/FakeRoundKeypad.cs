@@ -34,7 +34,7 @@ public class FakeRoundKeypad : ImpostorMod
                 for (int k = 0; k < 8; k++) {
                     if (Case == k) {
                         texts[k].text = " ";
-                        flickerObjs.Add(keys[k].gameObject);
+                        AddFlicker(keys[k]);
                     } else {
                         texts[k].text = symbols[k].ToString();
                     }
@@ -42,7 +42,7 @@ public class FakeRoundKeypad : ImpostorMod
                 LogQuirk("a symbol is missing");
                 break;
             case 1:
-                flickerObjs.Add(keypad);
+                AddFlicker(keypad);
                 symbols = symbols.Shuffle();
                 keypad.transform.localRotation = Quaternion.Euler(0f, 22.5f, 0f);
                 for (int k = 0; k < 8; k++) {
@@ -58,8 +58,8 @@ public class FakeRoundKeypad : ImpostorMod
                     texts[k].GetComponent<MeshRenderer>().material = susmat;
                     texts[k].fontSize = 150;
                     texts[k].text = sussymbols[k].ToString();
-                    flickerObjs.Add(texts[k].gameObject);
                 }
+                AddFlicker(texts);
                 LogQuirk("another symbol set is used");
                 break;
         }

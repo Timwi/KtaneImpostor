@@ -11,7 +11,7 @@ public class Fake3DMaze : ImpostorMod
         foreach (MeshRenderer rend in walls)
             rend.enabled = Ut.RandBool();
         bottomLetter.material.mainTexture = letters.PickRandom();
-        flickerObjs.Add(bottomLetter.gameObject);
+        AddFlicker(bottomLetter);
         LogQuirk("the letter on the bottom of the module is a {0}", bottomLetter.material.name[0]);
     }
 }

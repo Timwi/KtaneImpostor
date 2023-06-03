@@ -24,17 +24,17 @@ public class FakeCreation : ImpostorMod
 
         if (Ut.RandBool())
         {
-                int changePos = Rnd.Range(0, 4);
-                displays[changePos].material.mainTexture = funnyElements[elementOrder[changePos]];
-                LogQuirk("element {0} is replaced with {1}", elements[elementOrder[changePos]].name, funnyElements[elementOrder[changePos]].name);
-                flickerObjs.Add(displays[changePos].gameObject); 
+            int changePos = Rnd.Range(0, 4);
+            displays[changePos].material.mainTexture = funnyElements[elementOrder[changePos]];
+            LogQuirk("element {0} is replaced with {1}", elements[elementOrder[changePos]].name, funnyElements[elementOrder[changePos]].name);
+            AddFlicker(displays[changePos]); 
         }
         else
         {
-                int newWeather = Rnd.Range(0, funnyWeathers.Length);
-                weatherDisplay.material.mainTexture = funnyWeathers[newWeather];
-                LogQuirk("the weather is {0}", funnyWeathers[newWeather].name);
-                flickerObjs.Add(weatherDisplay.gameObject);
+            int newWeather = Rnd.Range(0, funnyWeathers.Length);
+            weatherDisplay.material.mainTexture = funnyWeathers[newWeather];
+            LogQuirk("the weather is {0}", funnyWeathers[newWeather].name);
+            AddFlicker(weatherDisplay);
         }
     }
 }

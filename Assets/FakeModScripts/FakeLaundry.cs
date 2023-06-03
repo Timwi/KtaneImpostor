@@ -24,7 +24,7 @@ public class FakeLaundry : ImpostorMod
         {
             case 0:
                 coinSlot.SetActive(false);
-                flickerObjs.Add(coinSlot);
+                AddFlicker(coinSlot);
                 LogQuirk("the coin slot is gone");
                 break;
             case 1:
@@ -34,7 +34,8 @@ public class FakeLaundry : ImpostorMod
                     symbols[i].localPosition = new Vector3(dials[i].localPosition.x, -2.262985f, dials[i].localPosition.z);
                     dials[i].localPosition = new Vector3(temp.x, -2.151655f, temp.z);
                 }
-                flickerObjs.AddRange(dials.Concat(symbols).Select(x => x.gameObject));
+                AddFlicker(dials);
+                AddFlicker(symbols);
                 LogQuirk("the dials and symbols are swapped");
                 break;
             case 2:
@@ -45,7 +46,7 @@ public class FakeLaundry : ImpostorMod
                         topDisp.transform.localScale = new Vector3(.01f, .005f, .01f);
                     topDisp.text = iron;
                     LogQuirk("The ironing display says {0}", iron.Replace('\n', ' '));
-                    flickerObjs.Add(topDisp.gameObject);
+                    AddFlicker(topDisp);
                 }
                 else
                 {
@@ -54,7 +55,7 @@ public class FakeLaundry : ImpostorMod
                         bottomDisp.transform.localScale = new Vector3(.01f, .005f, .01f);
                     bottomDisp.text = special;
                     LogQuirk("The special display says {0}", special.Replace('\n', ' '));
-                    flickerObjs.Add(bottomDisp.gameObject);
+                    AddFlicker(bottomDisp);
                 }
                 break;
         }

@@ -22,18 +22,17 @@ public class FakeCombinationLock : ImpostorMod
             case 0:
                 ButtonTexts[0].text = ">";
                 ButtonTexts[1].text = "<";
-                flickerObjs.Add(ButtonTexts[0].gameObject);
-                flickerObjs.Add(ButtonTexts[1].gameObject);
+                AddFlicker(ButtonTexts[0], ButtonTexts[1]);
                 LogQuirk("The left and right buttons are swapped.");
                 break;
             case 1:
                 LockText.text = Rnd.Range(20, 100).ToString();
-                flickerObjs.Add(LockText.gameObject);
+                AddFlicker(LockText);
                 LogQuirk("The number on the lock is greater than 19.");
                 break;
             case 2:
                 ResetText.text = "SUBMIT";
-                flickerObjs.Add(ResetText.gameObject);
+                AddFlicker(ResetText);
                 LogQuirk("The reset button says submit.");
                 break;
         }

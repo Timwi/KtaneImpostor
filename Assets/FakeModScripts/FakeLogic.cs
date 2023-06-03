@@ -43,19 +43,19 @@ public class FakeLogic : ImpostorMod
             case 0: //Remove parentheses
                 change = Rnd.Range(0, 2);
                 parentheses[change].gameObject.SetActive(false);
-                flickerObjs.Add(parentheses[change].gameObject);
+                AddFlicker(parentheses[change]);
                 LogQuirk("the {0} expression has no brackets", change == 0 ? "top" : "bottom");
                 break;
             case 1: //Inconsistent button color
                 change = Rnd.Range(0, 2);
                 buttonLabels[change].text = tfVals[change] ? "F" : "T";
-                flickerObjs.Add(buttonLabels[change].gameObject);
+                AddFlicker(buttonLabels[change]);
                 LogQuirk("the {0} button's label is {1} while it's color is {2}", change == 0 ? "top" : "bottom", buttonLabels[change].text, tfVals[change] ? "green" : "red");
                 break;
             case 2: //Fake operator
                 change = Rnd.Range(0, 4);
                 logicSymbols[change].text = alternateSymbols.PickRandom().ToString();
-                flickerObjs.Add(logicSymbols[change].gameObject);
+                AddFlicker(logicSymbols[change]);
                 LogQuirk("the {0} operator is a {1}", positions[change], logicSymbols[change].text);
                 break;
         }

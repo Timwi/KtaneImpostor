@@ -22,7 +22,7 @@ public class FakeEmojiMath : ImpostorMod
     {
         Case = Rnd.Range(0, 4);
 
-        flickerObjs.Add(Case == 3 ? minustext.gameObject : displaytext.gameObject);
+        AddFlicker(Case == 3 ? minustext : displaytext);
         switch (Case)
         {
             case 0:

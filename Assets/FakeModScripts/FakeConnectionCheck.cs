@@ -34,28 +34,27 @@ public class FakeConnectionCheck : ImpostorMod
 
         switch (Case) {
             case 0:
-                flickerObjs.Add(texts[changedPos].gameObject);
+                AddFlicker(texts[changedPos]);
                 int newVal = Ut.RandBool() ? 0 : 9;
                 texts[changedPos].text = newVal.ToString();
                 LogQuirk("there is a {0}", newVal);
             break;
             case 1:
-                flickerObjs.Add(texts[changedPos].gameObject);
                 int adjacentPos = changedPos % 2 == 0 ? changedPos + 1 : changedPos - 1;
                 texts[changedPos].text = texts[adjacentPos].text;
-                flickerObjs.Add(texts[adjacentPos].gameObject);
+                AddFlicker(texts[changedPos], texts[adjacentPos]);
                 LogQuirk("there are two numbers that are the same on the same pair");
             break;
             case 2: //added by Blan
                 changedPos = changedPos % 4;
-                flickerObjs.Add(ccwtf[changedPos].gameObject);
+                AddFlicker(ccwtf[changedPos]);
                 bool rng = Ut.RandBool();
                 redLeds[changedPos].GetComponent<MeshRenderer>().material = susmats[rng ? 0 : 1];
                 greenLeds[changedPos].GetComponent<MeshRenderer>().material = susmats[rng ? 0 : 1];
                 LogQuirk("there is a {0} LED", rng ? "yellow" : "blue");
             break;
             case 3:
-                flickerObjs.Add(texts[8].gameObject);
+                AddFlicker(texts[8]);
                 string word = fakeWords.PickRandom();
                 texts[8].text = word;
                 LogQuirk("the button says '{0}'", word);

@@ -37,18 +37,18 @@ public class FakeNeutralization : ImpostorMod
             case 0:
                 baseDisp.text = acids.PickRandom();
                 LogQuirk("the base display has an acid: " + baseDisp.text);
-                flickerObjs.Add(baseDisp.gameObject);
+                AddFlicker(baseDisp);
                 break;
             case 1:
                 chosenColor = 4 + Rnd.Range(0, 3);
                 LogQuirk("the acid color is " + colorNames[chosenColor].ToLower());
-                flickerObjs.Add(meter.gameObject);
+                AddFlicker(meter);
                 break;
             case 2:
                 int chosenScale = Rnd.Range(0, 5);
                 meterTF.localScale = new Vector3(22.2222f, 50, offScales[chosenScale]);
                 LogQuirk("the acid level is {0}mL", offScaleNames[chosenScale]);
-                flickerObjs.Add(meter.gameObject);
+                AddFlicker(meter);
                 break;
             case 3:
                 float[] xPositions = new float[4];
@@ -56,19 +56,19 @@ public class FakeNeutralization : ImpostorMod
                 {
                     xPositions[i] = tubeLabels[3 - i].transform.localPosition.x;
                     tubeLabels[i].text = (5 * (4 - i)).ToString();
-                    flickerObjs.Add(tubeLabels[i].gameObject);
                 }
                 for (int i = 0; i < 4; i++)
                 {
                     Vector3 orig = tubeLabels[i].transform.localPosition;
                     tubeLabels[i].transform.localPosition = new Vector3(xPositions[i], orig.y, orig.z);
                 }
+                AddFlicker(tubeLabels);
                 LogQuirk("the measurement labels are reversed");
                 break;
             case 4:
                 titrateDisp.text = "Castrate";
                 LogQuirk("the titrate button says castrate");
-                flickerObjs.Add(titrateDisp.gameObject);
+                AddFlicker(titrateDisp);
                 break;
 
         }

@@ -21,7 +21,7 @@ public class FakeGamepad : ImpostorMod
                 for (int i = 0; i < 4; i++)
                 {
                     arrowButtonTexts[i].text = arrowTexts[(i + 2) % 4];
-                    flickerObjs.Add(arrowButtonTexts[i].gameObject);
+                    AddFlicker(arrowButtonTexts[i]);
                 }
                 LogQuirk("the arrow buttons point in the opposite directions");
                 break;
@@ -38,14 +38,14 @@ public class FakeGamepad : ImpostorMod
                     for (int i = 0; i < 2; i++)
                         displayTexts[i].text = allowedLetters.PickRandom().ToString() + allowedLetters.PickRandom().ToString();
                 }
-                flickerObjs.AddRange(displayTexts.Select(x => x.gameObject));
+                AddFlicker(displayTexts);
                 LogQuirk("the display texts show letters");
                 break;
             case 2:
                 var AB = "AB";
                 var rndLet = Rnd.Range(0, 2);
                 letterButtonTexts[rndLet].text = AB[(rndLet + 1) % 2].ToString();
-                flickerObjs.Add(letterButtonTexts[rndLet].gameObject);
+                AddFlicker(letterButtonTexts[rndLet]);
                 LogQuirk("There are two buttons with {0} written on them", AB[rndLet]);
                 break;
         }

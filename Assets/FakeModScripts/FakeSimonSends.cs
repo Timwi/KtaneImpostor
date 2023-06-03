@@ -44,8 +44,8 @@ public class FakeSimonSends : ImpostorMod
                 SendsButtonTexts[nums[0]].text = SendsButtonTexts[nums[1]].text;
                 SendsButtonTexts[nums[0]].color = SendsButtonTexts[nums[1]].color;
                 LogQuirk("two of the buttons are {0}", "black,blue,green,cyan,red,magenta,yellow,white".Split(',')[nums[1]]);
-                flickerObjs.Add(SendsButtons[nums[0]].gameObject);
-                flickerObjs.Add(SendsButtons[nums[1]].gameObject);
+                AddFlicker(SendsButtons[nums[0]], SendsButtons[nums[1]]);
+
                 break;
 
             case 1: // one of the color channels is missing
@@ -55,7 +55,7 @@ public class FakeSimonSends : ImpostorMod
                     case 1: _morseG = null; LogQuirk("the green color channel is missing from the diode"); break;
                     case 2: _morseB = null; LogQuirk("the blue color channel is missing from the diode"); break;
                 }
-                flickerObjs.Add(Diode.gameObject);
+                AddFlicker(Diode);
                 break;
         }
 

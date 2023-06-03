@@ -28,7 +28,7 @@ public class FakeCryptography : ImpostorMod
                                                                 ).Join("").Trim().ToUpper());
         string[] formattedWords = pickedWords.Select(w => string.Format("<color=#{0}>{1}</color>", GetColor(w), w)).ToArray();
         formattedText = formattedWords.Join(" ").Trim();
-        flickerObjs.Add(display.gameObject);
+        AddFlicker(display);
         LogQuirk("the text is in Spanish");
 
         char[] availableAlphabet = pickedWords.SelectMany(x => x).Where(ch => char.IsLetter(ch)).Distinct().ToArray().Shuffle();

@@ -33,16 +33,16 @@ public class FakeMorsematics : ImpostorMod
                 int brokenLED = Rnd.Range(0, 3);
                 sequences[brokenLED] = " ";
                 LogQuirk("the {0} LED is completely off", Ut.Ordinal(3 - brokenLED));
-                flickerObjs.Add(lights.gameObject);
+                AddFlicker(lights);
                 break;
             case 1:
                 LogQuirk("the LEDs are flashing irregularly");
-                flickerObjs.Add(lights.gameObject);
+                AddFlicker(lights);
                 break;
             case 2:
                 LogQuirk("the submit button and display are flipped");
                 submissionArea.localScale = new Vector3(-1, +1, +1);
-                flickerObjs.Add(submissionArea.gameObject);
+                AddFlicker(submissionArea);
                 break;
         }
     }

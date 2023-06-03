@@ -27,26 +27,25 @@ public class FakeOrientationCube : ImpostorMod
                 buttonLabels[0].transform.localScale = buttonLabels[alteredPos].transform.localScale;
                 buttonLabels[alteredPos].transform.localScale = buttonLabels[0].transform.localScale;
 
-                flickerObjs.Add(buttonLabels[0].gameObject);
-                flickerObjs.Add(buttonLabels[alteredPos].gameObject);
+                AddFlicker(buttonLabels[0], buttonLabels[alteredPos]);
                 LogQuirk("the SET button is swapped with the {0} button", btnNames[alteredPos - 1]);
                 break;
             case 1:
                 observer.SetActive(false);
                 LogQuirk("there is no observer");
-                flickerObjs.Add(observer);
+                AddFlicker(observer);
                 break;
             case 2:
                 observerTF.localEulerAngles += 45 * Vector3.up;
                 LogQuirk("the observer is at a 45° angle");
-                flickerObjs.Add(observer);
+                AddFlicker(observer);
                 break;
             case 3:
                 int alteredFace = Rnd.Range(1, 5);
                 cubeFaceLabels[0].text = cubeFaceLabels[alteredFace].text;
                 cubeFaceLabels[0].transform.localScale = cubeFaceLabels[alteredFace].transform.localScale;
                 LogQuirk("the top face of the cube says {0}", cubeFaceLabels[0].text);
-                flickerObjs.Add(cubeFaceLabels[0].gameObject);
+                AddFlicker(cubeFaceLabels[0]);
                 break;
         }
     }

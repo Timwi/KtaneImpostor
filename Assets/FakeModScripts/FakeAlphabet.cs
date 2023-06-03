@@ -33,14 +33,14 @@ public class FakeAlphabet : ImpostorMod
         {
             texts[changed].text = decoyLetters.PickRandom().ToString();
             LogQuirk("the {0} key says {1}", positions[changed], texts[changed].text);
-            flickerObjs.Add(texts[changed].gameObject);
+            AddFlicker(texts[changed]);
         }
         else //Keypad symbol
         {
             texts[changed].gameObject.SetActive(false);
             spriteRenderers[changed].sprite = keypadSymbols.PickRandom();
             LogQuirk("the {0} key has a keypad symbol on it", positions[changed]);
-            flickerObjs.Add(spriteRenderers[changed].gameObject);
+            AddFlicker(spriteRenderers[changed]);
         }
     }
 }

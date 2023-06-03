@@ -57,7 +57,7 @@ public class FakeSeaShells : ImpostorMod
                 _dispText += "on ";
                 _dispText += _screenPhrases[2].PickRandom();
                 DisplayText.text = _dispText;
-                flickerObjs.Add(DisplayText.gameObject);
+                AddFlicker(DisplayText);
                 LogQuirk("the display reads {0}", _dispText.Replace("\n", ""));
                 break;
             case 1:
@@ -67,7 +67,7 @@ public class FakeSeaShells : ImpostorMod
                 _dispText += "on ";
                 _dispText += _fakeScreenPhrases[2].PickRandom();
                 DisplayText.text = _dispText;
-                flickerObjs.Add(DisplayText.gameObject);
+                AddFlicker(DisplayText);
                 LogQuirk("the display reads {0}", _dispText.Replace("\n", ""));
                 break;
             case 2:
@@ -77,13 +77,13 @@ public class FakeSeaShells : ImpostorMod
                 _dispText += "on ";
                 _dispText += _screenPhrases[2].PickRandom();
                 DisplayText.text = _dispText;
-                flickerObjs.Add(DisplayText.gameObject);
+                AddFlicker(DisplayText);
                 LogQuirk("the display reads {0}", _dispText.Replace("\n", ""));
                 break;
             case 3:
                 int rndBtn = Rnd.Range(0, 4);
                 BtnTexts[rndBtn].text = _fakeBtnTexts[chosenWordIx];
-                flickerObjs.Add(BtnTexts[rndBtn].gameObject);
+                AddFlicker(BtnTexts[rndBtn]);
                 LogQuirk("one of the buttons says {0}", _fakeBtnTexts[chosenWordIx].ToUpperInvariant());
                 break;
             case 4:
@@ -93,8 +93,7 @@ public class FakeSeaShells : ImpostorMod
                 while (rndBtn1 == rndBtn2);
 
                 BtnTexts[rndBtn1].text = BtnTexts[rndBtn2].text;
-                flickerObjs.Add(BtnTexts[rndBtn1].gameObject);
-                flickerObjs.Add(BtnTexts[rndBtn2].gameObject);
+                AddFlicker(BtnTexts[rndBtn1], BtnTexts[rndBtn2]);
                 LogQuirk("two buttons have the same text {0}", _fakeBtnTexts[chosenWordIx].ToUpperInvariant());
                 break;
         }

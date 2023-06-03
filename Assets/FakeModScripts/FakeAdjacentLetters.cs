@@ -21,7 +21,7 @@ public class FakeAdjacentLetters : ImpostorMod
         {
             int changedPos = Rnd.Range(0, 12);
             labels[changedPos].text = Rnd.Range(0, 9).ToString();
-            flickerObjs.Add(labels[changedPos].gameObject);
+            AddFlicker(labels[changedPos]);
             LogQuirk("the {0} button has a {1} on it", Ut.Ordinal(changedPos + 1), labels[changedPos].text);
         }
         else
@@ -30,7 +30,7 @@ public class FakeAdjacentLetters : ImpostorMod
             int[] positions = Enumerable.Range(0, 12).ToArray().Shuffle().Take(Rnd.Range(2, 5)).ToArray();
             foreach (int pos in positions)
             {
-                flickerObjs.Add(labels[pos].gameObject);
+                AddFlicker(labels[pos]);
                 labels[pos].text = dupeLetter;
             }
             LogQuirk("there are duplicates of the letter {0}", dupeLetter);

@@ -45,25 +45,25 @@ public class FakeNumberPad : ImpostorMod
             case 0:
                 for (int i = 1; i < NumButtonText.Length; i++)
                     NumButtonText[i].text = (10 - i).ToString();
-                flickerObjs.AddRange(NumButtonText.Select(i => i.gameObject));
+                AddFlicker(NumButtonText);
                 LogQuirk("the button labels are in reverse order", 2 + 2);
                 break;
             case 1:
                 SubTexts[0].text = "YES";
                 SubTexts[1].text = "NO";
-                flickerObjs.AddRange(SubTexts.Select(i => i.gameObject));
+                AddFlicker(SubTexts);
                 LogQuirk("the submit and clear buttons say YES and NO");
                 break;
             case 2:
                 var rndColor = Rnd.Range(0, FakeColors.Length);
                 NumButtonObjs[rndBtn].GetComponent<MeshRenderer>().material.color = FakeColors[rndColor];
-                flickerObjs.Add(NumButtonObjs[rndBtn]);
+                AddFlicker(NumButtonObjs[rndBtn]);
                 LogQuirk("button {0} is colored {1}", rndBtn, FakeColorNames[rndColor]);
                 break;
             case 3:
                 var rndLet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[Rnd.Range(0, 26)].ToString();
                 NumButtonText[rndBtn].text = rndLet;
-                flickerObjs.Add(NumButtonText[rndBtn].gameObject);
+                AddFlicker(NumButtonText[rndBtn]);
                 LogQuirk("button {0} is labelled {1}", rndBtn, rndLet);
                 break;
         }

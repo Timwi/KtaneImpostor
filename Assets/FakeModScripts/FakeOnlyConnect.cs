@@ -31,8 +31,7 @@ public class FakeOnlyConnect : ImpostorMod
                 } while (rnd1 == rnd2);
                 var shuff = Enumerable.Range(0, 6).ToArray().Shuffle();
                 shuff[rnd1] = shuff[rnd2];
-                flickerObjs.Add(buttonObjs[rnd1].gameObject);
-                flickerObjs.Add(buttonObjs[rnd2].gameObject);
+                AddFlicker(buttonObjs[rnd1], buttonObjs[rnd2]);
                 for (int i = 0; i < buttonObjs.Length; i++)
                     buttonObjs[i].material.mainTexture = hieroglyphTextures[shuff[i]];
                 Log("there are duplicate hieroglyphs");
@@ -40,7 +39,7 @@ public class FakeOnlyConnect : ImpostorMod
             case 1:
                 var sus = Rnd.Range(0, 6);
                 buttonObjs[sus].material.mainTexture = susTexture;
-                flickerObjs.Add(buttonObjs[sus].gameObject);
+                AddFlicker(buttonObjs[sus]);
                 Log("there is a unusually suspicious hieroglyph");
                 break;
         }

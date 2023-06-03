@@ -20,7 +20,7 @@ public class FakeLetterKeys : ImpostorMod
 		if (Ut.RandBool())
         {
 			changedKey = Rnd.Range(0, 4);
-			flickerObjs.Add(texts[changedKey].gameObject);
+			AddFlicker(texts[changedKey]);
 			switch (Rnd.Range(0, 3))
 			{
 				case 0:
@@ -39,7 +39,7 @@ public class FakeLetterKeys : ImpostorMod
         }
         else
         {
-			flickerObjs.Add(number.gameObject);
+			AddFlicker(number);
 			num = Rnd.Range(0, 9).ToString() + letters.PickRandom();
 			if (Ut.RandBool())
 				num = num.Reverse().Join("");

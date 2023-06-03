@@ -19,7 +19,7 @@ public abstract class ImpostorMod : MonoBehaviour
     ///A list of GameObjects which will flicker when the module strikes.
     ///</summary>
     [HideInInspector]
-    protected readonly List<GameObject> flickerObjs = new List<GameObject>();
+    private readonly List<GameObject> _flickerObjs = new List<GameObject>();
     [HideInInspector]
     public bool cb;
 
@@ -120,13 +120,25 @@ public abstract class ImpostorMod : MonoBehaviour
         willSolve = true;
         for (int i = 0; i < 6; i++)
         {
-            foreach (GameObject obj in flickerObjs)
+            foreach (GameObject obj in _flickerObjs)
                 obj.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.25f);
-            foreach (GameObject obj in flickerObjs)
+            foreach (GameObject obj in _flickerObjs)
                 obj.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.25f);
         }
         solve.Invoke();
     }
+
+    protected void AddFlicker(params GameObject[] objs)
+    {
+        foreach (GameObject obj in objs)
+            _flickerObjs.Add(obj);
+    }
+    protected void AddFlicker(params Component[] comps)
+    {
+        foreach (Component comp in comps)
+            _flickerObjs.Add(comp.gameObject);
+    }
+
 }

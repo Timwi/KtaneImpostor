@@ -41,12 +41,12 @@ public class FakeChordQualities : ImpostorMod
             case 0: // 3 notes
                 int missing = Rnd.Range(0, offsets.Length);
                 _textMeshes[offsets[missing]].text = string.Empty;
-                flickerObjs.AddRange(_textMeshes.Select(m => m.gameObject));
+                AddFlicker(_textMeshes);
                 LogQuirk("there are only three notes");
                 break;
             case 1: // 5 notes
                 _textMeshes.PickRandom(t => t.text == string.Empty).text = "▲";
-                flickerObjs.AddRange(_textMeshes.Select(m => m.gameObject));
+                AddFlicker(_textMeshes);
                 LogQuirk("there are five notes");
                 break;
             case 2: // Input/output swapped
@@ -56,7 +56,7 @@ public class FakeChordQualities : ImpostorMod
                     Transform parent = t.transform.parent.parent.GetChild(2).GetChild(0);
                     parent.GetChild(0).GetComponent<Renderer>().material = _lightMat;
                     parent.GetChild(1).GetComponent<Renderer>().enabled = true;
-                    flickerObjs.Add(parent.gameObject);
+                    AddFlicker(parent);
                 }
                 LogQuirk("the lights are on instead of there being arrows");
                 break;
@@ -65,13 +65,13 @@ public class FakeChordQualities : ImpostorMod
                 {
                     _buttonRenderers[0].enabled = false;
                     _buttonRenderers[1].enabled = true;
-                    flickerObjs.Add(_buttonRenderers[1].gameObject);
+                    AddFlicker(_buttonRenderers[1]);
                 }
                 else
                 {
                     _buttonRenderers[2].enabled = false;
                     _buttonRenderers[3].enabled = true;
-                    flickerObjs.Add(_buttonRenderers[3].gameObject);
+                    AddFlicker(_buttonRenderers[3]);
                 }
                 LogQuirk("the buttons are the same");
                 break;
@@ -81,7 +81,7 @@ public class FakeChordQualities : ImpostorMod
                 {
                     texts[i].text = (i + 1).ToString();
                 }
-                flickerObjs.AddRange(texts.Select(t => t.gameObject));
+                AddFlicker(texts);
                 LogQuirk("the note labels are numbers");
                 break;
             case 5: // Sussy accidentals
@@ -90,21 +90,21 @@ public class FakeChordQualities : ImpostorMod
                 {
                     texts2[i].text = "ඞ";
                 }
-                flickerObjs.AddRange(texts2.Select(t => t.gameObject));
+                AddFlicker(texts2);
                 LogQuirk("the sharp/flat note labels are suspicious");
                 break;
             case 6: // Inverted arrows
                 foreach(TextMesh t in _textMeshes.Where(t => t.text != string.Empty))
                     t.text = "▼";
-                flickerObjs.AddRange(_textMeshes.Select(m => m.gameObject));
+                AddFlicker(_textMeshes);
                 LogQuirk("the arrows are upside-down");
                 break;
             case 7: // Wrong highlighted note
                 int other = (position + Rnd.Range(1, 11)) % 12;
                 _noteTextMeshes[position].GetComponentInParent<SpriteRenderer>().color = Color.white;
                 _noteTextMeshes[other].GetComponentInParent<SpriteRenderer>().color = new Color(0.99371195f, 1f, 0.5441177f);
-                flickerObjs.Add(_noteTextMeshes[position].GetComponentInParent<SpriteRenderer>().gameObject);
-                flickerObjs.Add(_noteTextMeshes[other].GetComponentInParent<SpriteRenderer>().gameObject);
+                AddFlicker(_noteTextMeshes[position].GetComponentInParent<SpriteRenderer>());
+                AddFlicker(_noteTextMeshes[other].GetComponentInParent<SpriteRenderer>());
                 LogQuirk("the wrong position is highlighted");
                 break;
         }

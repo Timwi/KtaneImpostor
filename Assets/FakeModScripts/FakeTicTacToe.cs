@@ -34,7 +34,7 @@ public class FakeTicTacToe : ImpostorMod
             foreach (int ix in line)
             {
                 grid[ix] = chosenWinner;
-                flickerObjs.Add(displays[ix].gameObject);
+                AddFlicker(displays[ix]);
             }
             for (int i = 0; i < 9; i++)
                 if (grid[i] == null)
@@ -44,7 +44,7 @@ public class FakeTicTacToe : ImpostorMod
         {
             upNext.gameObject.SetActive(false);
             LogQuirk("nothing is on the up-next display");
-            flickerObjs.Add(upNext.gameObject);
+            AddFlicker(upNext);
             do
             {
                 preorder = Enumerable.Range('1', 9).ToArray().Shuffle().Take(4).Select(x => (char)x).ToList();

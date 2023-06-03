@@ -30,17 +30,17 @@ public class FakeAdventureGame : ImpostorMod
             case 0:
                 enemy.text = funnyEnemies.PickRandom();
                 LogQuirk("the enemy is {0}", enemy.text);
-                flickerObjs.Add(enemy.gameObject);
+                AddFlicker(enemy);
                 break;
             case 1:
                 stat.text = string.Format(funnyStats.PickRandom(), Rnd.Range(1, 10), Rnd.Range(0, 10), Rnd.Range(0, 10));
                 LogQuirk("the displayed statistic is {0}", stat.text);
-                flickerObjs.Add(stat.gameObject);
+                AddFlicker(stat);
                 break;
             case 2:
                 item.text = funnyItems.PickRandom();
                 LogQuirk("the displayed item is {0}", item.text);
-                flickerObjs.Add(item.gameObject);
+                AddFlicker(item);
                 break;
         }
     }
