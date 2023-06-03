@@ -8,6 +8,7 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - **Quinn Wuest**: Combination Lock, The Gamepad, Number Pad, Only Connect, The Screw, Sea Shells
 - **Timwi**: Simon Sends
 - **Blananas2**: Connection Check, Emoji Math, Piano Keys (standard, Cruel & Festive), Round Keypad, Semaphore
+- **GoodHood**: Complicated Buttons
 - All other behaviors written by tandyCake
 ---
 # List of Quirks
@@ -23,7 +24,7 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - A keypad symbol is displayed on one of the keys.
 ### Anagrams & Word Scramble
 - The displayed word appears on the bottom screen instead of the top.
-- The DEL and OK buttons are on the left of the module instead of the right.
+- The displayed word consists only of consonants.
 ### Astrology
 - There are two elements, two planets, or two zodiac symbols, instead of displaying one of each.
 - The poor and good omen buttons have the same label.
@@ -54,6 +55,10 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - The left and right arrows are swapped.
 - The number on the lock is outside the range 0-19.
 - The reset button is labeled "submit".
+### Complicated Buttons
+- One of the button labels is a strange word.
+- One of the buttons is purple.
+- The middle or lower button is shorter than it should be.
 ### Connection Check
 - There is a 0 or a 9 on the module.
 - There is a pair with two of the same number on it.
