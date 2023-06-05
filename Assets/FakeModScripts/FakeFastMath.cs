@@ -6,6 +6,8 @@ using UnityEngine;
 using KModkit;
 using Rnd = UnityEngine.Random;
 
+// Made by Kilo Bites
+
 public class FakeFastMath : ImpostorMod 
 {
     public override string ModAbbreviation { get { return "Fast Math"; } }
