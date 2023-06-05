@@ -9,6 +9,7 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - **Timwi**: Simon Sends
 - **Blananas2**: Connection Check, Emoji Math, Piano Keys (standard, Cruel & Festive), Round Keypad, Semaphore
 - **GoodHood**: Complicated Buttons
+- **Kilo Bites**: Fast Math, Perspective Pegs, Skewed Slots
 - All other behaviors written by tandyCake
 ---
 # List of Quirks
@@ -74,6 +75,9 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - The text is not red.
 - There are no symbols before the operator.
 - The '-' button is a '+' instead.
+### Fast Math
+- The GO! button says "STOP!".
+- The display shows numbers.
 ### The Gamepad
 - The arrows buttons point in the opposite directions.
 - The display shows letters instead of numbers.
@@ -132,6 +136,9 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - The observer is missing.
 - The observer is at a 45° angle.
 - The top face of the cube is labeled with a different side.
+### Perspective Pegs
+- All pegs show the same color.
+- Some of the pegs are pushed down.
 ### Piano Keys: standard, Cruel & Festive
 - The display has duplicate symbols on it.
 - The key colors are inverted.
@@ -159,6 +166,11 @@ The Impostor mimics the appearance of another modded module, but with a small di
 ### Simon Sends
 - Two of the buttons are the same color.
 - One of the color channels is missing from the diode.
+### Skewed Slots
+- The submit button says the name of any person involved in the Scuffed Slots incident.
+- Up and down arrows are swapped.
+- The slots don't become digits (stuck in a constantly "scrolling" state).
+- A slot is ! already.
 ### Switches
 - The switches start in the correct positions.
 - The switches all start in the middle position.
