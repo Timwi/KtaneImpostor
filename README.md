@@ -9,7 +9,7 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - **Timwi**: Simon Sends
 - **Blananas2**: Connection Check, Emoji Math, Piano Keys (standard, Cruel & Festive), Round Keypad, Semaphore
 - **GoodHood**: Complicated Buttons
-- **Kilo Bites**: Fast Math, Perspective Pegs, Skewed Slots
+- **Kilo Bites**: Fast Math, Monsplode, Fight!, Perspective Pegs, Skewed Slots
 - All other behaviors written by tandyCake
 ---
 # List of Quirks
