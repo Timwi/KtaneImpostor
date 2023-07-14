@@ -35,7 +35,7 @@ public class FakeSkewedSlots : ImpostorMod
         switch (Case)
         {
             case 0:
-                submitText.text = scuffedSlotsNames.PickRandom();
+                submitText.text = Rnd.Range(0,2) == 0 ? "Bugged" : scuffedSlotsNames.PickRandom();
                 submitText.fontSize = submitText.text.Length > 6 ? 50 : 90;
                 AddFlicker(buttons[0].gameObject);
                 LogQuirk("the submit button says {0}", submitText.text.ToUpperInvariant());

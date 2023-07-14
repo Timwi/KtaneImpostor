@@ -105,6 +105,10 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - The dot which marks LED #1 is missing.
 - There are two LEDs initialy lit.
 - The chip type is one which is not in the original module.
+### Monsplode, Fight!
+- The opponent isn't a Monsplode.
+- All the buttons say BOOM.
+- The module is more glitchier than its unicorn state.
 ### Morsematics
 - One of the LEDs is permanently off.
 - The LEDs flash irregularly.

@@ -269,7 +269,7 @@ Prefab:
     - target: {fileID: 114094268724210168, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15,
         type: 2}
       propertyPath: Prefabs.Array.size
-      value: 46
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 4257340207950476, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15, type: 2}
       propertyPath: m_LocalPosition.x
@@ -316,7 +316,7 @@ Prefab:
     - target: {fileID: 114094268724210168, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15,
         type: 2}
       propertyPath: TestMod
-      value: Skewed Slots
+      value: Perspective Pegs
       objectReference: {fileID: 0}
     - target: {fileID: 1676409040304040, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15, type: 2}
       propertyPath: m_IsActive
@@ -344,6 +344,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1000010517484758, guid: e9ce6847b6eda984586046e28bc9b986,
         type: 2}
+    - target: {fileID: 114094268724210168, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15,
+        type: 2}
+      propertyPath: Prefabs.Array.data[46]
+      value: 
+      objectReference: {fileID: 181284, guid: 1cfc56a3a418d1045bdcb5a2b3e0ec73, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85a2c623b85c45f4fbcbd5bedc7a4b15, type: 2}
   m_IsPrefabParent: 0

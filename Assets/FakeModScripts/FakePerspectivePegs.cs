@@ -62,9 +62,13 @@ public class FakePerspectivePegs : ImpostorMod
                     {
                         colorIx[i][j] = Rnd.Range(0, 5);
                     }
+
+                    if (!peg[i])
+                    {
+                        AddFlicker(bases[i]);
+                    }
+
                 }
-                var randomIx = Enumerable.Range(0, 5).Where(x => !peg[x]).PickRandom();
-                AddFlicker(bases[randomIx]);
                 LogQuirk("some of the pegs are pushed in");
                 break;
         }
