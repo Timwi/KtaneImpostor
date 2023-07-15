@@ -28,7 +28,7 @@ public class FakeMonsplodeFight : ImpostorMod
         "Spectre", "Splash", "Tac", "Tangle", "Tic", "Toe", "Torchlight", "Toxic Waste", "Venom Fang", "Zap"
     };
 
-    private readonly string[] sussyNames = { "Amogus", "Big Smoke", "ENA", "Espik", "Fat Pikachu", "Jerma", "Rosie Pepsi", "Shadow Wizard Money Gang" };
+    private readonly string[] sussyNames = { "Annoying Dog", "Big Smoke", "Blan", "ENA", "Espik", "Pikachu", "Impostor", "MissingNo.", "Obama", "Rosie", "Shadow Wizard Money Gang", "Sprout Mole" };
 
     private readonly Coroutine[] flickerCoroutines = new Coroutine[6];
 
@@ -45,7 +45,7 @@ public class FakeMonsplodeFight : ImpostorMod
                     moveIx[i] = Enumerable.Range(0, moveNames.Length).Where(x => x != 19).PickRandom();
                     buttonTexts[i].text = moveNames[moveIx[i]].Replace(" ", "\n");
                 }
-                LogQuirk("your opponent is {0}", sussyNames[rndSussy]);
+                LogQuirk("a wild {0} appeared", sussyNames[rndSussy]);
                 AddFlicker(screen);
                 break;
             case 1:

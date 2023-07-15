@@ -1596,7 +1596,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178932}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1624,12 +1624,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: 57f2f085d85034946a6b7145b6c7bab6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94baa1f0486c89b44877d1da122c6a6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 11.5, y: 9.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1850,14 +1850,18 @@ MonoBehaviour:
   - {fileID: 11483976}
   screen: {fileID: 21215082}
   sussySprites:
-  - {fileID: 21300000, guid: b23d6ed1c06ca77488b34a18b7694860, type: 3}
+  - {fileID: 21300000, guid: 123305b7780d8994bb6564cdbf7447e3, type: 3}
   - {fileID: 21300000, guid: 57f2f085d85034946a6b7145b6c7bab6, type: 3}
+  - {fileID: 21300000, guid: 7b78742aa240c39458aa4e84a9767ed2, type: 3}
   - {fileID: 21300000, guid: f5c204223418a2e43bc50c5e3ca75286, type: 3}
   - {fileID: 21300000, guid: 94baa1f0486c89b44877d1da122c6a6b, type: 3}
   - {fileID: 21300000, guid: 47836e3d4c1639245af1a19ec2d65912, type: 3}
-  - {fileID: 21300000, guid: f2096ecab7eaecb44b1d95860f400925, type: 3}
+  - {fileID: 21300000, guid: b23d6ed1c06ca77488b34a18b7694860, type: 3}
+  - {fileID: 21300000, guid: 8d520e33f25e1504bbfd89df4f08fec0, type: 3}
+  - {fileID: 21300000, guid: db2bd45bbe7302e4db529be7b10518ab, type: 3}
   - {fileID: 21300000, guid: e5b8b9e22babce749899510e6d02aefe, type: 3}
   - {fileID: 21300000, guid: 29678cad10facd3489bb8a5e3d95f7d2, type: 3}
+  - {fileID: 21300000, guid: b4b4c0d7c49643a42a71c28473f120ec, type: 3}
   regularSprites:
   - {fileID: 21300000, guid: 5deb605a21a649444aa85668b85768a2, type: 3}
   - {fileID: 21300000, guid: 5fd21dad1d374554f949a3c842d54ec6, type: 3}
