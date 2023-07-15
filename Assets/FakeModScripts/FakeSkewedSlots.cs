@@ -10,9 +10,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeSkewedSlots : ImpostorMod 
 {
-    public override string ModAbbreviation { get { return "Skewed Slots"; } }
-    public override SLPositions SLPos
-    { get { return SLPositions.TR; } }
+    public override string ModAbbreviation { get { return "Sks"; } }
     public TextMesh[] numDisplays;
     public TextMesh submitText;
     public GameObject[] buttonObj;
@@ -28,9 +26,7 @@ public class FakeSkewedSlots : ImpostorMod
         Case = Rnd.Range(0, 4);
 
         for (int i = 0; i < 3; i++)
-        {
             numbers[i] = Rnd.Range(0, 10);
-        }
 
         switch (Case)
         {
@@ -63,10 +59,10 @@ public class FakeSkewedSlots : ImpostorMod
     }
     public override void OnActivate()
     {
-        StartCoroutine(spinningText());
+        StartCoroutine(SpinningText());
     }
 
-    IEnumerator spinningText()
+    IEnumerator SpinningText()
     {
         yield return null;
 
@@ -92,7 +88,7 @@ public class FakeSkewedSlots : ImpostorMod
             }
 
 
-            updateText();
+            UpdateText();
             yield return new WaitForSeconds(0.03f);
             if (inf)
                 goto loop;
@@ -100,11 +96,9 @@ public class FakeSkewedSlots : ImpostorMod
         }
     }
 
-    void updateText()
+    void UpdateText()
     {
         for (int i = 0; i < 3; i++)
-        {
             numDisplays[i].text = numbers[i] < 10 ? numbers[i].ToString() : "!";
-        }
     }
 }

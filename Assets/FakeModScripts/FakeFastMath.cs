@@ -10,15 +10,12 @@ using Rnd = UnityEngine.Random;
 
 public class FakeFastMath : ImpostorMod 
 {
-    public override string ModAbbreviation { get { return "Fast Math"; } }
-    public override SLPositions SLPos  //Can be ignored if SL Position is TR
-    { get { return SLPositions.TR; } }
+    public override string ModAbbreviation { get { return "Fm"; } }
     public TextMesh display, goText;
     private int Case;
 
     private const string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private int[] blan = new int[2];
-    private string blan2;
+    private string displayedText;
 
     void Start()
     {
@@ -27,16 +24,15 @@ public class FakeFastMath : ImpostorMod
         {
             case 0:
                 goText.text = "STOP!";
-                blan2 = string.Format("{0} {1}", alphabet.PickRandom(), alphabet.PickRandom());
+                displayedText = string.Format("{0} {1}", alphabet.PickRandom(), alphabet.PickRandom());
                 AddFlicker(buttons[11].gameObject);
                 LogQuirk("the red button says STOP! ");
                 break;
             case 1:
+                int[] dispNums = new int[2]; 
                 for (int i = 0; i < 2; i++)
-                {
-                    blan[i] = Rnd.Range(0, 10);
-                }
-                blan2 = string.Format("{0} {1}", blan[0], blan[1]);
+                    dispNums[i] = Rnd.Range(0, 10);
+                displayedText = dispNums.Join();
                 LogQuirk("the screen displays numbers");
                 AddFlicker(display.gameObject);
                 break;
@@ -44,6 +40,6 @@ public class FakeFastMath : ImpostorMod
     }
     public override void OnActivate()
     {
-        display.text = blan2;
+        display.text = displayedText;
     }
 }

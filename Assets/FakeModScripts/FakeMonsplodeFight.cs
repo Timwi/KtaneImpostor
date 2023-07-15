@@ -8,7 +8,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakeMonsplodeFight : ImpostorMod
 {
-    public override string ModAbbreviation { get { return "Monsplode, Fight!"; } }
+    public override string ModAbbreviation { get { return "Mf"; } }
 
     public SpriteRenderer screen;
     public Sprite[] sussySprites, regularSprites;
@@ -30,25 +30,22 @@ public class FakeMonsplodeFight : ImpostorMod
 
     private readonly string[] sussyNames = { "Amogus", "Big Smoke", "ENA", "Espik", "Fat Pikachu", "Jerma", "Rosie Pepsi", "Shadow Wizard Money Gang" };
 
-    private readonly Coroutine[] trippy = new Coroutine[6];
+    private readonly Coroutine[] flickerCoroutines = new Coroutine[6];
 
     void Start()
     {
-        Case = Rnd.Range(0, 3); 
+        Case = Rnd.Range(0, 2);
         switch (Case)
         {
             case 0:
                 var rndSussy = Rnd.Range(0, sussySprites.Length);
                 screen.sprite = sussySprites[rndSussy];
-
                 for (int i = 0; i < 4; i++)
                 {
                     moveIx[i] = Enumerable.Range(0, moveNames.Length).Where(x => x != 19).PickRandom();
                     buttonTexts[i].text = moveNames[moveIx[i]].Replace(" ", "\n");
                 }
-
-
-                LogQuirk("Your opponent is {0}", sussyNames[rndSussy]);
+                LogQuirk("your opponent is {0}", sussyNames[rndSussy]);
                 AddFlicker(screen);
                 break;
             case 1:
@@ -57,41 +54,9 @@ public class FakeMonsplodeFight : ImpostorMod
                 {
                     text.text = "Boom";
                 }
-                LogQuirk("All of the buttons say \"Boom\"");
+                LogQuirk("all of the buttons say \"Boom\"");
                 AddFlicker(buttonTexts);
                 break;
-            case 2:
-                screen.sprite = missingNo;
-                foreach (var text in buttonTexts)
-                {
-                    text.text = "Defuse";
-                }
-                LogQuirk("The module is glitchier than usual");
-                AddFlicker(backgrounds);
-                AddFlicker(buttonTexts);
-                break;
-        }
-    }
-
-
-    public override void OnActivate()
-    {
-        screen.enabled = true;
-        if (Case == 2)
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                trippy[i] = StartCoroutine(goFuckingTrippyBitches(i));
-            }
-        }
-    }
-
-    IEnumerator goFuckingTrippyBitches(int pos)
-    {
-        while (true)
-        {
-            backgrounds[pos].material.color = new Color(Rnd.Range(0f, 1f), Rnd.Range(0f, 1f), Rnd.Range(0f, 1f), 1);
-            yield return new WaitForSeconds(Rnd.Range(0.1f, 0.4f));
         }
     }
 }

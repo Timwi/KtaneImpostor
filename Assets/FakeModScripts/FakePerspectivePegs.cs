@@ -10,9 +10,7 @@ using Rnd = UnityEngine.Random;
 
 public class FakePerspectivePegs : ImpostorMod 
 {
-    public override string ModAbbreviation { get { return "Perspective Pegs"; } }
-    public override SLPositions SLPos  //Can be ignored if SL Position is TR
-    { get { return SLPositions.TR; } }
+    public override string ModAbbreviation { get { return "Pp"; } }
     public TextMesh[] peg0CB, peg1CB, peg2CB, peg3CB, peg4CB;
     public MeshRenderer[] peg0Mat, peg1Mat, peg2Mat, peg3Mat, peg4Mat;
     public Material[] colors;
@@ -36,9 +34,7 @@ public class FakePerspectivePegs : ImpostorMod
                     peg[i] = true;
                     colorIx[i] = new int[5];
                     for (int j = 0; j < 5; j++)
-                    {
                         colorIx[i][j] = ix;
-                    }
                 }
                 AddFlicker(bases);
                 LogQuirk("all of the pegs share the same color");
@@ -59,14 +55,10 @@ public class FakePerspectivePegs : ImpostorMod
                     peg[i] = pegsToRaise.Contains(i);
                     colorIx[i] = new int[5];
                     for (int j = 0; j < 5; j++)
-                    {
                         colorIx[i][j] = Rnd.Range(0, 5);
-                    }
 
                     if (!peg[i])
-                    {
                         AddFlicker(bases[i]);
-                    }
 
                 }
                 LogQuirk("some of the pegs are pushed in");
@@ -74,7 +66,7 @@ public class FakePerspectivePegs : ImpostorMod
         }
     }
 
-    void applyPegs()
+    void ApplyPegs()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -108,18 +100,14 @@ public class FakePerspectivePegs : ImpostorMod
     }
     public override void OnActivate()
     {
-        applyPegs();
+        ApplyPegs();
 
         for (int i = 0; i < 5; i++)
-        {
             if (peg[i])
-            {
-                raisingPegs[i] = StartCoroutine(movePegs(i));
-            }
-        }
+                raisingPegs[i] = StartCoroutine(MovePegs(i));
     }
 
-    IEnumerator movePegs(int pos)
+    IEnumerator MovePegs(int pos)
     {
         var duration = 0.75f;
         var elapsed = 0f;
