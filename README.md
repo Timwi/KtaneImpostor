@@ -108,7 +108,6 @@ The Impostor mimics the appearance of another modded module, but with a small di
 ### Monsplode, Fight!
 - The opponent isn't a Monsplode.
 - All the buttons say BOOM.
-- The module is more glitchier than its unicorn state.
 ### Morsematics
 - One of the LEDs is permanently off.
 - The LEDs flash irregularly.
@@ -171,10 +170,10 @@ The Impostor mimics the appearance of another modded module, but with a small di
 - Two of the buttons are the same color.
 - One of the color channels is missing from the diode.
 ### Skewed Slots
-- The submit button says the name of any person involved in the Scuffed Slots incident.
+- The submit button says the name of any person involved in the Scuffed Slots incident or "bugged".
 - Up and down arrows are swapped.
-- The slots don't become digits (stuck in a constantly "scrolling" state).
-- A slot is ! already.
+- The slots don't become digits (stuck in a constantly scrolling state).
+- A slot displays a "!".
 ### Switches
 - The switches start in the correct positions.
 - The switches all start in the middle position.
