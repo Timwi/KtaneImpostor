@@ -27,36 +27,26 @@ public class FakeColourFlash : ImpostorMod
         colorSequence[0] = colors.PickRandom();
         for (int i = 1; i < 8; i++)
         {
-            wordSequence[i] = colorNames.Where(x => x != wordSequence[i - 1]).PickRandom();
-            colorSequence[i] = colors.Where(x => x != colorSequence[i - 1]).PickRandom();
+            wordSequence[i] = colorNames.PickRandom(x => x != wordSequence[i - 1]);
+            colorSequence[i] = colors.PickRandom(x => x != colorSequence[i - 1]);
         }
-        switch (Case)
-        {
-            case 0:
-                if (Ut.RandBool())
-                {
+        if (Ut.RandBool()) { // change text on either button
+                if (Ut.RandBool()) { // change text on left (yes) button
                     AddFlicker(yes);
                     yes.text = fakeYes.PickRandom();
                     LogQuirk("the left button says {0}", yes.text);
-                    break;
                 }
-                else
-                {
+                else { // change text on right (no) button
                     AddFlicker(no);
                     no.text = fakeNo.PickRandom();
                     LogQuirk("the right button says {0}", no.text);
-                    break;
                 }
-            case 1:
-                AddFlicker(display);
-                wordSequence[7] = weirdColors.PickRandom();
-                LogQuirk("the last word is {0}", wordSequence[7]);
-                break;
-            case 2:
-                AddFlicker(display);
-                LogQuirk("the sequence never ends");
-                break;
+        } else { // make last word silly
+            AddFlicker(display);
+            wordSequence[7] = weirdColors.PickRandom();
+            LogQuirk("the last word is {0}", wordSequence[7]);
         }
+        
     }
     public override void OnActivate()
     {
@@ -64,27 +54,16 @@ public class FakeColourFlash : ImpostorMod
     }
     private IEnumerator Flash()
     {
-        if (Case != 2)
-            while (true)
+        while (true)
+        {
+            for (int i = 0; i < 8; i++)
             {
-                for (int i = 0; i < 8; i++)
-                {
-                    display.text = wordSequence[i];
-                    display.color = colorSequence[i];
-                    yield return new WaitForSeconds(0.75f);
-                }
-                display.text = "";
-                yield return new WaitForSeconds(2);
+                display.text = wordSequence[i];
+                display.color = colorSequence[i];
+                yield return new WaitForSeconds(0.75f);
             }
-        else 
-            while (true)
-            {
-                for (int i = 0; i < 8; i++)
-                {
-                    display.text = colorNames.PickRandom();
-                    display.color = colors.PickRandom();
-                    yield return new WaitForSeconds(0.75f);
-                }
-            }
+            display.text = "";
+            yield return new WaitForSeconds(2);
+        }
     }
 }
